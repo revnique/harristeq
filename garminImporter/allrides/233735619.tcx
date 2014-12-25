@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+  xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd"
+  xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+  xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+  xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1">
+  <Activities>
+    <Activity Sport="Biking">
+      <Id>2012-09-26T11:25:37.000Z</Id>
+      <Lap StartTime="2012-09-26T11:25:37.000Z">
+        <TotalTimeSeconds>2763.0</TotalTimeSeconds>
+        <DistanceMeters>14484.1</DistanceMeters>
+        <MaximumSpeed>6.973824</MaximumSpeed>
+        <Calories>645</Calories>
+        <AverageHeartRateBpm>
+          <Value>145</Value>
+        </AverageHeartRateBpm>
+        <MaximumHeartRateBpm>
+          <Value>161</Value>
+        </MaximumHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <Cadence>64</Cadence>
+        <TriggerMethod>Manual</TriggerMethod>
+        <Extensions>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <MaxBikeCadence>76</MaxBikeCadence>
+          </LX>
+          <LX xmlns="http://www.garmin.com/xmlschemas/ActivityExtension/v2">
+            <AvgSpeed>5.2303679999999995</AvgSpeed>
+          </LX>
+        </Extensions>
+      </Lap>
+      <Creator xsi:type="Device_t">
+        <Name>Garmin Connect</Name>
+        <UnitId>0</UnitId>
+        <ProductID>1</ProductID>
+        <Version>
+          <VersionMajor>12</VersionMajor>
+          <VersionMinor>5</VersionMinor>
+          <BuildMajor>15</BuildMajor>
+          <BuildMinor>0</BuildMinor>
+        </Version>
+      </Creator>
+    </Activity>
+  </Activities>
+  <Author xsi:type="Application_t">
+    <Name>Garmin Connect API</Name>
+    <Build>
+      <Version>
+        <VersionMajor>14</VersionMajor>
+        <VersionMinor>11</VersionMinor>
+        <BuildMajor>0</BuildMajor>
+        <BuildMinor>0</BuildMinor>
+      </Version>
+    </Build>
+    <LangID>en</LangID>
+    <PartNumber>006-D2449-00</PartNumber>
+  </Author>
+</TrainingCenterDatabase>
+
