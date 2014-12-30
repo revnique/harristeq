@@ -25,13 +25,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/25/2014 07:23:46</publishTime>
     </File>
     <File Include="bin/harristeq.dll">
-      <publishTime>12/30/2014 06:17:11</publishTime>
+      <publishTime>12/30/2014 06:34:18</publishTime>
     </File>
     <File Include="bin/harristeq.dll.config">
-      <publishTime>12/30/2014 06:14:51</publishTime>
+      <publishTime>12/30/2014 06:36:04</publishTime>
     </File>
     <File Include="bin/harristeq.pdb">
-      <publishTime>12/30/2014 06:17:11</publishTime>
+      <publishTime>12/30/2014 06:34:18</publishTime>
     </File>
     <File Include="bin/Microsoft.CSharp.dll">
       <publishTime>09/26/2012 03:16:08</publishTime>
@@ -286,13 +286,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/28/2005 17:16:12</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>12/30/2014 06:14:50</publishTime>
+      <publishTime>12/30/2014 06:30:41</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
       <publishTime>12/30/2014 01:19:40</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/harristeq.com.pubxml.user">
-      <publishTime>12/30/2014 06:15:39</publishTime>
+      <publishTime>12/30/2014 06:35:05</publishTime>
     </File>
     <File Include="Scripts/angular-mocks.js">
       <publishTime>12/29/2014 17:38:46</publishTime>
@@ -409,7 +409,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/24/2014 12:38:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/30/2014 06:15:39</publishTime>
+      <publishTime>12/30/2014 06:35:04</publishTime>
     </File>
   </ItemGroup>
 </Project>
