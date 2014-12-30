@@ -106,6 +106,7 @@
       <LastGenOutput>harristeq.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Scripts\jquery-2.1.1.min.map" />
     <None Include="TrainingCenterDatabasev2.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -116,6 +117,9 @@
   <ItemGroup>
     <Content Include="allrides\New Text Document.txt" />
     <Content Include="allrides\test.js" />
+    <Content Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
