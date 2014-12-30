@@ -21,14 +21,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/EntityFramework.dll">
       <publishTime>12/24/2014 12:38:32</publishTime>
     </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>12/25/2014 07:23:46</publishTime>
+    </File>
     <File Include="bin/harristeq.dll">
-      <publishTime>12/30/2014 01:09:00</publishTime>
+      <publishTime>12/30/2014 01:52:16</publishTime>
     </File>
     <File Include="bin/harristeq.dll.config">
-      <publishTime>12/29/2014 23:28:00</publishTime>
+      <publishTime>12/30/2014 01:47:26</publishTime>
     </File>
     <File Include="bin/harristeq.pdb">
-      <publishTime>12/30/2014 01:09:00</publishTime>
+      <publishTime>12/30/2014 01:52:16</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>12/24/2014 12:38:40</publishTime>
@@ -39,8 +42,23 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>12/24/2014 12:38:40</publishTime>
     </File>
+    <File Include="bin/System.Net.Http.Extensions.dll">
+      <publishTime>12/30/2014 01:46:42</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>12/30/2014 01:46:40</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Primitives.dll">
+      <publishTime>12/30/2014 01:46:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>12/30/2014 01:46:39</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>12/30/2014 01:46:41</publishTime>
+    </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
-      <publishTime>12/24/2014 12:38:40</publishTime>
+      <publishTime>12/30/2014 01:46:41</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
       <publishTime>12/24/2014 12:38:40</publishTime>
@@ -208,13 +226,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/28/2005 17:16:12</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>12/29/2014 18:14:40</publishTime>
+      <publishTime>12/30/2014 01:47:25</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
       <publishTime>12/30/2014 01:19:40</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/harristeq.com.pubxml.user">
-      <publishTime>12/30/2014 01:09:01</publishTime>
+      <publishTime>12/30/2014 01:19:43</publishTime>
     </File>
     <File Include="Scripts/angular-mocks.js">
       <publishTime>12/29/2014 17:38:46</publishTime>
@@ -271,22 +289,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/29/2014 18:14:34</publishTime>
     </File>
     <File Include="Scripts/jquery.unobtrusive-ajax.js">
-      <publishTime>12/24/2014 12:38:40</publishTime>
+      <publishTime>12/30/2014 01:47:20</publishTime>
     </File>
     <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
-      <publishTime>12/24/2014 12:38:40</publishTime>
+      <publishTime>12/30/2014 01:47:19</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
-      <publishTime>12/24/2014 12:38:36</publishTime>
+      <publishTime>12/30/2014 01:46:50</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.min.js">
-      <publishTime>12/24/2014 12:38:36</publishTime>
+      <publishTime>12/30/2014 01:46:49</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.js">
-      <publishTime>12/24/2014 12:38:38</publishTime>
+      <publishTime>12/30/2014 01:47:21</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>12/24/2014 12:38:38</publishTime>
+      <publishTime>12/30/2014 01:47:21</publishTime>
     </File>
     <File Include="Scripts/knockout-2.2.0.debug.js">
       <publishTime>12/24/2014 12:38:42</publishTime>
@@ -294,8 +312,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/knockout-2.2.0.js">
       <publishTime>12/24/2014 12:38:42</publishTime>
     </File>
+    <File Include="Scripts/knockout-3.2.0.debug.js">
+      <publishTime>12/30/2014 01:46:51</publishTime>
+    </File>
+    <File Include="Scripts/knockout-3.2.0.js">
+      <publishTime>12/30/2014 01:46:51</publishTime>
+    </File>
     <File Include="Scripts/modernizr-2.6.2.js">
       <publishTime>12/24/2014 12:38:40</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.8.3.js">
+      <publishTime>12/30/2014 01:47:25</publishTime>
     </File>
     <File Include="Scripts/npm.js">
       <publishTime>12/29/2014 17:15:16</publishTime>
@@ -322,7 +349,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/24/2014 12:38:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/30/2014 01:19:38</publishTime>
+      <publishTime>12/30/2014 01:50:42</publishTime>
     </File>
   </ItemGroup>
 </Project>
