@@ -25,13 +25,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/25/2014 07:23:46</publishTime>
     </File>
     <File Include="bin/harristeq.dll">
-      <publishTime>12/30/2014 01:52:16</publishTime>
+      <publishTime>12/30/2014 05:42:58</publishTime>
     </File>
     <File Include="bin/harristeq.dll.config">
       <publishTime>12/30/2014 01:47:26</publishTime>
     </File>
     <File Include="bin/harristeq.pdb">
-      <publishTime>12/30/2014 01:52:16</publishTime>
+      <publishTime>12/30/2014 05:42:58</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>12/24/2014 12:38:40</publishTime>
@@ -42,6 +42,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>12/24/2014 12:38:40</publishTime>
     </File>
+    <File Include="bin/System.Net.Http.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
     <File Include="bin/System.Net.Http.Extensions.dll">
       <publishTime>12/30/2014 01:46:42</publishTime>
     </File>
@@ -50,6 +53,27 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/System.Net.Http.Primitives.dll">
       <publishTime>12/30/2014 01:46:42</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.WebRequest.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Abstractions.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.ApplicationServices.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.DynamicData.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Entity.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Extensions.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>12/30/2014 01:46:39</publishTime>
@@ -71,6 +95,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/System.Web.Razor.dll">
       <publishTime>12/24/2014 12:38:40</publishTime>
+    </File>
+    <File Include="bin/System.Web.Routing.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Services.dll">
+      <publishTime>09/26/2012 03:16:08</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
       <publishTime>12/24/2014 12:38:40</publishTime>
@@ -232,7 +262,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/30/2014 01:19:40</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/harristeq.com.pubxml.user">
-      <publishTime>12/30/2014 01:19:43</publishTime>
+      <publishTime>12/30/2014 05:41:20</publishTime>
     </File>
     <File Include="Scripts/angular-mocks.js">
       <publishTime>12/29/2014 17:38:46</publishTime>
@@ -349,7 +379,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/24/2014 12:38:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/30/2014 01:50:42</publishTime>
+      <publishTime>12/30/2014 05:41:20</publishTime>
     </File>
   </ItemGroup>
 </Project>
