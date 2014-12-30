@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Policy;
 using System.Xml;
 using System.Linq;
 using System.Text;
@@ -13,19 +14,20 @@ namespace garminImporter
     {
         static void Main(string[] args)
         {
-            GetFiles(@"C:\git\harristeq\garminImporter\allrides\");
+            //GetFiles(@"C:\git\harristeq\garminImporter\allrides\");
         }
 
         private static void GetFiles(string path)
         {
             var files = Directory.EnumerateFiles(path).Where(p => p.EndsWith(".tcx"));
-            XmlToJson(path + "test.tcx");
+            //XmlToJson(path + "test.tcx");
 
-            //foreach (var file in files)
-            //{
-            //    //var d = file;
-            //    XmlToJson(file);
-            //}
+            foreach (var file in files)
+            {
+                //var d = file;
+                var info = XmlToJson(file);
+                UpdateDatabase(info);
+            }
         }
 
         private static TrainingCenterInfo XmlToJson(string path)
@@ -59,17 +61,45 @@ namespace garminImporter
             var filename = Path.GetFileNameWithoutExtension(path);
             var newPath = string.Format("{0}\\{1}.js", dir, filename);
 
-            //File.WriteAllText(newPath, json);
+            rtn.ActivityType = type;
+            rtn.FileName = Path.GetFileName(path);
+            rtn.Json = json;
+            rtn.TrainingDate = Convert.ToDateTime(date);
+            rtn.UserId = 1;
+            rtn.Xml = xml.Replace("UTF-8", "utf-16");
+
+
+            File.WriteAllText(newPath, json);
 
 
             return rtn;
         }
 
+        private static void UpdateDatabase(TrainingCenterInfo trainingCenterInfo)
+        {
+            var db = new harristeqEntities();
+            var user = db.Users.Where(u => u.UserId == trainingCenterInfo.UserId).FirstOrDefault();
+            db.TrainingCenterFiles.Add(new TrainingCenterFile()
+            {
+                FileCreateDate = trainingCenterInfo.TrainingDate,
+                ConvertedJson = trainingCenterInfo.Json,
+                User = user,
+                FileName = trainingCenterInfo.FileName,
+                OriginalXml = trainingCenterInfo.Xml,
+                Activity = trainingCenterInfo.ActivityType
+            });
+
+            db.SaveChanges();
+        }
+
         public class TrainingCenterInfo
         {
+            public int UserId { get; set; }
             public DateTime TrainingDate { get; set; }
             public string FileName { get; set; }
             public string ActivityType { get; set; }
+            public string Xml { get; set; }
+            public string Json { get; set; }
         }
 
     }
