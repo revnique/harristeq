@@ -25,13 +25,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/30/2014 06:57:23</publishTime>
     </File>
     <File Include="bin/harristeq.dll">
-      <publishTime>12/30/2014 07:19:26</publishTime>
+      <publishTime>12/30/2014 07:36:28</publishTime>
     </File>
     <File Include="bin/harristeq.dll.config">
-      <publishTime>12/30/2014 07:21:05</publishTime>
+      <publishTime>12/30/2014 07:36:27</publishTime>
     </File>
     <File Include="bin/harristeq.pdb">
-      <publishTime>12/30/2014 07:19:26</publishTime>
+      <publishTime>12/30/2014 07:36:28</publishTime>
     </File>
     <File Include="bin/Microsoft.CSharp.dll">
       <publishTime>09/26/2012 03:16:08</publishTime>
@@ -292,7 +292,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/30/2014 01:19:40</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/harristeq.com.pubxml.user">
-      <publishTime>12/30/2014 07:18:37</publishTime>
+      <publishTime>12/30/2014 07:23:38</publishTime>
     </File>
     <File Include="Scripts/angular-mocks.js">
       <publishTime>12/29/2014 17:38:46</publishTime>
@@ -409,7 +409,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/24/2014 12:38:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/30/2014 07:21:28</publishTime>
+      <publishTime>12/30/2014 07:38:01</publishTime>
     </File>
   </ItemGroup>
 </Project>
