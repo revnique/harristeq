@@ -8,19 +8,11 @@
     #divListContainer {
         float: left;
         margin: 50px 50px 0px 0px;
-        background-color: #ffff99;
         width: 400px;
         text-align: center;
-        border: 1px solid #efefef;
-        -moz-box-shadow: 10px 10px 9px rgba(0, 0, 0, 0.22);
-        -webkit-box-shadow: 10px 10px 9px rgba(0, 0, 0, 0.22);
-        box-shadow: 10px 10px 9px rgba(0, 0, 0, 0.22);
     }
     #txtListName, #txtAdd, #txtTask {
-        width: 99%;
-        border: none;
-        font: 17px arial;
-        background-color: #ffff99;
+        font: 21px arial;
     }
 
     #txtAdd {
@@ -28,12 +20,12 @@
     }
 
     #txtTask {
-        width:auto;
+        padding-top: 24px;
+        padding-bottom: 24px;
     }
 
     #divListContainer ul {
         width: auto;
-        background-color: #ffff99;
         list-style: none;
         text-align: left;
         margin: 0px;
@@ -54,7 +46,7 @@
     }
 
     #txtTask:focus {
-        background-color: lightgreen;
+        background-color: lightsteelblue;
     }
 
     #divStopLights {
@@ -85,6 +77,7 @@
     }
 
     #divInfo {
+        margin: 30px 0px 30px 0px;
         clear:both;
         float:left;
     }

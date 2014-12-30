@@ -14,22 +14,40 @@
 </head>
 <body>*@
 <link href="~/Content/harristeq.css" rel="stylesheet" />
+
+<style>
+    
+</style>
+
 <div class="contentContainer" ng-app="harristeqApp" ng-controller="harristeqController">
         <div class="container">
             <div id="divListContainer">
-                <input type="text" id="txtListName" ng-model="taskList().title" />
+                <input type="text" id="txtListName" class="form-control" ng-model="taskList().title" />
                 <ul id="ulTaskList">
                     <li ng-repeat="task in taskList().tasks track by $index" id="li{{task.taskItemId}}" ng-class="{taskIsDone: task.isDone}">
-                        <span>{{task.taskItemId}}</span>
-                        <input type="checkbox" ng-model="task.isDone" />
-                        <input type="text" id="txtTask" ng-model="task.title" ng-class="{strike: task.isDone}" ng-enter="afterTaskEdit()" ng-disabled="task.isDone" />
-                        <input type="button" value="X" ng-click="removeTask(task.taskItemId)" />
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">
+                                {{task.taskItemId}}
+                            </span>
+                            <span class="input-group-addon" id="basic-addon1">
+                                <input type="checkbox" ng-model="task.isDone" />
+                            </span>
+                            <input type="text" class="form-control" id="txtTask" ng-model="task.title" ng-class="{strike: task.isDone}" ng-enter="afterTaskEdit()" ng-disabled="task.isDone" placeholder="Username" aria-describedby="basic-addon1">
+                            <span class="input-group-addon" id="basic-addon2">
+                                <input type="button" value="x" ng-click="removeTask(task.taskItemId)" class="btn btn-info" />
+                            </span>
+                        </div>
                         <!--<span>{{task.sortId}}</span>-->
                     </li>
                 </ul>
-                <input type="text" ng-enter="doit()" placeholder="type here to add new task" ng-model="newTaskTitle" id="txtAdd" autofocus />
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-enter="doit()" placeholder="type here to add new task" ng-model="newTaskTitle" id="txtAdd" autofocus />
+                    <span class="input-group-addon" id="basic-addon2">
+                        <a href="#" ng-click="doit()">&nbsp;new&nbsp;</a>
+                    </span>
+                </div>
             </div>
-            <div id="divStopLights">
+            <div id="divStopLights" style="display: none;">
                 <div id="divGreen" ng-class="{blink: blinkGreen}">
                     green <span></span>
                 </div>
@@ -41,11 +59,11 @@
                 </div>
             </div>
             <div id="divInfo">
-                <input type="button" value="clear local storage" ng-click="clearLocalStorage()" />
-                <input type="button" value="load from service" ng-click="loadFromJsBin()" />
-                <div>g {{getTasksFromLocalStorage() }}</div>
-                <div>jsBin {{jsBin}}</div>
+                <button ng-click="clearLocalStorage()" class="btn btn-default">clear local storage</button>
+                <button ng-click="loadFromJsBin()" class="btn btn-primary">load from service</button>
             </div>
+            <div style="clear:both; margin: 0px 0px 30px 0px;">g {{getTasksFromLocalStorage() }}</div>
+            <div>jsBin {{jsBin}}</div>
         </div>
     </div>
 
