@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="harristeqModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TrainingCenterFiles">
+          <Key>
+            <PropertyRef Name="TrainingCenterFileId" />
+          </Key>
+          <Property Name="TrainingCenterFileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Activity" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FileCreateDate" Type="datetime" />
+          <Property Name="OriginalXml" Type="xml" />
+          <Property Name="ConvertedJson" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TrainingCenterFiles_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="TrainingCenterFiles" Type="Self.TrainingCenterFiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="TrainingCenterFiles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="harristeqModelStoreContainer">
+          <EntitySet Name="TrainingCenterFiles" EntityType="Self.TrainingCenterFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TrainingCenterFiles_Users" Association="Self.FK_TrainingCenterFiles_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TrainingCenterFiles" EntitySet="TrainingCenterFiles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="harristeqModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="harristeqEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="harristeqModel.User" />
+          <EntitySet Name="TrainingCenterFiles" EntityType="harristeqModel.TrainingCenterFile" />
+          <AssociationSet Name="FK_TrainingCenterFiles_Users" Association="harristeqModel.FK_TrainingCenterFiles_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="TrainingCenterFile" EntitySet="TrainingCenterFiles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TrainingCenterFiles" Relationship="harristeqModel.FK_TrainingCenterFiles_Users" FromRole="User" ToRole="TrainingCenterFile" />
+        </EntityType>
+        <EntityType Name="TrainingCenterFile">
+          <Key>
+            <PropertyRef Name="TrainingCenterFileId" />
+          </Key>
+          <Property Name="TrainingCenterFileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Activity" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="OriginalXml" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConvertedJson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="harristeqModel.FK_TrainingCenterFiles_Users" FromRole="TrainingCenterFile" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_TrainingCenterFiles_Users">
+          <End Type="harristeqModel.User" Role="User" Multiplicity="1" />
+          <End Type="harristeqModel.TrainingCenterFile" Role="TrainingCenterFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="TrainingCenterFile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="harristeqModelStoreContainer" CdmEntityContainer="harristeqEntities">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="harristeqModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrainingCenterFiles">
+            <EntityTypeMapping TypeName="harristeqModel.TrainingCenterFile">
+              <MappingFragment StoreEntitySet="TrainingCenterFiles">
+                <ScalarProperty Name="ConvertedJson" ColumnName="ConvertedJson" />
+                <ScalarProperty Name="OriginalXml" ColumnName="OriginalXml" />
+                <ScalarProperty Name="FileCreateDate" ColumnName="FileCreateDate" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Activity" ColumnName="Activity" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TrainingCenterFileId" ColumnName="TrainingCenterFileId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
