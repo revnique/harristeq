@@ -59,6 +59,7 @@
 
     #divStopLights {
         float:left;
+        display: none;
     }
 
     #divStopLights div {
