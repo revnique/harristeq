@@ -11,6 +11,11 @@ harristeqApp.factory('harristeqSvc', ['$http', '$window', '$q', '$timeout',
 
         svc.userId = userId;
 
+        var rootUrl = function () {
+            var isProd = location.href.toLowerCase().indexOf("harristeq.com") > -1 ? true : false;
+            return isProd ? "" : "/harristeq";
+        };
+
         svc.getBlinkGreen = function () {
             var rtn;
             if ($window.stopBlinkAll || $window.stopBlinkGreen) {
@@ -65,10 +70,8 @@ harristeqApp.factory('harristeqSvc', ['$http', '$window', '$q', '$timeout',
         };
 
         svc.getGarminData = function (dateObj) {
-            var startDate = dateObj.startDate;
-            var endDate = dateObj.endDate;
             var deferred = $q.defer();
-            $http.post("/harristeq/home/getGarminData", dateObj)
+            $http.post(rootUrl() + "/home/getGarminData", dateObj)
                 .success(function (data, status, headers, config) {
                     deferred.resolve(data);
                 }).error(function (data, status, headers, config) {
