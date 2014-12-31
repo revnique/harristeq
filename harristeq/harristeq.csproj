@@ -215,6 +215,7 @@
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\compiled\theme.css" />
     <Content Include="Content\harristeq.css" />
+    <Content Include="Content\ng-grid.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -915,6 +916,7 @@
     <Content Include="icons\icomoon\fonts\icomoon.ttf" />
     <Content Include="icons\icomoon\fonts\icomoon.woff" />
     <Content Include="icons\icomoon\selection.json" />
+    <Content Include="Scripts\ng-grid.js" />
     <Content Include="Scripts\theme.js" />
     <Content Include="Scripts\vendor\bootstrap-datepicker.js" />
     <Content Include="Scripts\vendor\bootstrap-daterangepicker.js" />
