@@ -1,1 +1,1 @@
-﻿var harristeqApp = angular.module('harristeqApp', ['ngRoute']);
+﻿var harristeqApp = angular.module('harristeqApp', ['ngRoute', 'ngGrid']);

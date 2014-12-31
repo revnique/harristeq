@@ -61,21 +61,32 @@
             </div>
             
             <div class="col-lg-7">
+                <div ng-grid="gridOptions" class="gridStyle"></div>
+
+
+                            @*<ul style="list-style: none;">
+                            <li ng-repeat="activity in garminData track by $index" id="li{{garminData.trainingCenterFileId}}">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1" ng-bind="activity.trainingCenterFileId"></span>
+                                    <span class="form-control" id="txtActivity" ng-bind="activity.fileName" aria-describedby="basic-addon1"></span>
+                                    <span class="input-group-addon" id="basic-addon1" ng-bind="activity.size + ' bytes'"></span>
+                                </div>
+                            </li>
+                        </ul>*@
+
+
                 <ul style="list-style: none;">
                     <li ng-repeat="activity in garminData track by $index" id="li{{garminData.trainingCenterFileId}}">
                         <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon1">
-                                {{activity.trainingCenterFileId}}
-                            </span>
-                            <span class="form-control" id="txtActivity" ng-bind="activity.fileName" aria-describedby="basic-addon1">
-                                </span>
-
+                            <span class="input-group-addon" id="basic-addon1" ng-bind="activity.trainingCenterFileId"></span>
+                            <span class="form-control" id="txtActivity" ng-bind="activity.fileName" aria-describedby="basic-addon1"></span>
+                            <span class="input-group-addon" id="basic-addon1" ng-bind="activity.size + ' bytes'"></span>
                         </div>
                     </li>
                 </ul>
                 asdf
                 {{garminData.workouts}}
-                <br/>
+                <br />
                 {{garminData}}
             </div>
             <div id="divStopLights" style="display: none;">

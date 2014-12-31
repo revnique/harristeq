@@ -243,5 +243,20 @@
         
     };
 
+    $scope.garminData = [];
+    $scope.gridOptions = {
+        data: 'garminData',
+        multiSelect: false,
+        columnDefs: [{ field: 'date', displayName: 'Date', cellFilter: 'date:"MM/dd/yyyy hh:mm:ss a"' },
+            { field: 'trainingCenterFileId', displayName: 'Id' },
+            { field: 'fileName', displayName: 'Name' },
+            { field: 'activity', displayName: 'Activity' },
+            { field: 'size', displayName: 'Size' }]
+    };
+
+  
+
+
+
     $scope.init();
 });
