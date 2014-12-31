@@ -61,11 +61,20 @@
             </div>
             
             <div class="col-lg-7">
+                <ul style="list-style: none;">
+                    <li ng-repeat="activity in garminData track by $index" id="li{{garminData.trainingCenterFileId}}">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">
+                                {{activity.trainingCenterFileId}}
+                            </span>
+                            <span class="form-control" id="txtActivity" ng-bind="activity.fileName" aria-describedby="basic-addon1">
+                                </span>
+
+                        </div>
+                    </li>
+                </ul>
                 asdf
-                <br/>
-                {{startDate}}
-                <br/>
-                {{endDate}}
+                {{garminData.workouts}}
                 <br/>
                 {{garminData}}
             </div>

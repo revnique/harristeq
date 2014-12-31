@@ -232,10 +232,13 @@
             startDate: $scope.startDate,
             endDate: $scope.endDate
         };
+        $scope.showAjax = true;
         harristeqSvc.getGarminData(dateObj).then(function (results) {
-
+            $scope.showAjax = false;
             //alert(results);
-            $scope.garminData = "show me potato salad => " + JSON.stringify(results);
+            $scope.garminData = results;
+        }, function() {
+            $scope.showAjax = false;
         });
         
     };

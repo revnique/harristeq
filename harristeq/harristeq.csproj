@@ -389,6 +389,7 @@
     <Content Include="icons\icomoon\fonts\icomoon.svg" />
     <Content Include="icons\icomoon\Read Me.txt" />
     <Content Include="icons\icomoon\style.css" />
+    <Content Include="images\ajaxloader.gif" />
     <Content Include="images\avatars\1.jpg" />
     <Content Include="images\avatars\10.jpg" />
     <Content Include="images\avatars\11.jpg" />

@@ -22563,7 +22563,7 @@ var ngCloakDirective = ngDirective({
  *      .controller('SettingsController1', SettingsController1);
  *
  *    function SettingsController1() {
- *      this.name = "John Smith";
+ *      this.name = "revnique";
  *      this.contacts = [
  *        {type: 'phone', value: '408 555 1212'},
  *        {type: 'email', value: 'john.smith@example.org'} ];
@@ -22591,7 +22591,7 @@ var ngCloakDirective = ngDirective({
  *     it('should check controller as', function() {
  *       var container = element(by.id('ctrl-as-exmpl'));
  *         expect(container.element(by.model('settings.name'))
- *           .getAttribute('value')).toBe('John Smith');
+ *           .getAttribute('value')).toBe('revnique');
  *
  *       var firstRepeat =
  *           container.element(by.repeater('contact in settings.contacts').row(0));
@@ -22646,7 +22646,7 @@ var ngCloakDirective = ngDirective({
  *     .controller('SettingsController2', ['$scope', SettingsController2]);
  *
  *   function SettingsController2($scope) {
- *     $scope.name = "John Smith";
+ *     $scope.name = "revnique";
  *     $scope.contacts = [
  *       {type:'phone', value:'408 555 1212'},
  *       {type:'email', value:'john.smith@example.org'} ];
@@ -22675,7 +22675,7 @@ var ngCloakDirective = ngDirective({
  *      var container = element(by.id('ctrl-exmpl'));
  *
  *      expect(container.element(by.model('name'))
- *          .getAttribute('value')).toBe('John Smith');
+ *          .getAttribute('value')).toBe('revnique');
  *
  *      var firstRepeat =
  *          container.element(by.repeater('contact in contacts').row(0));
