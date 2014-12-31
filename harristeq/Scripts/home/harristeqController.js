@@ -257,29 +257,6 @@
   
 
 
-    //$scope.dealSourceData = [];
-    //$scope.selectedSourceXml = "";
-    //$scope.gridOptions = {
-    //    data: 'dealSourceData',
-    //    multiSelect: false,
-    //    columnDefs: [{ field: 'RequestDate', displayName: 'Date', cellFilter: 'date:"MM/dd/yyyy hh:mm:ss a"' },
-    //        { field: 'SourceSystemCode', displayName: 'Source System Code' },
-    //        { field: 'DealDetailId', displayName: 'Deal Detail Id' },
-    //        { field: 'RawXml', displayName: 'Xml', cellTemplate: '<div class="ngCellText xmlViewLink" ng-click="showXml(row.entity.SourceDataId)">View</div>' },
-    //        { field: 'SourceSystemId', displayName: 'Source System Id' }, { field: 'UserName', displayName: 'User' }]
-    //};
-
-    //$scope.showXml = function (id) {
-    //    window.open('/prodsupport/applicationLog/getXmlForSourceData?dealSourceDataId=' + id.toString());
-    //};
-
-    //$scope.$on('searchAppContent', function (event, data) {
-    //    var promise = prodDataService.getDealSourceData(data.clientId, data.applicationNumber, data.dealDetailId, data.sourceSystemId);
-    //    promise.then(function (response) {
-    //        $scope.garminData = response;
-    //    });
-    //});
-
 
     $scope.init();
 });
