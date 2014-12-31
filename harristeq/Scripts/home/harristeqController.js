@@ -188,6 +188,10 @@
 
         var vm = getViewModelFromLocalStorage();
         $scope.taskList().loadTasksFromViewModel(vm);
+
+
+        $scope.startDate = "06/27/2014";
+        $scope.endDate = "07/27/2014";
     };
 
     $scope.dragStart = function (e, ui) {
@@ -221,6 +225,19 @@
         var rtn = JSON.parse($scope.jsBin);
 
         $scope.taskList().loadTasksFromViewModel(rtn);
+    };
+
+    $scope.getGarminData = function () {
+        var dateObj = {
+            startDate: $scope.startDate,
+            endDate: $scope.endDate
+        };
+        harristeqSvc.getGarminData(dateObj).then(function (results) {
+
+            //alert(results);
+            $scope.garminData = "show me potato salad => " + JSON.stringify(results);
+        });
+        
     };
 
     $scope.init();

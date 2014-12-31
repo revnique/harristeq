@@ -64,6 +64,24 @@ harristeqApp.factory('harristeqSvc', ['$http', '$window', '$q', '$timeout',
             return deferred.promise;
         };
 
+        svc.getGarminData = function (dateObj) {
+            var startDate = dateObj.startDate;
+            var endDate = dateObj.endDate;
+
+            var deferred = $q.defer();
+            $http.post("/harristeq/home/getGarminData", dateObj)
+                .success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                    //alert(data);
+                }).error(function (data, status, headers, config) {
+                    var msg = 'Error fetching tasks.';
+                    alert(msg);
+                    deferred.reject(msg);
+                });
+
+            return deferred.promise;
+        };
+
         return svc;
     }
 ]);

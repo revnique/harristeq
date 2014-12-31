@@ -24,7 +24,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<body id="dashboard">
+<body id="dashboard" ng-app="harristeqApp" ng-controller="harristeqController">
 
     <div id="wrapper">
         <div id="sidebar-default" class="main-sidebar">
@@ -32,7 +32,7 @@
                 <a href="~/index.html" class="name">
                     <img class="avatar" src="~/images/avatars/revnique_med.JPG" />
                     <span>
-                        Revnique
+                        revnique
                         <i class="fa fa-chevron-down"></i>
                     </span>
                 </a>
@@ -212,7 +212,7 @@
                             <span class="input-group-addon">
                                 <i class="fa fa-calendar-o"></i>
                             </span>
-                            <input name="start" type="text" class="form-control datepicker" placeholder="02/27/2014" />
+                            <input name="start" type="text" class="form-control datepicker" placeholder="06/27/2014" ng-model="startDate" />
                         </div>
 
                         <p class="pull-left">to</p>
@@ -220,21 +220,22 @@
                             <span class="input-group-addon">
                                 <i class="fa fa-calendar-o"></i>
                             </span>
-                            <input name="end" type="text" class="form-control datepicker" placeholder="02/27/2014" />
+                            <input name="end" type="text" class="form-control datepicker" placeholder="07/27/2014" ng-model="endDate" />
                         </div>
+                        <button class="btn btn-primary" ng-click="getGarminData()">pull</button>
                     </form>
                 </div>
             </div>
             <div class="content-wrapper">
-                
-                
-                
+
+
+
                 @RenderBody()
-                
-                
-                
-                
-                
+
+
+
+
+
 
             </div>
         </div>
@@ -283,28 +284,28 @@
         </ul>
     </div>
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
 
     @Scripts.Render("~/bundles/jquery")
     <script src="~/Scripts/jquery-ui-1.11.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-    
+
     <script src="~/Scripts/angular.js"></script>
     <script src="~/Scripts/angular-route.js"></script>
     <script src="~/Scripts/home/harristeqApp.js"></script>
     <script src="~/Scripts/home/harristeqDirectives.js"></script>
     <script src="~/Scripts/home/harristeqSvc.js"></script>
     <script src="~/Scripts/home/harristeqController.js"></script>
-    
-    
+
+
     <!-- javascript -->
     <script src="~/Scripts/vendor/jquery.cookie.js"></script>
     <script src="~/Scripts/vendor/moment.min.js"></script>
@@ -457,13 +458,13 @@
 
 
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
 
     @RenderSection("scripts", required: false)
 </body>
