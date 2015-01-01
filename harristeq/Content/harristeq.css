@@ -2,8 +2,6 @@
     .contentContainer {
         font: 17px arial;
     }
-    .container {
-    }
 
     #divListContainer {
         float: left;
@@ -117,10 +115,39 @@
         clear: both;
     }
 
-    .gridStyle {
-    border: 1px solid rgb(212,212,212);
-    width: 400px;
-        height: 300px;
+.gridStyle {
+    width: 100%;
+    height: 300px;
 }
+
+.gridStyle .ngTopPanel{
+    background-color: #ffffff;
+}
+
+.gridStyle .ngVerticalBarVisible {
+    display: none;
+}
+
+.gridStyle.ngGrid{
+    background-color: #ffffff;
+}
+
+.ngHeaderCell {
+    border-bottom: 1px solid #e3e3e3;
+}
+.ngRow.even {
+    background-color: #ffffff;
+}
+
+.ngRow.even.selected {
+    background-color: #c9dde1;
+}
+
+.ngRow:hover {
+    background-color: #e3e3e3;
+}
+
+
+
 
 

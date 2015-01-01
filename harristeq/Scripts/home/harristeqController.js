@@ -243,18 +243,40 @@
         
     };
 
+   
     $scope.garminData = [];
     $scope.gridOptions = {
         data: 'garminData',
         multiSelect: false,
-        columnDefs: [{ field: 'date', displayName: 'Date', cellFilter: 'date:"MM/dd/yyyy hh:mm:ss a"' },
-            { field: 'trainingCenterFileId', displayName: 'Id' },
+        columnDefs: [
+            { field: 'trainingCenterFileId', displayName: 'Id', width: '50px' },
+            { field: 'date', displayName: 'Date', cellFilter: 'date:"MM/dd/yyyy hh:mm:ss a"' },
             { field: 'fileName', displayName: 'Name' },
             { field: 'activity', displayName: 'Activity' },
-            { field: 'size', displayName: 'Size' }]
+            { field: 'size', displayName: 'Size' }
+        ],
+        afterSelectionChange: function (row, evt) {
+            if (row.selected) {
+                $scope.selectedSetting = row.entity;
+                $scope.settingClone = angular.copy(row.entity);
+                $scope.getGarminDetail(row.entity.trainingCenterFileId);
+            }
+        }
     };
 
-  
+    $scope.getGarminDetail = function (trainingCenterFileId) {
+        $scope.showAjax = true;
+        harristeqSvc.getGarminDetail(trainingCenterFileId).then(function (results) {
+            $scope.showAjax = false;
+            //alert(results);
+            $scope.garminDetailData = results;
+        }, function () {
+            $scope.showAjax = false;
+        });
+
+    };
+
+    
 
 
 

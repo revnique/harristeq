@@ -83,6 +83,20 @@ harristeqApp.factory('harristeqSvc', ['$http', '$window', '$q', '$timeout',
             return deferred.promise;
         };
 
+        svc.getGarminDetail = function (trainingCenterFileId) {
+            var deferred = $q.defer();
+            $http.get(rootUrl() + "/home/getGarminDetail/?trainingCenterFileId=" + trainingCenterFileId)
+                .success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    var msg = 'Error fetching tasks.';
+                    svc.showMessage(msg, "error");
+                    deferred.reject(msg);
+                });
+
+            return deferred.promise;
+        };
+
         svc.showMessage = function(msg, type) {
             Messenger.options = {
                 extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
