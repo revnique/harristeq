@@ -36,6 +36,19 @@
         return rtn;
     };
 
+    var Lap = function (lapData) {
+        var lapSelf = this;
+        lapSelf.startTime = lapData['@StartTime'];
+        lapSelf.totalTimeSeconds = lapData.TotalTimeSeconds;
+        lapSelf.distanceMeters = lapData.DistanceMeters;
+        lapSelf.maximumSpeed = lapData.MaximumSpeed;
+        lapSelf.calories = lapData.Calories;
+        lapSelf.averageHeartRateBpm = lapData.AverageHeartRateBpm.Value;
+        lapSelf.maximumHeartRateBpm = lapData.MaximumHeartRateBpm.Value;
+        lapSelf.cadence = lapData.Cadence;
+        lapSelf.trackpointCount = lapData.Track.Trackpoint.length;
+    };
+
     $scope.saveTasksToLocalStorage = function () {
         if (!supportsLocalStorage()) { return false; }
         var rtn = new taskListViewModel();
@@ -190,8 +203,10 @@
         $scope.taskList().loadTasksFromViewModel(vm);
 
 
-        $scope.startDate = "06/27/2014";
-        $scope.endDate = "07/27/2014";
+        //$scope.startDate = "06/27/2014";
+        //$scope.endDate = "07/27/2014";
+        $scope.startDate = "07/07/2014";
+        $scope.endDate = "07/11/2014";
     };
 
     $scope.dragStart = function (e, ui) {
@@ -270,14 +285,28 @@
             $scope.showAjax = false;
             //alert(results);
             $scope.garminDetailData = results;
+            $scope.fillGarminDetail($.parseJSON(results));
         }, function () {
             $scope.showAjax = false;
         });
 
     };
 
-    
+    $scope.fillGarminDetail = function(data) {
+        var self = this;
+        console.log(data);
 
+
+        self.lapCount = data.TrainingCenterDatabase.Activities.Activity.Lap.length;
+        self.laps = [];
+        for (var i = 0; i < self.lapCount; i++) {
+            self.laps[i] = new Lap(data.TrainingCenterDatabase.Activities.Activity.Lap[i]);
+        }
+
+        $scope.garminDetail = self;
+        console.log("fillGarminDetail", self);
+        return self;
+    };
 
 
     $scope.init();
