@@ -24,6 +24,12 @@ namespace harristeq.Controllers
             return View();
         }
 
+        public ActionResult GarminDemo()
+        {
+            ViewBag.ShowMe = "Potato Salad";
+            return View();
+        }
+
         public JsonResult GetGarminData(DateObj dateObj)
         {
 

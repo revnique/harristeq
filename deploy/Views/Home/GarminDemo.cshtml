@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "Garmin Demo";
+}
+<link href="~/Content/harristeq.css" rel="stylesheet" />
+
+<style>
+    
+</style>
+
+<div class="contentContainer" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-12">
+                    <h3>Garmin Data</h3>
+                    <div ng-grid="gridOptions" class="gridStyle"></div>
+                    <br/>
+                    <div>laps</div>
+                    {{garminDetail.laps}}
+                    <br />
+                    <div>lapCount</div>
+                    {{garminDetail.lapCount}}
+                    <br />
+                    <div>detail</div>
+                    {{garminDetailData}}
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="chart1"></div>
+        <div id="chart2"></div>
+        
+        
+        
+        
+        
+        
+        
+
+       
+
+            @*<ul style="list-style: none;">
+                <li ng-repeat="activity in garminData track by $index" id="li{{garminData.trainingCenterFileId}}">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1" ng-bind="activity.trainingCenterFileId"></span>
+                        <span class="form-control" id="txtActivity" ng-bind="activity.fileName" aria-describedby="basic-addon1"></span>
+                        <span class="input-group-addon" id="basic-addon1" ng-bind="activity.size + ' bytes'"></span>
+                    </div>
+                </li>
+            </ul
+
+
+    <ul style="list-style: none;">
+        <li ng-repeat="activity in garminData track by $index" id="li{{garminData.trainingCenterFileId}}">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1" ng-bind="activity.trainingCenterFileId"></span>
+                <span class="form-control" id="txtActivity" ng-bind="activity.fileName" aria-describedby="basic-addon1"></span>
+                <span class="input-group-addon" id="basic-addon1" ng-bind="activity.size + ' bytes'"></span>
+            </div>
+        </li>
+    </ul>
+    asdf
+    {{garminData.workouts}}
+    <br />
+    {{garminData}}>*@
+       
+        <div id="divStopLights" style="display: none;">
+            <div id="divGreen" ng-class="{blink: blinkGreen}">
+                green <span></span>
+            </div>
+            <div id="divYellow" ng-class="{blink: blinkYellow}">
+                yellow <span></span>
+            </div>
+            <div id="divRed" ng-class="{blink: blinkRed}">
+                red <span></span>
+            </div>
+        </div>
+          
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<div class="col-lg-6" style="display: none;">
+    <div id="divListContainer" class="col-lg-12">
+        <h3 class="text-left">{{taskList().title}}</h3>
+        <input type="text" id="txtListName" class="form-control" ng-model="taskList().title" style="border:none; display: none;" />
+
+        <div class="well">
+            <ul id="ulTaskList">
+                <li ng-repeat="task in taskList().tasks track by $index" id="li{{task.taskItemId}}" ng-class="{taskIsDone: task.isDone}">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">
+                            {{task.taskItemId}}
+                        </span>
+                        <span class="input-group-addon" id="basic-addon1">
+                            <input type="checkbox" ng-model="task.isDone" />
+                        </span>
+                        <input type="text" class="form-control" id="txtTask" ng-model="task.title" ng-class="{strike: task.isDone}" ng-enter="afterTaskEdit()" ng-disabled="task.isDone" placeholder="Username" aria-describedby="basic-addon1">
+                        <span class="input-group-addon" id="basic-addon2">
+                            <input type="button" value="x" ng-click="removeTask(task.taskItemId)" class="btn btn-info" />
+                        </span>
+                    </div>
+                    <!--<span>{{task.sortId}}</span>-->
+                </li>
+            </ul>
+            <div class="input-group" style="margin: 20px 0px 10px 0px;">
+                <input type="text" class="form-control" ng-enter="doit()" placeholder="type here to add new task" ng-model="newTaskTitle" id="txtAdd" autofocus />
+                <span class="input-group-addon" id="basic-addon2">
+                    <a href="#" ng-click="doit()">&nbsp;new&nbsp;</a>
+                </span>
+            </div>
+            <div id="divInfo">
+                <div style="float: left;">
+                    <button ng-click="clearLocalStorage()" class="btn btn-default">clear local storage</button>
+                </div>
+                <div style="float: right;">
+                    <button ng-click="loadFromJsBin()" class="btn btn-primary">load from service</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <h3>tasks from local storage (json)</h3>
+        <div class="well">
+            <textarea class="form-control" rows="5">
+                {{getTasksFromLocalStorage() }}
+            </textarea>
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <h3>tasks from webservice (json)</h3>
+        <div class="well">
+            <textarea class="form-control" rows="5">
+                {{jsBin}}
+            </textarea>
+        </div>
+    </div>
+
+</div>

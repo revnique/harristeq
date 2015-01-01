@@ -188,7 +188,52 @@
 
     $scope.init = function () {
 
-        //alert($("#ulTaskList").html());
+
+
+
+        $("#chart1").kendoChart({
+            legend: {
+                visible: true
+            },
+            seriesDefaults: {
+                type: "column"
+            },
+            series: [{
+                name: "Category A",
+                data: [5]
+            }, {
+                name: "Category B",
+                data: [20]
+            }, {
+                name: "Category C",
+                data: [10]
+            }]
+        });
+
+
+
+        $("#chart2").kendoChart({
+            legend: {
+                visible: true
+            },
+            seriesDefaults: {
+                type: "column"
+            },
+            series: [{
+                name: "Series 1",
+                data: [5, 10, 20]
+            }, {
+                name: "Series 2",
+                data: [5, 10, 20]
+            }],
+            categoryAxis: [{
+                categories: ["Category A", "Category B", "Category C"]
+            }]
+
+        });
+
+
+
 
         sortableEle = $("#ulTaskList").sortable({
             start: $scope.dragStart,
