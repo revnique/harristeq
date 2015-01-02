@@ -71,9 +71,21 @@
                 <h3>General</h3>
                 <ul>
                     <li>
-                        <a href="~/index.html" class="active">
+                        <a href="~/index.html">
                             <i class="ion-android-earth"></i>
                             <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/home/garmindemo" ng-class="{active: garminDemoActive}">
+                            <i class="ion-cloud"></i>
+                            <span>Garmin Demo</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/home/taskdemo" ng-class="{active: !garminDemoActive}">
+                            <i class="ion-grid"></i>
+                            <span>Task Demo</span>
                         </a>
                     </li>
                     <li>
@@ -217,10 +229,12 @@
                     <i class="ion-navicon"></i>
                 </div>
                 <div class="page-title">
-                    Dashboard
+                    <h3 style="margin-top:0px;">
+                        @ViewBag.Title
+                    </h3>
                 </div>
                 <div class="period-select hidden-xs">
-                    <form class="input-daterange">
+                    <form class="input-daterange" ng-show="showDates" ng-cloak>
                         <img src="~/images/ajaxloader.gif" width="25" ng-show="showAjax" style="float:left; margin: 4px 15px 0px 0px;" />
                         <div class="input-group input-group-sm">
                             <span class="input-group-addon">
@@ -254,7 +268,7 @@
             </div>
         </div>
     </div>
-    <div class="skin-switcher">
+    <div class="skin-switcher" style="display: none;">
         <div class="toggler">
             <span class="brankic-brush"></span>
         </div>
@@ -340,6 +354,8 @@
     <script src="~/Scripts/home/harristeqApp.js"></script>
     <script src="~/Scripts/home/harristeqDirectives.js"></script>
     <script src="~/Scripts/home/harristeqSvc.js"></script>
+    <script src="~/Scripts/home/taskController.js"></script>
+    <script src="~/Scripts/home/garminController.js"></script>
     <script src="~/Scripts/home/harristeqController.js"></script>
 
 

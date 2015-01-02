@@ -819,6 +819,8 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\home\harristeqApp.js" />
+    <Content Include="Scripts\home\taskController.js" />
+    <Content Include="Scripts\home\garminController.js" />
     <Content Include="Scripts\home\harristeqController.js" />
     <Content Include="fonts\brankic.eot" />
     <Content Include="fonts\brankic.ttf" />
