@@ -188,53 +188,6 @@
 
     $scope.init = function () {
 
-
-
-
-        $("#chart1").kendoChart({
-            legend: {
-                visible: true
-            },
-            seriesDefaults: {
-                type: "column"
-            },
-            series: [{
-                name: "Category A",
-                data: [5]
-            }, {
-                name: "Category B",
-                data: [20]
-            }, {
-                name: "Category C",
-                data: [10]
-            }]
-        });
-
-
-
-        $("#chart2").kendoChart({
-            legend: {
-                visible: true
-            },
-            seriesDefaults: {
-                type: "column"
-            },
-            series: [{
-                name: "Series 1",
-                data: [5, 10, 20]
-            }, {
-                name: "Series 2",
-                data: [5, 10, 20]
-            }],
-            categoryAxis: [{
-                categories: ["Category A", "Category B", "Category C"]
-            }]
-
-        });
-
-
-
-
         sortableEle = $("#ulTaskList").sortable({
             start: $scope.dragStart,
             update: $scope.dragEnd
@@ -246,12 +199,11 @@
 
         var vm = getViewModelFromLocalStorage();
         $scope.taskList().loadTasksFromViewModel(vm);
-
-
-        //$scope.startDate = "06/27/2014";
-        //$scope.endDate = "07/27/2014";
-        $scope.startDate = "07/07/2014";
-        $scope.endDate = "07/11/2014";
+        
+        $scope.startDate = "06/27/2014";
+        $scope.endDate = "07/27/2014";
+        //$scope.startDate = "07/07/2014";
+        //$scope.endDate = "07/11/2014";
     };
 
     $scope.dragStart = function (e, ui) {
@@ -331,6 +283,7 @@
             //alert(results);
             $scope.garminDetailData = results;
             $scope.fillGarminDetail($.parseJSON(results));
+            $scope.displayChart($scope.garminDetail.laps);
         }, function () {
             $scope.showAjax = false;
         });
@@ -353,6 +306,79 @@
         return self;
     };
 
+    $scope.displayChart = function (data) {
+        console.log("displayChart ", data);
+        var max = 1;
+        var series = [];
+        for (var i = 0; i < data.length; i++) {
+            series[i] = {
+                name: "Lap " + (i + 1) ,
+                data: [
+                    data[i].totalTimeSeconds / 60,
+                    data[i].averageHeartRateBpm,
+                    data[i].calories,
+                    (data[i].distanceMeters / data[i].totalTimeSeconds) * 2.23694
+                ]
+            };
+            if (max < data[i].calories) {
+                max = data[i].calories;
+            }
+        }
+        max = (max * 1) + 50;
+
+        //lapSelf.startTime = lapData['@StartTime'];
+        //lapSelf.totalTimeSeconds = lapData.TotalTimeSeconds;
+        //lapSelf.distanceMeters = lapData.DistanceMeters;
+        //lapSelf.maximumSpeed = lapData.MaximumSpeed;
+        //lapSelf.calories = lapData.Calories;
+        //lapSelf.averageHeartRateBpm = lapData.AverageHeartRateBpm.Value;
+        //lapSelf.maximumHeartRateBpm = lapData.MaximumHeartRateBpm.Value;
+        //lapSelf.cadence = lapData.Cadence;
+        //lapSelf.trackpointCount = lapData.Track.Trackpoint.length;
+
+
+        $("#lapChart").kendoChart({
+            legend: {
+                visible: true
+            },
+            seriesDefaults: {
+                type: "column"
+            },
+            seriesColors: [	"#3D5266","#4C6680","#5C7A99","#6B8FB2","#7AA3CC","#8AB8E6","#99CCFF","#A3D1FF","#ADD6FF","#B8DBFF","#C2E0FF","#CCE6FF","#D6EBFF","#E0F0FF"],
+            series: series,
+            valueAxis: {
+                max: max
+            },
+            categoryAxis: [
+                {
+                categories: ["Time (m)", "AvgHR", "Cals", "AvgMPH"]
+                }
+            ],
+            tooltip: {
+                visible: true,
+                template: "#= series.name #: #= value #"
+            }
+        });
+
+        //$("#lapChart").kendoChart({
+        //    legend: {
+        //        visible: true
+        //    },
+        //    seriesDefaults: {
+        //        type: "column"
+        //    },
+        //    series: [{
+        //        name: "Lap 1",
+        //        data: [1443 / 60, 158, 537]
+        //    }, {
+        //        name: "Lap 2",
+        //        data: [483 / 60, 154, 164]
+        //    }],
+        //    categoryAxis: [{
+        //        categories: ["Time", "HR", "Calories"]
+        //    }]
+        //});
+    };
 
     $scope.init();
 });
