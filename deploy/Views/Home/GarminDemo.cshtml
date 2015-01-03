@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Garmin Demo";
+}
+<link href="~/Content/harristeq.css" rel="stylesheet" />
+
+<div class="contentContainer" ng-controller="garminController">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-12">
+                    <div ng-grid="gridOptions" class="gridStyle"></div>
+                    @*<br/>
+                    <div>laps</div>
+                    {{garminDetail.laps}}
+                    <br />
+                    <div>lapCount</div>
+                    {{garminDetail.lapCount}}
+                    <br />
+                    <div>detail</div>
+                    {{garminDetailData}}*@
+                </div>
+            </div>
+        </div>
+        <div id="lapChart"></div>
+    </div>
+</div>

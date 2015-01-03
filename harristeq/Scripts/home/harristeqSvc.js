@@ -11,6 +11,11 @@ harristeqApp.factory('harristeqSvc', ['$http', '$window', '$q', '$timeout',
 
         svc.userId = userId;
 
+        var rootUrl = function () {
+            var isProd = location.href.toLowerCase().indexOf("harristeq.com") > -1 ? true : false;
+            return isProd ? "" : "/harristeq";
+        };
+
         svc.getBlinkGreen = function () {
             var rtn;
             if ($window.stopBlinkAll || $window.stopBlinkGreen) {
@@ -57,11 +62,99 @@ harristeqApp.factory('harristeqSvc', ['$http', '$window', '$q', '$timeout',
                     //alert(data);
                 }).error(function (data, status, headers, config) {
                     var msg = 'Error fetching tasks.';
-                    alert(msg);
+                    svc.showMessage(msg, "error");
                     deferred.reject(msg);
                 });
 
             return deferred.promise;
+        };
+
+        svc.getGarminData = function (dateObj) {
+            var deferred = $q.defer();
+            $http.post(rootUrl() + "/home/getGarminData", dateObj)
+                .success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    var msg = 'Error fetching tasks.';
+                    svc.showMessage(msg,"error");
+                    deferred.reject(msg);
+                });
+
+            return deferred.promise;
+        };
+
+        svc.getGarminDetail = function (trainingCenterFileId) {
+            var deferred = $q.defer();
+            $http.get(rootUrl() + "/home/getGarminDetail/?trainingCenterFileId=" + trainingCenterFileId)
+                .success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                }).error(function (data, status, headers, config) {
+                    var msg = 'Error fetching tasks.';
+                    svc.showMessage(msg, "error");
+                    deferred.reject(msg);
+                });
+
+            return deferred.promise;
+        };
+
+        svc.showMessage = function(msg, type) {
+            Messenger.options = {
+                extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+                theme: 'flat'
+            }
+
+            switch (type) {
+                case "info":
+                    Messenger().post(msg);
+                    break;
+                case "error":
+                    Messenger().post({
+                        message: msg,
+                        type: 'error',
+                        showCloseButton: true
+                    });
+                    break;
+                case "button":
+                    var msgr;
+                    msgr = Messenger().post({
+                        message: 'Uploading new files...',
+                        type: 'info',
+                        actions: {
+                            cancel: {
+                                label: 'cancel upload',
+                                action: function () {
+                                    return msgr.update({
+                                        message: msg,
+                                        type: 'success',
+                                        actions: false
+                                    });
+                                }
+                            }
+                        }
+                    });
+                    break;
+                case "run":
+
+                    var i = 0;
+                    Messenger().run({
+                        errorMessage: msg,
+                        successMessage: 'Message sent!',
+                        action: function (opts) {
+                            if (++i < 2) {
+                                return opts.error({
+                                    status: 500,
+                                    readyState: 0,
+                                    responseText: 0
+                                });
+                            } else {
+                                return opts.success();
+                            }
+                        }
+                    });
+                    break;
+                default:
+                    Messenger().post(msg);
+            }
         };
 
         return svc;

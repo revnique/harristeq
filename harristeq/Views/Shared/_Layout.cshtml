@@ -7,19 +7,359 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" type="text/css" href="~/Content/compiled/theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/vendor/animate.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/vendor/brankic.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/vendor/ionicons.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/vendor/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/vendor/datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/vendor/morris.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/vendor/messenger/messenger.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/vendor/messenger/messenger-theme-flat.css" />
+
+    <link href="~/Content/ng-grid.css" rel="stylesheet" />
+    
+    
+    @*<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />*@
+    <link href="http://cdn.kendostatic.com/2013.2.716/styles/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://cdn.kendostatic.com/2013.2.716/styles/kendo.rtl.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://cdn.kendostatic.com/2013.2.716/styles/kendo.default.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://cdn.kendostatic.com/2013.2.716/styles/kendo.dataviz.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://cdn.kendostatic.com/2013.2.716/styles/kendo.dataviz.default.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://cdn.kendostatic.com/2013.2.716/styles/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />
+    
+
     <link rel="icon" type="image/png" href="http://harristeq.com/favicon.ico">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<body>
-    @RenderBody()
+<body id="dashboard" ng-app="harristeqApp" ng-controller="harristeqController">
+
+    <div id="wrapper">
+        <div id="sidebar-default" class="main-sidebar">
+            <div class="current-user">
+                <a href="~/index.html" class="name">
+                    <img class="avatar" src="~/images/avatars/revnique_med.JPG" />
+                    <span>
+                        revnique
+                        <i class="fa fa-chevron-down"></i>
+                    </span>
+                </a>
+                <ul class="menu">
+                    <li>
+                        <a href="~/account-profile.html">Account settings</a>
+                    </li>
+                    <li>
+                        <a href="~/account-billing.html">Billing</a>
+                    </li>
+                    <li>
+                        <a href="~/account-notifications.html">Notifications</a>
+                    </li>
+                    <li>
+                        <a href="~/account-support.html">Help / Support</a>
+                    </li>
+                    <li>
+                        <a href="~/signup.html">Sign out</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-section">
+                <h3>General</h3>
+                <ul>
+                    <li>
+                        <a href="~/index.html">
+                            <i class="ion-android-earth"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/home/garmindemo" ng-class="{active: garminDemoActive}">
+                            <i class="ion-cloud"></i>
+                            <span>Garmin Demo</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/home/taskdemo" ng-class="{active: !garminDemoActive}">
+                            <i class="ion-grid"></i>
+                            <span>Task Demo</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/users.html" data-toggle="sidebar">
+                            <i class="ion-person-stalker"></i> <span>Lists & Tables</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="~/users.html">Customers list</a></li>
+                            <li><a href="~/datatables.html">Orders (Datatables)</a></li>
+                            <li><a href="~/search.html">Products (Filters)</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="~/users.html" data-toggle="sidebar">
+                            <i class="ion-stats-bars"></i> <span>Reports</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="~/reports.html">Reports orders</a></li>
+                            <li><a href="~/reports-alt.html">Report sales</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="~/users.html" data-toggle="sidebar">
+                            <i class="ion-pricetags"></i> <span>Forms</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="~/form.html">New Customer (validation)</a></li>
+                            <li><a href="~/form-product.html">New Product (add-ons)</a></li>
+                            <li><a href="~/wizard.html">Wizard</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-section">
+                <h3>Application</h3>
+                <ul>
+                    <li>
+                        <a href="~/account.html" data-toggle="sidebar">
+                            <i class="ion-earth"></i> <span>App Pages</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="~/sidebar.html">Inbox Messages</a></li>
+                            <li><a href="~/user-profile.html">User profile</a></li>
+                            <li><a href="~/latest-activity.html">Latest activity</a></li>
+                            <li><a href="~/projects.html">Projects</a></li>
+                            <li><a href="~/steps.html">Steps to launch</a></li>
+                            <li><a href="~/calendar.html">Calendar</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="~/account.html" data-toggle="sidebar">
+                            <i class="ion-card"></i> <span>Pricing</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="~/pricing.html">Pricing (Plans)</a></li>
+                            <li><a href="~/pricing-alt.html">Pricing charts</a></li>
+                            <li><a href="~/billing-form.html">Billing form</a></li>
+                            <li><a href="~/invoice.html">Invoice</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="account.html" data-toggle="sidebar">
+                            <i class="ion-flash"></i> <span>Features</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="~/email-templates.html">Email templates</a></li>
+                            <li><a href="~/gallery.html">Gallery</a></li>
+                            <li><a href="~/ui.html">UI Extras</a></li>
+                            <li><a href="~/docs.html">API Documentation</a></li>
+                            <li><a href="~/signup.html">Sign up</a></li>
+                            <li><a href="~/signin.html">Sign in</a></li>
+                            <li><a href="~/status.html">App Status</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-section">
+                <h3>Admin</h3>
+                <ul>
+                    <li>
+                        <a href="account.html" data-toggle="sidebar">
+                            <i class="ion-person"></i> <span>My account</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="~/account-profile.html">Settings</a></li>
+                            <li><a href="~/account-billing.html">Billing</a></li>
+                            <li><a href="~/account-notifications.html">Notifications</a></li>
+                            <li><a href="~/account-support.html">Support</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="sidebar">
+                            <i class="ion-usb"></i> <span>Level Navigation</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="~/invoice.html" data-toggle="sidebar">
+                                    Submenu
+                                    <i class="fa fa-chevron-down"></i>
+                                </a>
+                                <ul class="submenu">
+                                    <li><a href="#">Last menu</a></li>
+                                    <li><a href="#">Last menu</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="~/invoice.html">Menu link</a></li>
+                            <li><a href="#">Extra link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-menu hidden-sm">
+                <ul>
+                    <li><a href="#"><i class="ion-help"></i></a></li>
+                    <li>
+                        <a href="#">
+                            <i class="ion-archive"></i>
+                            <span class="flag"></span>
+                        </a>
+                        <ul class="menu">
+                            <li><a href="#">5 unread messages</a></li>
+                            <li><a href="#">12 tasks completed</a></li>
+                            <!-- <li><a href="#">3 features added</a></li> -->
+                        </ul>
+                    </li>
+                    <li><a href="~/signup.html"><i class="ion-log-out"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+            <div class="menubar">
+                <div class="sidebar-toggler visible-xs">
+                    <i class="ion-navicon"></i>
+                </div>
+                <div class="page-title">
+                    <h3 style="margin-top:0px;">
+                        @ViewBag.Title
+                    </h3>
+                </div>
+                <div class="period-select hidden-xs">
+                    <form class="input-daterange" ng-show="showDates" ng-cloak>
+                        <img src="~/images/ajaxloader.gif" width="25" ng-show="showAjax" style="float:left; margin: 4px 15px 0px 0px;" />
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">
+                                <i class="fa fa-calendar-o"></i>
+                            </span>
+                            <input name="start" type="text" class="form-control datepicker" placeholder="06/27/2014" ng-model="startDate" />
+                        </div>
+
+                        <p class="pull-left">to</p>
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">
+                                <i class="fa fa-calendar-o"></i>
+                            </span>
+                            <input name="end" type="text" class="form-control datepicker" placeholder="07/27/2014" ng-model="endDate" />
+                        </div>
+                        <button class="btn btn-primary" ng-click="getGarminData()" style="margin: 0px 0px 0px 15px; padding-top:4px; padding-bottom:4px;">pull</button>
+                    </form>
+                </div>
+            </div>
+            <div class="content-wrapper">
+
+
+
+                @RenderBody()
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="skin-switcher" style="display: none;">
+        <div class="toggler">
+            <span class="brankic-brush"></span>
+        </div>
+        <ul class="menu">
+            <li>
+                <a class="active" data-skin="sidebar-default" href="#">
+                    <span class="color default"></span> Default
+                    <i class="fa fa-check"></i>
+                </a>
+            </li>
+            <li>
+                <a data-skin="sidebar-clear" href="#">
+                    <span class="color clear"></span> Clear
+                    <i class="fa fa-check"></i>
+                </a>
+            </li>
+            <li>
+                <a data-skin="sidebar-black" href="#">
+                    <span class="color black"></span> Black
+                    <i class="fa fa-check"></i>
+                </a>
+            </li>
+            <li>
+                <a data-skin="sidebar-dark" href="#">
+                    <span class="color dark"></span> Dark
+                    <i class="fa fa-check"></i>
+                </a>
+            </li>
+            <li>
+                <a data-skin="sidebar-flat" href="#">
+                    <span class="color flat"></span> Flat
+                    <i class="fa fa-check"></i>
+                </a>
+            </li>
+            <li>
+                <a data-skin="sidebar-flat-dark" href="#">
+                    <span class="color flat-dark"></span> Flat dark
+                    <i class="fa fa-check"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
     @Scripts.Render("~/bundles/jquery")
     <script src="~/Scripts/jquery-ui-1.11.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    
+    <!-- javascript -->
+    <script src="~/Scripts/vendor/jquery.cookie.js"></script>
+    <script src="~/Scripts/vendor/moment.min.js"></script>
+    <script src="~/Scripts/theme.js"></script>
+    <script src="~/Scripts/vendor/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/vendor/raphael-min.js"></script>
+    <script src="~/Scripts/vendor/morris.min.js"></script>
+    <script src="~/Scripts/vendor/messenger/messenger.min.js"></script>
+    <script src="~/Scripts/vendor/messenger/messenger-theme-flat.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+    
+    
+    
+    <script src="http://cdn.kendostatic.com/2013.2.716/js/kendo.all.min.js"></script>
+
+    
+
     <script src="~/Scripts/angular.js"></script>
     <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/ng-grid.js"></script>
     <script src="~/Scripts/home/harristeqApp.js"></script>
     <script src="~/Scripts/home/harristeqDirectives.js"></script>
     <script src="~/Scripts/home/harristeqSvc.js"></script>
+    <script src="~/Scripts/home/taskController.js"></script>
+    <script src="~/Scripts/home/garminController.js"></script>
     <script src="~/Scripts/home/harristeqController.js"></script>
+
+
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
