@@ -712,6 +712,7 @@
     <Content Include="images\emails\welcome.png" />
     <Content Include="images\google-drive.png" />
     <Content Include="images\jquery.minicolors.png" />
+    <Content Include="images\justlogoIcon.png" />
     <Content Include="images\popover-arrow.png" />
     <Content Include="images\product.jpg" />
     <Content Include="images\products\1.jpeg" />
@@ -806,6 +807,7 @@
     <Content Include="js\vendor\shepherd.min.js" />
     <Content Include="js\vendor\summernote.min.js" />
     <Content Include="js\vendor\zoomerang.js" />
+    <Content Include="justlogoIcon.png" />
     <Content Include="latest-activity.html" />
     <Content Include="pricing-alt.html" />
     <Content Include="pricing.html" />
