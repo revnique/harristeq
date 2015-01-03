@@ -18,8 +18,10 @@
             $scope.showDates = true;
             $scope.garminDemoActive = true;
         }
+        if (location.href.toLowerCase().indexOf("onemonthspanish") > -1) {
+            $scope.spanishActive = true;
+        }
 
-       
         //$scope.startDate = "06/27/2014";
         //$scope.endDate = "07/27/2014";
         $scope.startDate = "07/07/2014";
