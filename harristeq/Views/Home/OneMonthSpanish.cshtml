@@ -4,22 +4,22 @@
 @section scripts{
  
 <script>
-    var pop = Popcorn("#greeting");
-    var wordTimes2 = {
-        "w1": { start: 1, end: 1.5 },
-        "w2": { start: 1.9, end: 2.5 },
-        "w3": { start: 3, end: 4 }
-    };
-    $.each(wordTimes2, function (id, time) {
-        pop.footnote({
-            start: time.start,
-            end: time.end,
-            text: '',
-            target: id,
-            effect: "applyclass",
-            applyclass: "selected"
-        });
-    });
+    //var pop = Popcorn("#greeting");
+    //var wordTimes2 = {
+    //    "w1": { start: 1, end: 1.5 },
+    //    "w2": { start: 1.9, end: 2.5 },
+    //    "w3": { start: 3, end: 4 }
+    //};
+    //$.each(wordTimes2, function (id, time) {
+    //    pop.footnote({
+    //        start: time.start,
+    //        end: time.end,
+    //        text: '',
+    //        target: id,
+    //        effect: "applyclass",
+    //        applyclass: "selected"
+    //    });
+    //});
     //pop.play();
     
     $('.word2').click(function () {
@@ -78,24 +78,38 @@
 
     $('.word').click(function () {
         var audio = $('#teXiCan');
-        audio[0].currentTime = parseFloat($(this).data('start'), 10);
-        audio[0].play();
+        try {
+            var phraseId = $(this).attr("id");
+            var phraseObj = eval('phraseTimes.' + phraseId);
+            var phraseStart = phraseObj.start;
+
+            audio[0].currentTime = phraseStart;
+            audio[0].play();
+        } catch (e) {
+            //swallow possible parsing errors
+        } 
+
     });
 
 </script>   
 }
 
 <style>
-.word, .word2 {
+.word2 {
    color: red;
 }
-.word:hover, .word.selected, .word2:hover, .word2.selected {
+.word2:hover, .word2.selected {
     color: blue;
     cursor: pointer;
 }
+.word:hover, .word.selected {
+    color: white;
+    cursor: pointer;
+    background-color: #e78b24;
+}
 </style>
 
-<div class="col-lg-12">
+@*<div class="col-lg-12">
 
     <audio id="greeting" src="http://dl.dropbox.com/u/17154625/greeting.ogg" controls></audio>
 
@@ -110,7 +124,7 @@
     <br />
     <br />
     <br />
-</div>
+</div>*@
 <div class="col-lg-12">
     <audio id="teXiCan" controls="controls">
         <source src="http://audio.onemonthspanish.com/Unit+3+-+Basic+Dialogue.mp3" type="audio/mpeg">
@@ -123,59 +137,59 @@
 
 
 <div class="col-lg-12">
-    phrase1<span id="phrase1" class="word" data-start="1.0">¿Le gusta el cuarto?</span>
+    <span id="phrase1" class="word">¿Le gusta el cuarto?</span>
     <br />
-    phrase2<span id="phrase2" class="word" data-start="1.0">Sí, me gusta.</span>
+    <span id="phrase2" class="word">Sí, me gusta.</span>
     <br />
-    phrase3<span id="phrase3" class="word" data-start="1.0">¿Quiere usted agua mineral?</span>
+    <span id="phrase3" class="word">¿Quiere usted agua mineral?</span>
     <br />
-    phrase4<span id="phrase4" class="word" data-start="1.0">Sí, súbamela después.</span>
+    <span id="phrase4" class="word">Sí, súbamela después.</span>
     <br />
-    phrase5<span id="phrase5" class="word" data-start="1.0">¿Necesita algo más?</span>
+    <span id="phrase5" class="word">¿Necesita algo más?</span>
     <br />
-    phrase6<span id="phrase6" class="word" data-start="1.0">Sí.¿Está la Embajada Americana cerca de aquí?</span>
+    <span id="phrase6" class="word">Sí.¿Está la Embajada Americana cerca de aquí?</span>
     <br />
-    phrase7<span id="phrase7" class="word" data-start="1.0">No. Está lejos. En la avenida Independencia.</span>
+    <span id="phrase7" class="word">No. Está lejos. En la avenida Independencia.</span>
     <br />
-    phrase8<span id="phrase8" class="word" data-start="1.0">Hay que tomar un taxi.</span>
+    <span id="phrase8" class="word">Hay que tomar un taxi.</span>
     <br />
-    phrase9<span id="phrase9" class="word" data-start="1.0">Gracias. Aquí tiene.</span>
+    <span id="phrase9" class="word">Gracias. Aquí tiene.</span>
     <br />
-    phrase10<span id="phrase10" class="word" data-start="1.0">Muchas gracias, señorita.</span>
+    <span id="phrase10" class="word">Muchas gracias, señorita.</span>
     <br />
-    phrase11<span id="phrase11" class="word" data-start="1.0">¿Baja en el ascensor?</span>
+    <span id="phrase11" class="word">¿Baja en el ascensor?</span>
     <br />
-    phrase12<span id="phrase12" class="word" data-start="1.0">Sí, ahora mismo.</span>
+    <span id="phrase12" class="word">Sí, ahora mismo.</span>
     <br />
-    phrase13<span id="phrase13" class="word" data-start="1.0">¿Dónde está la caja?</span>
+    <span id="phrase13" class="word">¿Dónde está la caja?</span>
     <br />
-    phrase14<span id="phrase14" class="word" data-start="1.0">En el primer piso, a la derecha de la entrada. </span>
+    <span id="phrase14" class="word">En el primer piso, a la derecha de la entrada. </span>
     <br />
     <br />
     <br />
-    phrase16<span id="phrase16" class="word" data-start="1.0">¿Puede cambiarme unos dólares?</span>
+    <span id="phrase16" class="word">¿Puede cambiarme unos dólares?</span>
     <br />
-    phrase17<span id="phrase17" class="word" data-start="1.0">Sí. ¿Cuántos?</span>
+    <span id="phrase17" class="word">Sí. ¿Cuántos?</span>
     <br />
-    phrase18<span id="phrase18" class="word" data-start="1.0">Cincuenta. ¿A cómo está el cambio?</span>
+    <span id="phrase18" class="word">Cincuenta. ¿A cómo está el cambio?</span>
     <br />
-    phrase19<span id="phrase19" class="word" data-start="1.0">¿En billetes o en cheque?</span>
+    <span id="phrase19" class="word">¿En billetes o en cheque?</span>
     <br />
-    phrase20<span id="phrase20" class="word" data-start="1.0">Este cheque viajero.</span>
+    <span id="phrase20" class="word">Este cheque viajero.</span>
     <br />
-    phrase21<span id="phrase21" class="word" data-start="1.0">A cinco por uno, entonces.</span>
+    <span id="phrase21" class="word">A cinco por uno, entonces.</span>
     <br />
-    phrase22<span id="phrase22" class="word" data-start="1.0">¿Cómo lo quiere?</span>
+    <span id="phrase22" class="word">¿Cómo lo quiere?</span>
     <br />
-    phrase23<span id="phrase23" class="word" data-start="1.0">Doscientos en billetes y cincuenta en moneda.</span>
+    <span id="phrase23" class="word">Doscientos en billetes y cincuenta en moneda.</span>
     <br />
-    phrase24<span id="phrase24" class="word" data-start="1.0">¿Cuánto cuesta un taxi a la Embajada Americana ?</span>
+    <span id="phrase24" class="word">¿Cuánto cuesta un taxi a la Embajada Americana ?</span>
     @*<br />
-    phrase25<span id="phrase25" class="word" data-start="1.0"></span>*@
+    phrase25<span id="phrase25" class="word"></span>*@
     <br />
-    phrase26<span id="phrase26" class="word" data-start="1.0">Veinticinco pesos, más o menos.</span>
+    <span id="phrase26" class="word">Veinticinco pesos, más o menos.</span>
     <br />
-    phrase27<span id="phrase27" class="word" data-start="1.0">Gracias por la información.</span>
+    <span id="phrase27" class="word">Gracias por la información.</span>
     <br />
     <br />
     <br />
