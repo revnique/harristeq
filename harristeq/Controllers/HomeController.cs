@@ -30,6 +30,12 @@ namespace harristeq.Controllers
             return View();
         }
 
+        public ActionResult OneMonthSpanish()
+        {
+            ViewBag.ShowMe = "Potato Salad";
+            return View();
+        }
+
         public JsonResult GetGarminData(DateObj dateObj)
         {
 

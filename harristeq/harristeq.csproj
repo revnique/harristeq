@@ -919,6 +919,7 @@
     <Content Include="icons\icomoon\fonts\icomoon.woff" />
     <Content Include="icons\icomoon\selection.json" />
     <Content Include="Scripts\ng-grid.js" />
+    <Content Include="Scripts\popcorn-complete.min.js" />
     <Content Include="Scripts\theme.js" />
     <Content Include="Scripts\vendor\bootstrap-datepicker.js" />
     <Content Include="Scripts\vendor\bootstrap-daterangepicker.js" />
@@ -1109,6 +1110,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\GarminDemo.cshtml" />
+    <Content Include="Views\Home\OneMonthSpanish.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
