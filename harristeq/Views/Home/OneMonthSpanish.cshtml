@@ -30,36 +30,39 @@
 
 
 
+    //definitely want to pause at the end and mark the endings first then go back and mark the beginnings
     var sync = Popcorn("#teXiCan");
     var phraseTimes = {
-        "phrase1": { start: 10, end: 10.9 },
+        "phrase1": { start: 9.7, end: 10.9 },
         "phrase2": { start: 11.0, end: 11.9 },
         "phrase3": { start: 12, end: 13.4 },
         "phrase4": { start: 13.5, end: 14.9 },
         "phrase5": { start: 15.0, end: 16.2 },
-        "phrase6": { start: 16.3, end: 17.9 },
-        "phrase7": { start: 18, end: 18.9 },
-        "phrase8": { start: 19, end: 19.9 },
-        "phrase9": { start: 18, end: 18.9 },
-        "phrase10": { start: 19, end: 19.9 },
-        "phrase11": { start: 20, end: 20.9 },
-        "phrase12": { start: 3, end: 4 },
-        "phrase13": { start: 3, end: 4 },
-        "phrase14": { start: 3, end: 4 },
-        "phrase15": { start: 3, end: 4 },
-        "phrase16": { start: 3, end: 4 },
-        "phrase17": { start: 3, end: 4 },
-        "phrase18": { start: 3, end: 4 },
-        "phrase19": { start: 3, end: 4 },
-        "phrase20": { start: 3, end: 4 },
-        "phrase21": { start: 3, end: 4 },
-        "phrase22": { start: 3, end: 4 },
-        "phrase23": { start: 3, end: 4 },
-        "phrase24": { start: 3, end: 4 },
-        "phrase25": { start: 3, end: 4 },
-        "phrase26": { start: 3, end: 4 },
-        "phrase27": { start: 3, end: 4 }
+        "phrase6": { start: 16.3, end: 18.9 },
+        "phrase7": { start: 19, end: 21.5 },
+        "phrase8": { start: 21.6, end: 22.9 },
+        "phrase9": { start: 23.2, end: 24.7 },
+        "phrase10": { start: 24.8, end: 26.3 },
+        "phrase11": { start: 26.5, end: 27.7 },
+        "phrase12": { start: 27.8, end: 29 },
+        "phrase13": { start: 29.1, end: 30 },
+        "phrase14": { start: 30.2, end: 33.0 },
+
+        //"phrase15": { start: 42.7, end: 44 },
+        "phrase16": { start: 42.9, end: 44.4 },
+        "phrase17": { start: 44.5, end: 46 },
+        "phrase18": { start: 46.1, end: 48 },
+        "phrase19": { start: 48.1, end: 49.8 },
+        "phrase20": { start: 49.9, end: 51 },
+        "phrase21": { start: 51.1, end: 53.1 },
+        "phrase22": { start: 53.2, end: 54.2 },
+        "phrase23": { start: 54.3, end: 56.5 },
+        "phrase24": { start: 56.6, end: 58.9 },
+        //"phrase25": { start: 70, end: 70 },
+        "phrase26": { start: 59.1, end: 60.7 },
+        "phrase27": { start: 60.8, end: 62.7 }
     };
+
 
     $.each(phraseTimes, function (id, time) {
         sync.footnote({
@@ -120,59 +123,59 @@
 
 
 <div class="col-lg-12">
-    <span id="phrase1" class="word" data-start="1.0">¿Le gusta el cuarto?</span>
+    phrase1<span id="phrase1" class="word" data-start="1.0">¿Le gusta el cuarto?</span>
     <br />
-    <span id="phrase2" class="word" data-start="1.0">Sí, me gusta.</span>
+    phrase2<span id="phrase2" class="word" data-start="1.0">Sí, me gusta.</span>
     <br />
-    <span id="phrase3" class="word" data-start="1.0">¿Quiere usted agua mineral?</span>
+    phrase3<span id="phrase3" class="word" data-start="1.0">¿Quiere usted agua mineral?</span>
     <br />
-    <span id="phrase4" class="word" data-start="1.0">Sí, súbamela después.</span>
+    phrase4<span id="phrase4" class="word" data-start="1.0">Sí, súbamela después.</span>
     <br />
-    <span id="phrase5" class="word" data-start="1.0">¿Necesita algo más?</span>
+    phrase5<span id="phrase5" class="word" data-start="1.0">¿Necesita algo más?</span>
     <br />
-    <span id="phrase6" class="word" data-start="1.0">Sí.¿Está la Embajada Americana cerca de aquí?</span>
+    phrase6<span id="phrase6" class="word" data-start="1.0">Sí.¿Está la Embajada Americana cerca de aquí?</span>
     <br />
-    <span id="phrase7" class="word" data-start="1.0">No. Está lejos. En la avenida Independencia.</span>
+    phrase7<span id="phrase7" class="word" data-start="1.0">No. Está lejos. En la avenida Independencia.</span>
     <br />
-    <span id="phrase8" class="word" data-start="1.0">Hay que tomar un taxi.</span>
+    phrase8<span id="phrase8" class="word" data-start="1.0">Hay que tomar un taxi.</span>
     <br />
-    <span id="phrase9" class="word" data-start="1.0">Gracias. Aquí tiene.</span>
+    phrase9<span id="phrase9" class="word" data-start="1.0">Gracias. Aquí tiene.</span>
     <br />
-    <span id="phrase10" class="word" data-start="1.0">Muchas gracias, señorita.</span>
+    phrase10<span id="phrase10" class="word" data-start="1.0">Muchas gracias, señorita.</span>
     <br />
-    <span id="phrase11" class="word" data-start="1.0">¿Baja en el ascensor?</span>
+    phrase11<span id="phrase11" class="word" data-start="1.0">¿Baja en el ascensor?</span>
     <br />
-    <span id="phrase12" class="word" data-start="1.0">Sí, ahora mismo.</span>
+    phrase12<span id="phrase12" class="word" data-start="1.0">Sí, ahora mismo.</span>
     <br />
-    <span id="phrase13" class="word" data-start="1.0">¿Dónde está la caja?</span>
+    phrase13<span id="phrase13" class="word" data-start="1.0">¿Dónde está la caja?</span>
     <br />
-    <span id="phrase14" class="word" data-start="1.0">En el primer piso, a la derecha de la entrada. </span>
+    phrase14<span id="phrase14" class="word" data-start="1.0">En el primer piso, a la derecha de la entrada. </span>
     <br />
-    <span id="phrase15" class="word" data-start="1.0">(Srta. Smith baja en el ascensor y se acerca a la caja) </span>
     <br />
-    <span id="phrase16" class="word" data-start="1.0">¿Puede cambiarme unos dólares?</span>
     <br />
-    <span id="phrase17" class="word" data-start="1.0">Sí. ¿Cuántos?</span>
+    phrase16<span id="phrase16" class="word" data-start="1.0">¿Puede cambiarme unos dólares?</span>
     <br />
-    <span id="phrase18" class="word" data-start="1.0">Cincuenta. ¿A cómo está el cambio?</span>
+    phrase17<span id="phrase17" class="word" data-start="1.0">Sí. ¿Cuántos?</span>
     <br />
-    <span id="phrase19" class="word" data-start="1.0">¿En billetes o en cheque?</span>
+    phrase18<span id="phrase18" class="word" data-start="1.0">Cincuenta. ¿A cómo está el cambio?</span>
     <br />
-    <span id="phrase20" class="word" data-start="1.0">Este cheque viajero.</span>
+    phrase19<span id="phrase19" class="word" data-start="1.0">¿En billetes o en cheque?</span>
     <br />
-    <span id="phrase21" class="word" data-start="1.0">A cinco por uno, entonces.</span>
+    phrase20<span id="phrase20" class="word" data-start="1.0">Este cheque viajero.</span>
     <br />
-    <span id="phrase22" class="word" data-start="1.0">¿Cómo lo quiere?</span>
+    phrase21<span id="phrase21" class="word" data-start="1.0">A cinco por uno, entonces.</span>
     <br />
-    <span id="phrase23" class="word" data-start="1.0">Doscientos en billetes y cincuenta en moneda.</span>
+    phrase22<span id="phrase22" class="word" data-start="1.0">¿Cómo lo quiere?</span>
     <br />
-    <span id="phrase24" class="word" data-start="1.0">¿Cuánto cuesta un taxi a la Embajada</span>
+    phrase23<span id="phrase23" class="word" data-start="1.0">Doscientos en billetes y cincuenta en moneda.</span>
     <br />
-    <span id="phrase25" class="word" data-start="1.0">Americana ?</span>
+    phrase24<span id="phrase24" class="word" data-start="1.0">¿Cuánto cuesta un taxi a la Embajada Americana ?</span>
+    @*<br />
+    phrase25<span id="phrase25" class="word" data-start="1.0"></span>*@
     <br />
-    <span id="phrase26" class="word" data-start="1.0">Veinticinco pesos, más o menos.</span>
+    phrase26<span id="phrase26" class="word" data-start="1.0">Veinticinco pesos, más o menos.</span>
     <br />
-    <span id="phrase27" class="word" data-start="1.0">Gracias por la información.</span>
+    phrase27<span id="phrase27" class="word" data-start="1.0">Gracias por la información.</span>
     <br />
     <br />
     <br />
