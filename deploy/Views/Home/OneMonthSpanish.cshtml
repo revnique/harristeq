@@ -1,0 +1,201 @@
+﻿@{
+    ViewBag.Title = "OneMonthSpanish";
+}
+@section scripts{
+ 
+<script>
+    //var pop = Popcorn("#greeting");
+    //var wordTimes2 = {
+    //    "w1": { start: 1, end: 1.5 },
+    //    "w2": { start: 1.9, end: 2.5 },
+    //    "w3": { start: 3, end: 4 }
+    //};
+    //$.each(wordTimes2, function (id, time) {
+    //    pop.footnote({
+    //        start: time.start,
+    //        end: time.end,
+    //        text: '',
+    //        target: id,
+    //        effect: "applyclass",
+    //        applyclass: "selected"
+    //    });
+    //});
+    //pop.play();
+    
+    $('.word2').click(function () {
+        var audio = $('#greeting');
+        audio[0].currentTime = parseFloat($(this).data('start'), 10);
+        audio[0].play();
+    });
+
+
+
+    //definitely want to pause at the end and mark the endings first then go back and mark the beginnings
+    var sync = Popcorn("#teXiCan");
+    var phraseTimes = {
+        "phrase1": { start: 9.7, end: 10.9 },
+        "phrase2": { start: 11.0, end: 11.9 },
+        "phrase3": { start: 12, end: 13.4 },
+        "phrase4": { start: 13.5, end: 14.9 },
+        "phrase5": { start: 15.0, end: 16.2 },
+        "phrase6": { start: 16.3, end: 18.9 },
+        "phrase7": { start: 19, end: 21.5 },
+        "phrase8": { start: 21.6, end: 22.9 },
+        "phrase9": { start: 23.2, end: 24.7 },
+        "phrase10": { start: 24.8, end: 26.3 },
+        "phrase11": { start: 26.5, end: 27.7 },
+        "phrase12": { start: 27.8, end: 29 },
+        "phrase13": { start: 29.1, end: 30 },
+        "phrase14": { start: 30.2, end: 33.0 },
+
+        //"phrase15": { start: 42.7, end: 44 },
+        "phrase16": { start: 42.9, end: 44.4 },
+        "phrase17": { start: 44.5, end: 46 },
+        "phrase18": { start: 46.1, end: 48 },
+        "phrase19": { start: 48.1, end: 49.8 },
+        "phrase20": { start: 49.9, end: 51 },
+        "phrase21": { start: 51.1, end: 53.1 },
+        "phrase22": { start: 53.2, end: 54.2 },
+        "phrase23": { start: 54.3, end: 56.5 },
+        "phrase24": { start: 56.6, end: 58.9 },
+        //"phrase25": { start: 70, end: 70 },
+        "phrase26": { start: 59.1, end: 60.7 },
+        "phrase27": { start: 60.8, end: 62.7 }
+    };
+
+
+    $.each(phraseTimes, function (id, time) {
+        sync.footnote({
+            start: time.start,
+            end: time.end,
+            text: '',
+            target: id,
+            effect: "applyclass",
+            applyclass: "selected"
+        });
+    });
+
+
+    $('.word').click(function () {
+        var audio = $('#teXiCan');
+        try {
+            var phraseId = $(this).attr("id");
+            var phraseObj = eval('phraseTimes.' + phraseId);
+            var phraseStart = phraseObj.start;
+
+            audio[0].currentTime = phraseStart;
+            audio[0].play();
+        } catch (e) {
+            //swallow possible parsing errors
+        } 
+
+    });
+
+</script>   
+}
+
+<style>
+.word2 {
+   color: red;
+}
+.word2:hover, .word2.selected {
+    color: blue;
+    cursor: pointer;
+}
+.word:hover, .word.selected {
+    color: white;
+    cursor: pointer;
+    background-color: #e78b24;
+}
+</style>
+
+@*<div class="col-lg-12">
+
+    <audio id="greeting" src="http://dl.dropbox.com/u/17154625/greeting.ogg" controls></audio>
+
+    <div id="text">
+        <span id="w1" class="word2" data-start="1.0">Hello</span>,
+        and <span id="w2" class="word2" data-start="2.0">welcome</span>
+        to Stack <span id="w3" class="word2" data-start="3.0">Overflow</span>.
+        Thank you for asking your question.
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>*@
+<div class="col-lg-12">
+    <audio id="teXiCan" controls="controls">
+        <source src="http://audio.onemonthspanish.com/Unit+3+-+Basic+Dialogue.mp3" type="audio/mpeg">
+        Your browser does not support HTML5 audio.
+    </audio>
+    <p><strong>Unit 3 - Full Dialogue</strong><br><em>Listen to the complete dialogue at full speed.</em></p>
+
+</div>
+
+
+
+<div class="col-lg-12">
+    <span id="phrase1" class="word">¿Le gusta el cuarto?</span>
+    <br />
+    <span id="phrase2" class="word">Sí, me gusta.</span>
+    <br />
+    <span id="phrase3" class="word">¿Quiere usted agua mineral?</span>
+    <br />
+    <span id="phrase4" class="word">Sí, súbamela después.</span>
+    <br />
+    <span id="phrase5" class="word">¿Necesita algo más?</span>
+    <br />
+    <span id="phrase6" class="word">Sí.¿Está la Embajada Americana cerca de aquí?</span>
+    <br />
+    <span id="phrase7" class="word">No. Está lejos. En la avenida Independencia.</span>
+    <br />
+    <span id="phrase8" class="word">Hay que tomar un taxi.</span>
+    <br />
+    <span id="phrase9" class="word">Gracias. Aquí tiene.</span>
+    <br />
+    <span id="phrase10" class="word">Muchas gracias, señorita.</span>
+    <br />
+    <span id="phrase11" class="word">¿Baja en el ascensor?</span>
+    <br />
+    <span id="phrase12" class="word">Sí, ahora mismo.</span>
+    <br />
+    <span id="phrase13" class="word">¿Dónde está la caja?</span>
+    <br />
+    <span id="phrase14" class="word">En el primer piso, a la derecha de la entrada. </span>
+    <br />
+    <br />
+    <br />
+    <span id="phrase16" class="word">¿Puede cambiarme unos dólares?</span>
+    <br />
+    <span id="phrase17" class="word">Sí. ¿Cuántos?</span>
+    <br />
+    <span id="phrase18" class="word">Cincuenta. ¿A cómo está el cambio?</span>
+    <br />
+    <span id="phrase19" class="word">¿En billetes o en cheque?</span>
+    <br />
+    <span id="phrase20" class="word">Este cheque viajero.</span>
+    <br />
+    <span id="phrase21" class="word">A cinco por uno, entonces.</span>
+    <br />
+    <span id="phrase22" class="word">¿Cómo lo quiere?</span>
+    <br />
+    <span id="phrase23" class="word">Doscientos en billetes y cincuenta en moneda.</span>
+    <br />
+    <span id="phrase24" class="word">¿Cuánto cuesta un taxi a la Embajada Americana ?</span>
+    @*<br />
+    phrase25<span id="phrase25" class="word"></span>*@
+    <br />
+    <span id="phrase26" class="word">Veinticinco pesos, más o menos.</span>
+    <br />
+    <span id="phrase27" class="word">Gracias por la información.</span>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
