@@ -24,7 +24,7 @@
     };
 
     $scope.init = function () {
-    
+        $scope.getGarminData();
     };
 
     $scope.getGarminData = function () {

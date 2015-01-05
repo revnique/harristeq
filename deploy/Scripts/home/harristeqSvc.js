@@ -12,7 +12,7 @@ harristeqApp.factory('harristeqSvc', ['$http', '$window', '$q', '$timeout',
         svc.userId = userId;
 
         var rootUrl = function () {
-            var isProd = location.href.toLowerCase().indexOf("harristeq.com") > -1 ? true : false;
+            var isProd = location.href.toLowerCase().indexOf("localhost") > -1 ? false : true;
             return isProd ? "" : "/harristeq";
         };
 
