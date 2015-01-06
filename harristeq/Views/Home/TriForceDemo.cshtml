@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "TriForce";
+}
+<body onload="init();">
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <div id="status">1</div>
+    <script>
+        var canvas = document.getElementById("canvas"), ctx = canvas.getContext("2d"), triangleArr = [], dim = 500;
+        var triangle = {
+            c: "black",
+            ly: canvas.height,
+            lx: 0,
+            ry: canvas.height,
+            rx: dim,
+            ty: canvas.height - (Math.sqrt(3) * dim) / 2,
+            tx: dim / 2,
+            di: dim
+        };
+        var init = function () {
+            triangleArr.push(triangle);
+            makeTriangles();
+            fractalize();
+        };
+        var fractalize = function () {
+            var triCounter = 0;
+            window.setInterval(function () {
+                triCounter++;
+                if (triCounter % 5 == 0) {
+                    triCounter = 0;
+                    triangleArr = [];
+                    triangleArr.push(triangle);
+                }
+                document.getElementById("status").innerText = triCounter + 1;
+                makeTriangles();
+            }, 1000);
+        };
+        var makeTriangles = function () {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i in triangleArr) {
+                if (triangleArr[i].c == "black") {
+                    var triangle = {
+                        c: "white",
+                        ly: (triangleArr[i].ly + triangleArr[i].ty) / 2,
+                        lx: (triangleArr[i].lx + triangleArr[i].tx) / 2,
+                        ry: (triangleArr[i].ry + triangleArr[i].ty) / 2,
+                        rx: (triangleArr[i].rx + triangleArr[i].tx) / 2,
+                        ty: triangleArr[i].ty + (Math.sqrt(3) * triangleArr[i].di) / 2,
+                        tx: triangleArr[i].tx,
+                        di: triangleArr[i].di / 2
+                    };
+                    triangleArr.push(triangle);
+                    triangle = {
+                        c: "black",
+                        ly: (triangleArr[i].ly + triangleArr[i].ty) / 2,
+                        lx: (triangleArr[i].lx + triangleArr[i].tx) / 2,
+                        ry: (triangleArr[i].ry + triangleArr[i].ty) / 2,
+                        rx: (triangleArr[i].rx + triangleArr[i].tx) / 2,
+                        ty: triangleArr[i].ty,
+                        tx: triangleArr[i].tx,
+                        di: triangleArr[i].di / 2
+                    };
+                    triangleArr.push(triangle);
+                    triangle = {
+                        c: "black",
+                        ly: triangleArr[i].ly,
+                        lx: triangleArr[i].lx,
+                        ry: (triangleArr[i].ry + triangleArr[i].ly) / 2,
+                        rx: (triangleArr[i].rx + triangleArr[i].lx) / 2,
+                        ty: (triangleArr[i].ty + triangleArr[i].ly) / 2,
+                        tx: (triangleArr[i].tx + triangleArr[i].lx) / 2,
+                        di: triangleArr[i].di / 2
+                    };
+                    triangleArr.push(triangle);
+                    triangle = {
+                        c: "black",
+                        ly: (triangleArr[i].ly + triangleArr[i].ry) / 2,
+                        lx: (triangleArr[i].lx + triangleArr[i].rx) / 2,
+                        ry: triangleArr[i].ry,
+                        rx: triangleArr[i].rx,
+                        ty: (triangleArr[i].ty + triangleArr[i].ry) / 2,
+                        tx: (triangleArr[i].tx + triangleArr[i].rx) / 2,
+                        di: triangleArr[i].di / 2
+                    };
+                    triangleArr.push(triangle);
+                }
+            }
+            for (i in triangleArr) { drawtriangle(triangleArr[i]); }
+        }
+        var drawtriangle = function (t) {
+            ctx.beginPath();
+            ctx.moveTo(t.lx, t.ly);
+            ctx.lineTo(t.rx, t.ry);
+            ctx.lineTo(t.tx, t.ty);
+            ctx.lineTo(t.lx, t.ly);
+            ctx.fillStyle = t.c;
+            ctx.fill();
+            ctx.closePath();
+        };
+    </script>
+</body>

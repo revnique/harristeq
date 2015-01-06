@@ -157,6 +157,26 @@ harristeqApp.factory('harristeqSvc', ['$http', '$window', '$q', '$timeout',
             }
         };
 
+        $http.defaults.useXDomain = true;
+        
+        svc.getTrailInfo = function () {
+            var deferred = $q.defer();
+
+            $http.get("http://bikegrapevine.org/code/index.php")
+                .success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                    //alert(data);
+                    svc.showLoading = false;
+                }).error(function (data, status, headers, config) {
+                    var msg = 'Error fetching trail info.';
+                    svc.showMessage(msg, "error");
+                    deferred.reject(msg);
+                });
+
+            return deferred.promise;
+        };
+
+
         return svc;
     }
 ]);

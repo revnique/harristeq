@@ -36,6 +36,19 @@ namespace harristeq.Controllers
             return View();
         }
 
+        public ActionResult TriForceDemo()
+        {
+            ViewBag.ShowMe = "Potato Salad";
+            return View();
+        }
+
+
+        public ActionResult DorbaDemo()
+        {
+            ViewBag.ShowMe = "Potato Salad";
+            return View();
+        }
+
         public JsonResult GetGarminData(DateObj dateObj)
         {
 

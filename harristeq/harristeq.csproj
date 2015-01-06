@@ -820,6 +820,7 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\home\dorbaController.js" />
     <Content Include="Scripts\home\harristeqApp.js" />
     <Content Include="Scripts\home\taskController.js" />
     <Content Include="Scripts\home\garminController.js" />
@@ -1113,6 +1114,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\GarminDemo.cshtml" />
     <Content Include="Views\Home\OneMonthSpanish.cshtml" />
+    <Content Include="Views\Home\DorbaDemo.cshtml" />
+    <Content Include="Views\Home\TriForceDemo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

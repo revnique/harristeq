@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Dorba";
+}
+<body>
+
+    <style>
+        #divTrailContainer {
+            padding: 10px;
+            text-align: center;
+            width: auto;
+        }
+
+        #trailConditions {
+            list-style: none;
+            margin: auto;
+            padding: 0px;
+            text-align: left;
+            width: 50%;
+        }
+
+        #trailConditions li { padding: 5px; }
+
+        .trailOpen {
+            background-color: green;
+            color: white;
+        }
+
+        .trailClosed {
+            background-color: red;
+            color: yellow;
+        }
+
+        .trailUnknown {
+            background-color: pink;
+            color: black;
+        }
+
+        #divError {
+            background-color: #990000;
+            color: white;
+            font-size: 25px;
+        }
+
+        .trailStatus {
+            float: left;
+            margin-right: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: center;
+        }
+
+        .trailName { float: left; }
+
+        .clear { clear: both; }
+
+    </style>
+
+
+
+    <div id="divTrailContainer" ng-controller="dorbaController">
+        <div id="loadedTime" ng-show="!showLoading && showError==false">
+            {{loadedTime()}}
+        </div>
+        <div id="divError" ng-show="!showLoading && showError==true">Trail conditions are currently unavailable</div>
+
+        <div ng-show="!showLoading && showError==false" ng-repeat="category in dorbaData.categories">
+            <span>{{category.category.name}}</span>
+            <ul id="trailConditions">
+                <li ng-repeat="trails in dorbaData.categories[$index].category.trails[0]">
+                    <div class="trailStatus"
+                         ng-class="{'btn btn-danger': trails.trail.currentStatus==0, 'btn btn-success': trails.trail.currentStatus==1, 'btn btn-warning': trails.trail.currentStatus!=1 && trails.trail.currentStatus!=0}">{{trails.trail.currentStatus==0 ? 'closed' : trails.trail.currentStatus==1 ? 'open' : 'unknown'}}</div>
+                    <div class="trailName">{{trails.trail.trailName}}</div>
+                    <div class="clear"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+
+
+
+
+
+
