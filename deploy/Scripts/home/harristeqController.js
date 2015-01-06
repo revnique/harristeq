@@ -34,5 +34,50 @@
         $scope.$broadcast('getGarminDataEvent', [$scope.startDate, $scope.endDate]);
     };
 
+    var getIsActive = function (url) {
+        if (window.location.href.indexOf(url) > -1)
+            return true;
+        else
+            return false;
+    };
+
+    var rootUrl = function () {
+        var isProd = location.href.toLowerCase().indexOf("localhost") > -1 ? false : true;
+        return isProd ? "" : "/harristeq";
+    };
+
+    $scope.navItems = [
+        {
+            name: "Garmin Demo",
+            url: rootUrl() + "/home/garmindemo",
+            isActive: getIsActive("/home/garmindemo"),
+            iconClass: "ion-cloud"
+        },
+        {
+            name: "Task Demo",
+            url: rootUrl() + "/home/taskdemo",
+            isActive: getIsActive("/home/taskdemo"),
+            iconClass: "ion-checkmark"
+        },
+        {
+            name: "Spanish Sync Demo",
+            url: rootUrl() + "/home/onemonthspanish",
+            isActive: getIsActive("/home/onemonthspanish"),
+            iconClass: "ion-person-stalker"
+        },
+        {
+            name: "Dorba Demo",
+            url: rootUrl() + "/home/dorbademo",
+            isActive: getIsActive("/home/dorbademo"),
+            iconClass: "ion-ios7-gear-outline"
+        },
+        {
+            name: "Triforce Demo",
+            url: rootUrl() + "/home/triforcedemo",
+            isActive: getIsActive("/home/triforcedemo"),
+            iconClass: "ion-ios7-bolt-outline"
+        }
+    ];
+
     $scope.init();
 });

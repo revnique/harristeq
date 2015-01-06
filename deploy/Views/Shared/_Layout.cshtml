@@ -76,22 +76,10 @@
                             <span>Dashboard</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="~/home/garmindemo" ng-class="{active: garminDemoActive && !spanishActive}">
-                            <i class="ion-cloud"></i>
-                            <span>Garmin Demo</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="~/home/taskdemo" ng-class="{active: !garminDemoActive && !spanishActive}">
-                            <i class="ion-checkmark"></i>
-                            <span>Task Demo</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="~/home/onemonthspanish" ng-class="{active: spanishActive}">
-                            <i class="ion-person-stalker"></i>
-                            <span>Spanish Sync Demo</span>
+                    <li ng-repeat="navItem in navItems"  ng-cloak>
+                        <a href="{{navItem.url}}" ng-class="{active: navItem.isActive}">
+                            <i class="{{navItem.iconClass}}"></i>
+                            <span>{{navItem.name}}</span>
                         </a>
                     </li>
                     @*<li>
@@ -364,6 +352,7 @@
     <script src="~/Scripts/home/taskController.js"></script>
     <script src="~/Scripts/home/garminController.js"></script>
     <script src="~/Scripts/home/harristeqController.js"></script>
+    <script src="~/Scripts/home/dorbaController.js"></script>
 
 
 
