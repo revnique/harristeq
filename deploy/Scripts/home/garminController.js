@@ -1,4 +1,4 @@
-﻿harristeqApp.controller('garminController', function ($scope, harristeqSvc) {
+﻿harristeqApp.controller('garminController', function ($scope, harristeqSvc, $timeout) {
 
     $scope.$on('getGarminDataEvent', function(event, mass) {
         $scope.startDate = mass[0];
@@ -39,6 +39,15 @@
             $scope.garminData = results;
         }, function() {
             $scope.showAjax = false;
+        }).then(function () {
+            var gData = $scope.garminData;
+            if (gData.length > 0) {
+                $timeout(function () {
+                    $scope.gridOptions.selectRow(0, true);
+                });
+                //console.log("gData", gData);
+                //$scope.getGarminDetail(gData[0].trainingCenterFileId);
+            }
         });
     };
 
