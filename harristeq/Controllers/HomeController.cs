@@ -20,32 +20,32 @@ namespace harristeq.Controllers
 
         public ActionResult TaskDemo()
         {
-            ViewBag.ShowMe = "Potato Salad";
+            ViewBag.SkillsSummary = "AngularJS, jQuery UI, Local Storage, External JSON calls, Keyboard Directives";
             return View();
         }
 
         public ActionResult GarminDemo()
         {
-            ViewBag.ShowMe = "Potato Salad";
+            ViewBag.SkillsSummary = "AngularJS, Kendo UI, JsonSerialization, Entity Framework, Lamba [=>], Anonymous objects";
             return View();
         }
 
         public ActionResult OneMonthSpanish()
         {
-            ViewBag.ShowMe = "Potato Salad";
+            ViewBag.SkillsSummary = "jQuery, Javascript Objects, Popcorn JS Media library";
             return View();
         }
 
         public ActionResult TriForceDemo()
         {
-            ViewBag.ShowMe = "Potato Salad";
+            ViewBag.SkillsSummary = "jQuery, HTML5 Canvas";
             return View();
         }
 
 
         public ActionResult DorbaDemo()
         {
-            ViewBag.ShowMe = "Potato Salad";
+            ViewBag.SkillsSummary = "AngularJS, Consuming 3rd party JSON via REST";
             return View();
         }
 
