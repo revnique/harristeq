@@ -192,6 +192,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>harristeqDb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DemoBaseClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrainingCenterFile.cs">
       <DependentUpon>harristeqDb.tt</DependentUpon>
@@ -1119,7 +1120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
