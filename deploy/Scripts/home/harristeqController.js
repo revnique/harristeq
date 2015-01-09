@@ -75,7 +75,13 @@
             name: "Triforce Demo",
             url: rootUrl() + "/home/triforcedemo",
             isActive: getIsActive("/home/triforcedemo"),
-            iconClass: "ion-ios7-bolt-outline"
+            iconClass: "ion-ios7-bolt"
+        },
+        {
+            name: "Calendar Demo",
+            url: rootUrl() + "/home/calendardemo",
+            isActive: getIsActive("/home/calendardemo"),
+            iconClass: "ion-ios7-calendar-outline"
         }
     ];
 
