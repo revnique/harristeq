@@ -48,6 +48,12 @@ namespace harristeq.Controllers
             ViewBag.SkillsSummary = "AngularJS, Consuming 3rd party JSON via REST";
             return View();
         }
+        
+        public ActionResult CalendarDemo()
+        {
+            ViewBag.SkillsSummary = "AngularJS";
+            return View();
+        }
 
         public JsonResult GetGarminData(DateObj dateObj)
         {
