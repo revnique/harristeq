@@ -48,10 +48,16 @@ namespace harristeq.Controllers
             ViewBag.SkillsSummary = "AngularJS, Consuming 3rd party JSON via REST";
             return View();
         }
-        
+
         public ActionResult CalendarDemo()
         {
-            ViewBag.SkillsSummary = "AngularJS";
+            ViewBag.SkillsSummary = "WORK IN PROGRESS";
+            return View();
+        }
+
+        public ActionResult DTAssignment()
+        {
+            ViewBag.SkillsSummary = "Raw JS, Dynamic properties, JS Regex, charAt() and in reverse";
             return View();
         }
 

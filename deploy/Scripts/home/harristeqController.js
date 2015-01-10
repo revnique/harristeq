@@ -82,6 +82,12 @@
             url: rootUrl() + "/home/calendardemo",
             isActive: getIsActive("/home/calendardemo"),
             iconClass: "ion-ios7-calendar-outline"
+        },
+        {
+            name: "DT Assignment",
+            url: rootUrl() + "/home/dtassignment",
+            isActive: getIsActive("/home/dtassignment"),
+            iconClass: "ion-ios7-keypad-outline"
         }
     ];
 

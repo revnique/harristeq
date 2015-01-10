@@ -1119,6 +1119,7 @@
     <Content Include="Views\Home\DorbaDemo.cshtml" />
     <Content Include="Views\Home\TriForceDemo.cshtml" />
     <Content Include="Views\Home\CalendarDemo.cshtml" />
+    <Content Include="Views\Home\DTAssignment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
