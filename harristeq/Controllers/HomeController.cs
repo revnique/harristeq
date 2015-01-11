@@ -51,7 +51,7 @@ namespace harristeq.Controllers
 
         public ActionResult CalendarDemo()
         {
-            ViewBag.SkillsSummary = "WORK IN PROGRESS";
+            ViewBag.SkillsSummary = "***WORK IN PROGRESS*** AngularJS, Calendar Control, HTML, CSS";
             return View();
         }
 
