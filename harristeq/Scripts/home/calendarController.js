@@ -21,9 +21,22 @@
         return self;
     };
 
+    var Task = function(name, startDate, endDate) {
+        var self = this;
+        self.Name = name;
+        self.StartDate = startDate;
+        self.EndDate = endDate;
+    };
+
     var daysOfTheWeek = ["M","Tu","W","Th","F","Sa","Su"];
 
     $scope.colHeaders = [];
+    $scope.tasks = [
+        new Task("Task asdf", 7, 11),
+        new Task("Task 2", 1, 3),
+        new Task("Task 3", 27, 31),
+        new Task("Task 3", 5, 25)
+    ];
 
     var fillColHeaders = function (firstDay) {
         var j = 0;
@@ -68,6 +81,7 @@
             }
         }
     };
+
 
     $scope.init = function () {
         fillColHeaders("F");
