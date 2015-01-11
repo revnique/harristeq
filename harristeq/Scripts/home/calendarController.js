@@ -11,7 +11,7 @@
     //});
     
     
-    var colHeader = function(day, date, alert1, alert2, alert3) {
+    var ColHeader = function(day, date, alert1, alert2, alert3) {
         var self = this;
         self.Day = day;
         self.Date = date;
@@ -25,14 +25,53 @@
 
     $scope.colHeaders = [];
 
-    var fillColHeaders = function(firstDay) {
-        for (var i = 0; i < 32; i++) {
-            
+    var fillColHeaders = function (firstDay) {
+        var j = 0;
+
+        switch (firstDay) {
+            case "M":
+                j = 0;
+                break;
+            case "Tu":
+                j = 1;
+                break;
+            case "W":
+                j = 2;
+                break;
+            case "Th":
+                j = 3;
+                break;
+            case "F":
+                j = 4;
+                break;
+            case "Sa":
+                j = 5;
+                break;
+            case "Su":
+                j = 6;
+                break;
+            default:
+                j = 0;
+                break;
+        }
+
+        for (var i = 0; i < 31; i++) {
+            var alert1, alert2, alert3, day;
+            alert1 = i % 2 == 0 ? 0 : 1;
+            alert2 = i % 3 == 1 ? 0 : 2;
+            alert3 = i % 4 == 1 ? 3 : 0;
+            day = daysOfTheWeek[j];
+            $scope.colHeaders[i] = new ColHeader(day, i + 1, alert1, alert2, alert3);
+            j++;
+            if (j == 7) {
+                j = 0;
+            }
         }
     };
 
     $scope.init = function () {
-
+        fillColHeaders("F");
+        console.log("$scope.colHeaders[i]", $scope.colHeaders);
     };
 
     $scope.init();
