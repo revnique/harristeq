@@ -5,12 +5,12 @@
 
 <style>
     .calColumn {
-        background-color: gainsboro;
+        background-color: aliceblue;
         width: 36px;
         text-align: center;
     }
     .calColumn.alt {
-        background-color: aliceblue;
+        background-color: #efefef;
     }
     .alt {
         
@@ -22,6 +22,7 @@
         height: 100px; 
         width: 100%;
         margin: 0px;
+        border-bottom: 1px silver solid;
     }
 
     #tdColScrollSpacer {
@@ -76,9 +77,10 @@
         margin-left: auto;
         margin-right: auto;
         margin-top: 5px;
+        margin-bottom: 5px;
     }
     .weekend, .alt.weekend {
-        background-color: yellow;
+        background-color: gainsboro;
     }
 
 </style>
@@ -106,7 +108,7 @@
                             </div>
                             <div class="alertLevel3">
                                 <div class="colAlert" ng-bind="colHeader.Alert3" ng-show="colHeader.Alert3 != 0"></div>
-                                <div style="width:20px;margin-top: 5px" ng-show="colHeader.Alert3 == 0">&nbsp;</div>
+                                <div style="width:20px;margin-top: 5px; margin-bottom: 5px;" ng-show="colHeader.Alert3 == 0">&nbsp;</div>
                             </div>
                         </td>
                         
@@ -117,6 +119,16 @@
                 <style>
                     .taskCell {
                         width: 36px;
+                    }
+                    .taskItem {
+                        border-left: 2px solid red;
+                        border-right: 2px solid red;
+                        border-top: 1px dashed silver;
+                        border-bottom: 1px dashed silver;
+                        padding: 0px 5px 0px 5px;
+                        margin-top: 5px;
+                        margin-bottom: 5px;
+                        background-color: oldlace;
                     }
                 </style>
 
@@ -191,83 +203,75 @@
                             <td colspan="32" style="">&nbsp;</td>
                         </tr>
                         <tr style="height: 15px;">
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td colspan="10" style="">&nbsp;</td>
+                            <td colspan="11">
+                                <div class="taskItem">
+                                    Task
+                                </div>
+                            </td>
+                            <td colspan="18" style="">&nbsp;</td>
                         </tr>
                         <tr style="height: 15px;">
-                            <td colspan="23" style="">&nbsp;</td>
-                            <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td colspan="5" style="background-color: red;">&nbsp;</td>
-                            <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
+                            <td colspan="2" style="">&nbsp;</td>
+                            <td colspan="11">
+                                <div class="taskItem">
+                                    Task
+                                </div>
+                            </td>
+                            <td colspan="18" style="">&nbsp;</td>
+                        </tr>
+                        <tr style="height: 15px;">
+                            <td colspan="5" style="">&nbsp;</td>
+                            <td colspan="5">
+                                <div class="taskItem">
+                                    Task
+                                </div>
+                            </td>
+                            <td colspan="20" style="">&nbsp;</td>
                         </tr>
                         <tr style="height: 15px;">
                             <td colspan="18" style="">&nbsp;</td>
-                            <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td colspan="3" style="background-color: red;">&nbsp;</td>
-                            <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td colspan="5" style="">&nbsp;</td>
+                            <td colspan="11">
+                                <div class="taskItem">
+                                    Task
+                                </div>
+                            </td>
+                            <td colspan="1" style="">&nbsp;</td>
                         </tr>
                         <tr style="height: 15px;">
-                            <td style="background-color: blue;">&nbsp;</td>
-                            <td colspan="4" style="">&nbsp;</td>
-                            <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td colspan="4" style="background-color: red;">&nbsp;</td>
-                            <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td colspan="19" style="">&nbsp;</td>
+                            <td colspan="11">
+                                <div class="taskItem">
+                                    Task
+                                </div>
+                            </td>
+                            <td colspan="2" style="">&nbsp;</td>
+                            <td colspan="18" style="">&nbsp;</td>
                         </tr>
                         <tr style="height: 15px;">
-                            <td colspan="10" style="">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: lightseagreen;">&nbsp;</td>
+                            <td colspan="18" style="">&nbsp;</td>
+                            <td colspan="11">
+                                <div class="taskItem">
+                                    Task
+                                </div>
+                            </td>
+                            <td colspan="1" style="">&nbsp;</td>
                         </tr>
                         <tr style="height: 15px;">
-                            <td colspan="3" style="">&nbsp;</td>
-                            <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
-                            <td style="background-color: blue;">&nbsp;</td>
-                            <td colspan="4" style="background-color: red;">&nbsp;</td>
-                            <td colspan="20" style="">&nbsp;</td>
-                            <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
+                            <td colspan="2" style="">&nbsp;</td>
+                            <td colspan="11">
+                                <div class="taskItem">
+                                    Task
+                                </div>
+                            </td>
+                            <td colspan="18" style="">&nbsp;</td>
+                        </tr>
+                        <tr style="height: 15px;">
+                            <td colspan="18" style="">&nbsp;</td>
+                            <td colspan="1" style="">&nbsp;</td>
+                            <td colspan="11">
+                                <div class="taskItem">
+                                    Task
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="32">&nbsp;</td>
