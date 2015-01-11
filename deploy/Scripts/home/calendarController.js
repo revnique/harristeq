@@ -34,9 +34,16 @@
     $scope.tasks = [
         new Task("Task asdf", 7, 11),
         new Task("Task 2", 1, 3),
-        new Task("Task 3", 27, 31),
-        new Task("Task 3", 5, 25)
+        new Task("Task 3", 17, 31),
+        new Task("Task 4", 5, 25),
+        new Task("Task rrr", 1, 21),
+        new Task("Task ccc", 5, 6),
+        new Task("Task aaa", 9, 22),
+        new Task("Task bbb", 27, 31),
+        new Task("Task ddd", 17, 19)
     ];
+
+    $scope.numberOfDaysInMonth = 31;
 
     var fillColHeaders = function (firstDay) {
         var j = 0;

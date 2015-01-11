@@ -175,78 +175,18 @@
                     </table>
                     <table style="width:100%; padding:0px; position:absolute; z-index: 100; height: 500px;">
                         <tr>
-                            <td style="width:1116px; vertical-align: top;">
-                                
+                            <td style="width:1116px; vertical-align: top;" ng-cloak>
                                 <div class="taskRow" ng-repeat="task in tasks">
-                                    <div style="width:36px; background-color: yellow; float: left;height: 30px;">&nbsp;</div>
-                                    <div style="width:900px;padding-left:5px;padding-right: 5px; float: left;height: 30px;">
-                                        <div class="taskItem">
-                                            Task
-                                        </div>
+                                    <div style="width:{{(task.StartDate - 1) * 36}}px; float: left;height: 30px;" ng-show="task.StartDate > 1">&nbsp;</div>
+                                    <div style="width:{{(task.EndDate - task.StartDate + 1) * 36}}px;padding-left:5px;padding-right: 5px; float: left;height: 30px;">
+                                        <div class="taskItem" ng-bind="task.Name"></div>
                                     </div>
-                                    <div style="width:180px; background-color: yellow; float: left; height: 30px;">&nbsp;</div>
-                                </div>
-                                
-                                
-
-                                <div class="taskRow">
-                                    <div style="width:900px; background-color: yellow; float: left; height: 30px;">&nbsp;</div>
-                                    <div style="width:180px;padding-left:5px;padding-right: 5px; float: left;height: 30px;">
-                                        <div class="taskItem">
-                                            Task
-                                        </div>
-                                    </div>
-                                    <div style="width:36px; background-color: yellow; float: left;height: 30px;">&nbsp;</div>
-                                </div>
-
-                                <div class="taskRow">
-                                    <div style="width:36px; background-color: yellow; float: left;height: 30px;">&nbsp;</div>
-                                    <div style="width:180px;padding-left:5px;padding-right: 5px; float: left;height: 30px;">
-                                        <div class="taskItem">
-                                            Task
-                                        </div>
-                                    </div>
-                                    <div style="width:900px; background-color: yellow; float: left; height: 30px;">&nbsp;</div>
-                                </div>
-
-
-                                <div class="taskRow">
-                                    <div style="width:36px; background-color: yellow; float: left;height: 30px;">&nbsp;</div>
-                                    <div style="width:900px;padding-left:5px;padding-right: 5px; float: left;height: 30px;">
-                                        <div class="taskItem">
-                                            Task
-                                        </div>
-                                    </div>
-                                    <div style="width:180px; background-color: yellow; float: left; height: 30px;">&nbsp;</div>
+                                    <div style="width:{{(numberOfDaysInMonth - task.EndDate - 1) * 36}}px; float: left; height: 30px;" ng-show="task.EndDate != numberOfDaysInMonth">&nbsp;</div>
                                 </div>
                             </td>
-                            <td>&nbsp;</td>
                         </tr>
-                        @*<tr style="height: 15px;">
-                            <td colspan="11">
-                                <div class="taskItem">
-                                    Task
-                                </div>
-                            </td>
-                            <td colspan="18" style="">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 15px;">
-                            <td colspan="2" style="">&nbsp;</td>
-                            <td colspan="11">
-                                <div class="taskItem">
-                                    Task
-                                </div>
-                            </td>
-                            <td colspan="18" style="">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td colspan="32">&nbsp;</td>
-                        </tr>*@
                     </table>
-
-
                 </div>
-
             </div>
         </div>
     </div>
