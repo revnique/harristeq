@@ -6,7 +6,7 @@
 <style>
     .calColumn {
         background-color: gainsboro;
-        width: 25px;
+        width: 36px;
         text-align: center;
     }
     .calColumn.alt {
@@ -25,7 +25,6 @@
     }
 
     #tdColScrollSpacer {
-        width:11px; 
         background-color: #ffffff;
     }
     #divScroll {
@@ -115,8 +114,14 @@
                     </tr>
                 </table>
 
-                <div id="divScroll" style="">
-                    <table style="border:none; padding: 0px; height: 800px; width: 100%; float: left; display: none;">
+                <style>
+                    .taskCell {
+                        width: 36px;
+                    }
+                </style>
+
+                <div id="divScroll" style="position: absolute;">
+                    <table style="border:none; padding: 0px; height: 800px; width: 100%; position:absolute;">
                         @*<tr ng-repeat="task in tasks">
                             <td ng-repeat="colHeader in colHeaders" id="tdCol{{$index}}" class="calColumn" ng-class="{alt: $index % 2 == 1, weekend: colHeader.Day=='Sa' || colHeader.Day=='Su'}">
                                 <div class="dayLabel">
@@ -140,45 +145,14 @@
                             </td>
                         </tr>*@
                         <tr>
-                            <td id="tdCol1" class="calColumn"></td>
-                            <td id="tdCol2" class="calColumn alt"></td>
-                            <td id="tdCol3" class="calColumn"></td>
-                            <td id="tdCol4" class="calColumn alt"></td>
-                            <td id="tdCol5" class="calColumn"></td>
-                            <td id="tdCol6" class="calColumn alt"></td>
-                            <td id="tdCol7" class="calColumn"></td>
-                            <td id="tdCol8" class="calColumn alt"></td>
-                            <td id="tdCol9" class="calColumn"></td>
-                            <td id="tdCol10" class="calColumn alt"></td>
-                            <td id="tdCol11" class="calColumn"></td>
-                            <td id="tdCol12" class="calColumn alt"></td>
-                            <td id="tdCol13" class="calColumn"></td>
-                            <td id="tdCol14" class="calColumn alt"></td>
-                            <td id="tdCol15" class="calColumn"></td>
-                            <td id="tdCol16" class="calColumn alt"></td>
-                            <td id="tdCol17" class="calColumn"></td>
-                            <td id="tdCol18" class="calColumn alt"></td>
-                            <td id="tdCol19" class="calColumn"></td>
-                            <td id="tdCol20" class="calColumn alt"></td>
-                            <td id="tdCol21" class="calColumn"></td>
-                            <td id="tdCol22" class="calColumn alt"></td>
-                            <td id="tdCol23" class="calColumn"></td>
-                            <td id="tdCol24" class="calColumn alt"></td>
-                            <td id="tdCol25" class="calColumn"></td>
-                            <td id="tdCol26" class="calColumn alt"></td>
-                            <td id="tdCol27" class="calColumn"></td>
-                            <td id="tdCol28" class="calColumn alt"></td>
-                            <td id="tdCol29" class="calColumn"></td>
-                            <td id="tdCol30" class="calColumn alt"></td>
-                            <td id="tdCol31" class="calColumn"></td>
+                            <td ng-repeat="colHeader in colHeaders" id="tdColBack{{$index}}" class="calColumn" ng-class="{alt: $index % 2 == 1, weekend: colHeader.Day=='Sa' || colHeader.Day=='Su'}">
+                                &nbsp;
+                            </td>
+
+                            <td id="tdColScrollSpacer2">&nbsp;</td>
                         </tr>
                     </table>
-                    <style>
-                        .taskCell {
-                            width: 36px;
-                        }
-                    </style>
-                    <table style="width:100%; padding:0px; float: left; z-index: 100; height: 500px;">
+                    <table style="width:100%; padding:0px; position:absolute; z-index: 100; height: 500px;">
                         <colgroup>
                             <col class="taskCell" />
                             <col class="taskCell" />
@@ -211,9 +185,10 @@
                             <col class="taskCell" />
                             <col class="taskCell" />
                             <col class="taskCell" />
+                            <col/>
                         </colgroup>
                         <tr style="height: 15px;">
-                            <td colspan="31" style="">&nbsp;</td>
+                            <td colspan="32" style="">&nbsp;</td>
                         </tr>
                         <tr style="height: 15px;">
                             <td style="background-color: lightsteelblue;">&nbsp;</td>
@@ -238,10 +213,10 @@
                             <td style="background-color: lightseagreen;">&nbsp;</td>
                             <td style="background-color: lightsteelblue;">&nbsp;</td>
                             <td style="background-color: lightseagreen;">&nbsp;</td>
-                            <td colspan="9" style="">&nbsp;</td>
+                            <td colspan="10" style="">&nbsp;</td>
                         </tr>
                         <tr style="height: 15px;">
-                            <td colspan="22" style="">&nbsp;</td>
+                            <td colspan="23" style="">&nbsp;</td>
                             <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
                             <td colspan="5" style="background-color: red;">&nbsp;</td>
                             <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
@@ -251,18 +226,18 @@
                             <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
                             <td colspan="3" style="background-color: red;">&nbsp;</td>
                             <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
+                            <td colspan="5" style="">&nbsp;</td>
+                        </tr>
+                        <tr style="height: 15px;">
+                            <td style="background-color: blue;">&nbsp;</td>
                             <td colspan="4" style="">&nbsp;</td>
-                        </tr>
-                        <tr style="height: 15px;">
-                            <td style="background-color: blue;">&nbsp;</td>
-                            <td colspan="3" style="">&nbsp;</td>
                             <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
                             <td colspan="4" style="background-color: red;">&nbsp;</td>
                             <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
                             <td colspan="19" style="">&nbsp;</td>
                         </tr>
                         <tr style="height: 15px;">
-                            <td colspan="9" style="">&nbsp;</td>
+                            <td colspan="10" style="">&nbsp;</td>
                             <td style="background-color: lightsteelblue;">&nbsp;</td>
                             <td style="background-color: lightseagreen;">&nbsp;</td>
                             <td style="background-color: lightsteelblue;">&nbsp;</td>
@@ -291,11 +266,11 @@
                             <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
                             <td style="background-color: blue;">&nbsp;</td>
                             <td colspan="4" style="background-color: red;">&nbsp;</td>
-                            <td colspan="19" style="">&nbsp;</td>
+                            <td colspan="20" style="">&nbsp;</td>
                             <td colspan="2" style="background-color: lightsteelblue;">&nbsp;</td>
                         </tr>
                         <tr>
-                            <td colspan="31">&nbsp;</td>
+                            <td colspan="32">&nbsp;</td>
                         </tr>
                     </table>
 
