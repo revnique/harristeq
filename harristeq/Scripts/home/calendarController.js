@@ -11,21 +11,23 @@
     //});
     
     
-    var ColHeader = function(day, date, alert1, alert2, alert3) {
+    var ColHeader = function (day, date, alert1, alert2, alert3, selected) {
         var self = this;
         self.Day = day;
         self.Date = date;
         self.Alert1 = alert1;
         self.Alert2 = alert2;
         self.Alert3 = alert3;
+        self.Selected = selected != null ? selected : false;
         return self;
     };
 
-    var Task = function(name, startDate, endDate) {
+    var Task = function(name, startDate, endDate, selected) {
         var self = this;
         self.Name = name;
         self.StartDate = startDate;
         self.EndDate = endDate;
+        self.Selected = selected != null ? selected : false;
     };
 
     var daysOfTheWeek = ["M","Tu","W","Th","F","Sa","Su"];
@@ -35,7 +37,7 @@
         new Task("Task asdf", 7, 11),
         new Task("Task 2", 1, 3),
         new Task("Task 3", 17, 31),
-        new Task("Task 4", 5, 25),
+        new Task("Task 4", 5, 25, true),
         new Task("Task rrr", 1, 21),
         new Task("Task ccc", 5, 6),
         new Task("Task aaa", 9, 22),
@@ -81,7 +83,14 @@
             alert2 = i % 3 == 1 ? 0 : 2;
             alert3 = i % 4 == 1 ? 3 : 0;
             day = daysOfTheWeek[j];
-            $scope.colHeaders[i] = new ColHeader(day, i + 1, alert1, alert2, alert3);
+
+            var isSelected = false;
+            if (i == 17) {
+                isSelected = true;
+            }
+            
+            $scope.colHeaders[i] = new ColHeader(day, i + 1, alert1, alert2, alert3, isSelected);
+
             j++;
             if (j == 7) {
                 j = 0;

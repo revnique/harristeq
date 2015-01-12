@@ -82,6 +82,38 @@
     .weekend, .alt.weekend {
         background-color: gainsboro;
     }
+    .weekend.selected, .alt.weekend.selected, .calColumn.selected {
+        background-color: lightsteelblue;
+        color: white;
+    }   
+    
+    .taskCell {
+        width: 36px;
+    }
+    .taskItem {
+        border-left: 2px solid red;
+        border-right: 2px solid red;
+        border-top: 1px dashed silver;
+        border-bottom: 1px dashed silver;
+        padding: 0px 5px 0px 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        background-color: oldlace;
+        width: 100%;
+        border-radius: 5px;
+    }
+    .taskRow{
+        height: 15px;
+    }
+    .taskRow:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    .taskItem.selected {
+        background-color: orange;
+        color: white;
+    }
 
 </style>
 
@@ -91,7 +123,10 @@
             <div class="col-lg-12">
                 <table id="topTable" style="">
                     <tr>
-                        <td ng-repeat="colHeader in colHeaders" id="tdCol{{$index}}" class="calColumn" ng-class="{alt: $index % 2 == 1, weekend: colHeader.Day=='Sa' || colHeader.Day=='Su'}">
+                        <td ng-repeat="colHeader in colHeaders" id="tdCol{{$index}}" 
+                            class="calColumn" 
+                            ng-click="colHeader.Selected = !colHeader.Selected"
+                            ng-class="{alt: $index % 2 == 1, weekend: colHeader.Day=='Sa' || colHeader.Day=='Su', selected: colHeader.Selected}">
                             <div class="dayLabel">
                                 <div ng-bind="colHeader.Day"></div>
                             </div>
@@ -116,57 +151,13 @@
                     </tr>
                 </table>
 
-                <style>
-                    .taskCell {
-                        width: 36px;
-                    }
-                    .taskItem {
-                        border-left: 2px solid red;
-                        border-right: 2px solid red;
-                        border-top: 1px dashed silver;
-                        border-bottom: 1px dashed silver;
-                        padding: 0px 5px 0px 5px;
-                        margin-top: 5px;
-                        margin-bottom: 5px;
-                        background-color: oldlace;
-                        width: 100%;
-                    }
-                    .taskRow{
-                        height: 15px;
-                    }
-                    .taskRow:after {
-                        content: "";
-                        display: table;
-                        clear: both;
-                    }
-                </style>
-
                 <div id="divScroll" style="position: absolute;">
                     <table style="border:none; padding: 0px; height: 800px; width: 100%; position:absolute;">
-                        @*<tr ng-repeat="task in tasks">
-                            <td ng-repeat="colHeader in colHeaders" id="tdCol{{$index}}" class="calColumn" ng-class="{alt: $index % 2 == 1, weekend: colHeader.Day=='Sa' || colHeader.Day=='Su'}">
-                                <div class="dayLabel">
-                                    <div ng-bind="colHeader.Day"></div>
-                                </div>
-                                <div class="dateLabel">
-                                    <div ng-bind="colHeader.Date"></div>
-                                </div>
-                                <div class="alertLevel1">
-                                    <div class="colAlert" ng-bind="colHeader.Alert1" ng-show="colHeader.Alert1 != 0"></div>
-                                    <div style="width:20px;margin-top: 5px" ng-show="colHeader.Alert1 == 0">&nbsp;</div>
-                                </div>
-                                <div class="alertLevel2">
-                                    <div class="colAlert" ng-bind="colHeader.Alert2" ng-show="colHeader.Alert2 != 0"></div>
-                                    <div style="width:20px;margin-top: 5px" ng-show="colHeader.Alert2 == 0">&nbsp;</div>
-                                </div>
-                                <div class="alertLevel3">
-                                    <div class="colAlert" ng-bind="colHeader.Alert3" ng-show="colHeader.Alert3 != 0"></div>
-                                    <div style="width:20px;margin-top: 5px" ng-show="colHeader.Alert3 == 0">&nbsp;</div>
-                                </div>
-                            </td>
-                        </tr>*@
                         <tr>
-                            <td ng-repeat="colHeader in colHeaders" id="tdColBack{{$index}}" class="calColumn" ng-class="{alt: $index % 2 == 1, weekend: colHeader.Day=='Sa' || colHeader.Day=='Su'}">
+                            <td ng-repeat="colHeader in colHeaders"
+                                id="tdColBack{{$index}}"
+                                class="calColumn"
+                                ng-class="{alt: $index % 2 == 1, weekend: colHeader.Day=='Sa' || colHeader.Day=='Su', selected: colHeader.Selected}">
                                 &nbsp;
                             </td>
 
@@ -179,7 +170,7 @@
                                 <div class="taskRow" ng-repeat="task in tasks">
                                     <div style="width:{{(task.StartDate - 1) * 36}}px; float: left;height: 30px;" ng-show="task.StartDate > 1">&nbsp;</div>
                                     <div style="width:{{(task.EndDate - task.StartDate + 1) * 36}}px;padding-left:5px;padding-right: 5px; float: left;height: 30px;">
-                                        <div class="taskItem" ng-bind="task.Name"></div>
+                                        <div class="taskItem" ng-bind="task.Name" ng-click="task.Selected = !task.Selected" ng-class="{selected: task.Selected}"></div>
                                     </div>
                                     <div style="width:{{(numberOfDaysInMonth - task.EndDate - 1) * 36}}px; float: left; height: 30px;" ng-show="task.EndDate != numberOfDaysInMonth">&nbsp;</div>
                                 </div>
