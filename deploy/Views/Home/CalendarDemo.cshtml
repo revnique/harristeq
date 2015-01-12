@@ -125,6 +125,11 @@
             <div class="col-lg-12">
                 <table id="topTable" style="">
                     <tr>
+                        <td colspan="32">
+                            <h2 ng-cloak>{{monthName}} {{year}}</h2>
+                        </td>
+                    </tr>
+                    <tr>
                         <td ng-repeat="colHeader in colHeaders" id="tdCol{{$index}}" 
                             class="calColumn" 
                             ng-click="colHeader.Selected = !colHeader.Selected"

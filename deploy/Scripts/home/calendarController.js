@@ -9,7 +9,24 @@
     //$scope.$watch('showAjax', function (newValue, oldValue) {
     //    $scope.$emit('showAjaxEvent', newValue);
     //});
-    
+
+    var daysInMonth = function(month, year) {
+        return new Date(year, month, 0).getDate();
+    };
+
+    var month = new Array();
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
     
     var ColHeader = function (day, date, alert1, alert2, alert3, selected) {
         var self = this;
@@ -30,7 +47,7 @@
         self.Selected = selected != null ? selected : false;
     };
 
-    var daysOfTheWeek = ["M","Tu","W","Th","F","Sa","Su"];
+    var daysOfTheWeek = ["Su","M","Tu","W","Th","F","Sa"];
 
     $scope.colHeaders = [];
     $scope.tasks = [
@@ -45,31 +62,29 @@
         new Task("Task ddd", 17, 19)
     ];
 
-    $scope.numberOfDaysInMonth = 31;
-
-    var fillColHeaders = function (firstDay) {
+    $scope.fillColHeaders = function (firstDay, currentDay) {
         var j = 0;
 
         switch (firstDay) {
-            case "M":
+            case "Su":
                 j = 0;
                 break;
-            case "Tu":
+            case "M":
                 j = 1;
                 break;
-            case "W":
+            case "Tu":
                 j = 2;
                 break;
-            case "Th":
+            case "W":
                 j = 3;
                 break;
-            case "F":
+            case "Th":
                 j = 4;
                 break;
-            case "Sa":
+            case "F":
                 j = 5;
                 break;
-            case "Su":
+            case "Sa":
                 j = 6;
                 break;
             default:
@@ -77,7 +92,7 @@
                 break;
         }
 
-        for (var i = 0; i < 31; i++) {
+        for (var i = 0; i < $scope.numberOfDaysInMonth; i++) {
             var alert1, alert2, alert3, day;
             alert1 = i % 2 == 0 ? 0 : 1;
             alert2 = i % 3 == 1 ? 0 : 2;
@@ -85,7 +100,7 @@
             day = daysOfTheWeek[j];
 
             var isSelected = false;
-            if (i == 17) {
+            if (i == currentDay - 1) {
                 isSelected = true;
             }
             
@@ -98,9 +113,31 @@
         }
     };
 
+    var getFirstDayOfMonth = function(date) {
+        var newDate = new Date(month[date.getMonth()] + " 01, " + date.getFullYear());
+        console.log("newDate.getDay()", newDate.getDay());
+        return newDate.getDay();
+    };
 
     $scope.init = function () {
-        fillColHeaders("F");
+        var m, year, date, currentDay;
+        //date = new Date("June 3, 2014");
+        date = new Date();
+
+
+
+
+        m = date.getMonth();
+        year = date.getFullYear();
+        currentDay = date.getDate();
+
+        getFirstDayOfMonth(date);
+
+        $scope.monthName = month[m];
+        $scope.year = year;
+        $scope.numberOfDaysInMonth = daysInMonth(m + 1, year);
+        $scope.firstDayOfMonth = daysOfTheWeek[getFirstDayOfMonth(date)];
+        $scope.fillColHeaders($scope.firstDayOfMonth, currentDay);
         console.log("$scope.colHeaders[i]", $scope.colHeaders);
     };
 
