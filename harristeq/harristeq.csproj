@@ -431,6 +431,8 @@
     <Content Include="images\bgs\7.jpg" />
     <Content Include="images\bgs\8.jpg" />
     <Content Include="images\bgs\9.jpg" />
+    <Content Include="images\chevron-left.png" />
+    <Content Include="images\chevron-right.png" />
     <Content Include="images\circle-icons\full-color\anchor.png" />
     <Content Include="images\circle-icons\full-color\arrow-down.png" />
     <Content Include="images\circle-icons\full-color\arrow-up.png" />

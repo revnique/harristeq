@@ -116,7 +116,15 @@
         background-color: orange;
         color: white;
     }
-
+    .prevNext {
+        cursor: pointer; 
+        float: left; 
+        height: 25px; 
+        margin-top: 3px; 
+    }
+    .prevNext:hover {
+        background-color: lightsteelblue;
+    }
 </style>
 
 <div class="contentContainer" ng-controller="calendarController">
@@ -125,8 +133,10 @@
             <div class="col-lg-12">
                 <table id="topTable" style="">
                     <tr>
-                        <td colspan="32">
-                            <h2 ng-cloak>{{monthName}} {{year}}</h2>
+                        <td colspan="32" ng-cloak>
+                            <img src="~/images/chevron-left.png" ng-click="getPreviousMonth()" class="prevNext" style="margin-right: 10px;" />
+                            <h2 style="margin-top:0px; float: left;">{{monthName}} {{year}}</h2>
+                            <img src="~/images/chevron-right.png" ng-click="getNextMonth()" class="prevNext" style="margin-left: 10px;" />
                         </td>
                     </tr>
                     <tr>

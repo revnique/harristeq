@@ -113,32 +113,56 @@
         }
     };
 
+    $scope.getNextMonth = function () {
+        var date = $scope.currentDate;
+        var nextMonth = date.getMonth() == 11 ? 0 : date.getMonth() + 1;
+        var nextYear = date.getMonth() == 11 ? date.getFullYear() + 1 : date.getFullYear();
+
+        var newDate = new Date(month[nextMonth] + " 01, " + nextYear);
+        console.log("$scope.getNextMonth", newDate);
+        $scope.drawCalendar(newDate);
+        return newDate;
+    };
+
+    $scope.getPreviousMonth = function () {
+        var date = $scope.currentDate;
+        var previousMonth = date.getMonth() == 0 ? 11 : date.getMonth() - 1;
+        var previousYear = date.getMonth() == 0 ? date.getFullYear() - 1 : date.getFullYear();
+
+        var newDate = new Date(month[previousMonth] + " 01, " + previousYear);
+        console.log("$scope.getPreviousMonth", newDate);
+        $scope.drawCalendar(newDate);
+        return newDate;
+    };
+    
     var getFirstDayOfMonth = function(date) {
         var newDate = new Date(month[date.getMonth()] + " 01, " + date.getFullYear());
         console.log("newDate.getDay()", newDate.getDay());
         return newDate.getDay();
     };
 
-    $scope.init = function () {
-        var m, year, date, currentDay;
+
+    $scope.drawCalendar = function(date) {
+        var m, year, currentDay;
         //date = new Date("June 3, 2014");
-        date = new Date();
+        $scope.currentDate = date;
 
+        m = $scope.currentDate.getMonth();
+        year = $scope.currentDate.getFullYear();
+        currentDay = $scope.currentDate.getDate();
 
-
-
-        m = date.getMonth();
-        year = date.getFullYear();
-        currentDay = date.getDate();
-
-        getFirstDayOfMonth(date);
+        getFirstDayOfMonth($scope.currentDate);
 
         $scope.monthName = month[m];
         $scope.year = year;
         $scope.numberOfDaysInMonth = daysInMonth(m + 1, year);
-        $scope.firstDayOfMonth = daysOfTheWeek[getFirstDayOfMonth(date)];
+        $scope.firstDayOfMonth = daysOfTheWeek[getFirstDayOfMonth($scope.currentDate)];
         $scope.fillColHeaders($scope.firstDayOfMonth, currentDay);
         console.log("$scope.colHeaders[i]", $scope.colHeaders);
+    };
+
+    $scope.init = function () {
+        $scope.drawCalendar(new Date());
     };
 
     $scope.init();
