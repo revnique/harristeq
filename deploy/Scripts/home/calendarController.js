@@ -64,7 +64,8 @@
 
     $scope.fillColHeaders = function (firstDay, currentDay) {
         var j = 0;
-
+        //reset
+        $scope.colHeaders = [];
         switch (firstDay) {
             case "Su":
                 j = 0;
