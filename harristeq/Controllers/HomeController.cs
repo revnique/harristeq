@@ -61,6 +61,13 @@ namespace harristeq.Controllers
             return View();
         }
 
+        public ActionResult KnockoutJsDemo()
+        {
+            ViewBag.SkillsSummary = "Work in progress";
+           
+            return View();
+        }
+
         public JsonResult GetGarminData(DateObj dateObj)
         {
 
@@ -118,5 +125,6 @@ namespace harristeq.Controllers
             public DateTime StartDate { get; set; }
             public DateTime EndDate { get; set; }
         }
+
     }
 }

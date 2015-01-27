@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "KnockoutJs Demo";
+}
+
+@section scripts{
+    <script src="~/Scripts/knockout-2.2.1.js"></script>
+    <script src="~/Scripts/knockout.bindings.js"></script>
+    <script src="~/Scripts/knockout.mapping.js"></script>
+    <script src="~/Scripts/home/test.js"></script>
+    <script src="~/Scripts/home/knockoutJsDemoViewModel.js"></script>
+}
+
+
+
+<div class="contentContainer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <input type="text" data-bind="value: d"/>
+                <br/>
+                <div data-bind="text: r">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@*<script id="xmlElementTemplate" type="text/html">
+    <!-- ko template: { name: 'rowTemplate', data: $data } -->
+    <!-- /ko -->
+    <!-- ko foreach: Attributes -->
+    <!-- ko template: { name: 'rowTemplate', data: $data } -->
+    <!-- /ko -->
+    <!-- /ko -->
+    <!-- ko foreach: Elements -->
+    <!-- ko template: { name: 'xmlElementTemplate', data: $data } -->
+    <!-- /ko -->
+    <!-- /ko -->
+</script>
+
+
+<script id="rowTemplate" type="text/html">
+    <tr class="ui-widget-content jqgrow ui-row-ltr" data-bind="visible: Visible,
+        click: setAsSelected,
+        event: { mouseover: toggleHover, mouseout: toggleHover },
+        css: { 'ui-state-hover': Hovered, 'ui-state-highlight': Selected },
+        attr: { title: XPath() }
+    ">
+        <td style="text-align:left;" class="fixed-width-first">
+            <div class="treeclick tree-wrap tree-wrap-ltr" data-bind="style: { width: (SpaceCount() * 18) + 'px' }, click: toggle">
+                <div class="ui-icon"
+                     data-bind="css: { 'ui-icon-radio-off tree-leaf': isLeaf(), 'tree-minus': !isLeaf(), 'ui-icon-triangle-1-s': !isLeaf() && Expanded(), 'ui-icon-triangle-1-e': !isLeaf() && !Expanded() }, style: { left: ((SpaceCount() - 1) * 18) + 'px' }"></div>
+            </div>
+            <span class="cell-wrapperleaf" data-bind="text: Name">
+            </span>
+            <a href="#" data-bind="click:insertXml, visible: canInsertXml() && !insertingXml()">(+)</a>
+            <a href="#" data-bind="click:cancelInserting, visible: insertingXml()">(X)</a>
+        </td>
+        <td style="text-align:left;" class="fixed-width-other" data-bind="text: EntryType"></td>
+        <td style="text-align:left;" class="fixed-width-other" data-bind="text: StaticValue"></td>
+        <td style="text-align:left;" class="fixed-width-other" data-bind="text: DataElementGroupName"></td>
+        <td style="text-align:left;" class="fixed-width-other" data-bind="text: DataElementName"></td>
+    </tr>
+</script>*@
+

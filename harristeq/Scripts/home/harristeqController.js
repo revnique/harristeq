@@ -88,8 +88,14 @@
             url: rootUrl() + "/home/dtassignment",
             isActive: getIsActive("/home/dtassignment"),
             iconClass: "ion-ios7-keypad-outline"
+        },
+        {
+            name: "KnockoutJs Demo",
+            url: rootUrl() + "/home/knockoutjsdemo",
+            isActive: getIsActive("/home/knockoutjsdemo"),
+            iconClass: "ion-android-hand"
         }
     ];
-
+    
     $scope.init();
 });

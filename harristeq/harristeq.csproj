@@ -826,6 +826,7 @@
     <Content Include="Scripts\home\dorbaController.js" />
     <Content Include="Scripts\home\calendarController.js" />
     <Content Include="Scripts\home\harristeqApp.js" />
+    <Content Include="Scripts\home\knockoutJsDemoViewModel.js" />
     <Content Include="Scripts\home\taskController.js" />
     <Content Include="Scripts\home\garminController.js" />
     <Content Include="Scripts\home\harristeqController.js" />
@@ -925,9 +926,16 @@
     <Content Include="icons\icomoon\fonts\icomoon.ttf" />
     <Content Include="icons\icomoon\fonts\icomoon.woff" />
     <Content Include="icons\icomoon\selection.json" />
+    <Content Include="Scripts\home\test.js" />
+    <Content Include="Scripts\kendo.all.min.js" />
+    <Content Include="Scripts\knockout-2.2.1.js" />
+    <Content Include="Scripts\Knockout-latest-debug.js" />
+    <Content Include="Scripts\knockout.bindings.js" />
+    <Content Include="Scripts\knockout.mapping.js" />
     <Content Include="Scripts\ng-grid.js" />
     <Content Include="Scripts\popcorn-complete.min.js" />
     <Content Include="Scripts\theme.js" />
+    <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\vendor\bootstrap-datepicker.js" />
     <Content Include="Scripts\vendor\bootstrap-daterangepicker.js" />
     <Content Include="Scripts\vendor\bootstrap-switch.min.js" />
@@ -1122,6 +1130,7 @@
     <Content Include="Views\Home\TriForceDemo.cshtml" />
     <Content Include="Views\Home\CalendarDemo.cshtml" />
     <Content Include="Views\Home\DTAssignment.cshtml" />
+    <Content Include="Views\Home\KnockoutJsDemo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
