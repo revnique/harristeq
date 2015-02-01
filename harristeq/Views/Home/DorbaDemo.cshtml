@@ -57,10 +57,6 @@
 
 
     <div id="divTrailContainer" ng-controller="dorbaController">
-
-        <div>
-            {{dorbaData}}
-        </div>
         <div id="loadedTime" ng-show="!showLoading && showError==false">
             {{loadedTime()}}
         </div>
@@ -76,6 +72,9 @@
                     <div class="clear"></div>
                 </li>
             </ul>
+        </div>
+        <div>
+            {{dorbaData}}
         </div>
     </div>
 </div>
