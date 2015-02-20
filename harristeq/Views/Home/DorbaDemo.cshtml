@@ -60,6 +60,9 @@
         <div id="loadedTime" ng-show="!showLoading && showError==false">
             {{loadedTime()}}
         </div>
+
+        <iframe src="https://www.google.com/maps/embed/v1/view?key=AIzaSyCKO60ccNZCU3EGfjhEA5VjFgcAPaXbQXk&center=32.761195,-97.278058&zoom=15" width="600" height="450" frameborder="0" style="border:0"></iframe>
+
         <div id="divError" ng-show="!showLoading && showError==true">Trail conditions are currently unavailable</div>
 
         <div ng-show="!showLoading && showError==false" ng-repeat="category in dorbaData.categories">
@@ -77,6 +80,9 @@
             {{dorbaData}}
         </div>
     </div>
+    @*http://maps.google.com/?q=33.627921+-96.631310
+    http://maps.google.com/?q=32.761195+-97.278058*@
+    @*<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3355.171071046122!2d-97.278058!3d32.761195!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDQ1JzQwLjMiTiA5N8KwMTYnNDEuMCJX!5e0!3m2!1sen!2sus!4v1424361099146" width="600" height="450" frameborder="0" style="border:0"></iframe>*@
 </div>
 
 

@@ -45,6 +45,7 @@ namespace harristeq.Controllers
 
         public ActionResult DorbaDemo()
         {
+            ViewBag.key = "AIzaSyCKO60ccNZCU3EGfjhEA5VjFgcAPaXbQXk";
             ViewBag.SkillsSummary = "AngularJS, Consuming 3rd party JSON via REST";
             return View();
         }
