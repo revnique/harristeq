@@ -90,7 +90,9 @@
     };
 
 
-
+    $scope.currentLatitude = "32.761195";
+    $scope.currentLongitude = "-97.278058";
+        
 
 
 

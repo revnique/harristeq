@@ -7,7 +7,6 @@
         #divTrailContainer {
             padding: 10px;
             text-align: center;
-            width: auto;
         }
 
         #trailConditions {
@@ -15,7 +14,6 @@
             margin: auto;
             padding: 0px;
             text-align: left;
-            width: 50%;
         }
 
         #trailConditions li { padding: 5px; }
@@ -61,24 +59,28 @@
             {{loadedTime()}}
         </div>
 
-        <iframe src="https://www.google.com/maps/embed/v1/view?key=AIzaSyCKO60ccNZCU3EGfjhEA5VjFgcAPaXbQXk&center=32.761195,-97.278058&zoom=15" width="600" height="450" frameborder="0" style="border:0"></iframe>
 
         <div id="divError" ng-show="!showLoading && showError==true">Trail conditions are currently unavailable</div>
+        <div style="float:left; width:300px;">
+            <div ng-show="!showLoading && showError==false" ng-repeat="category in dorbaData.categories">
 
-        <div ng-show="!showLoading && showError==false" ng-repeat="category in dorbaData.categories">
-            <span>{{category.category.name}}</span>
-            <ul id="trailConditions">
-                <li ng-repeat="trails in dorbaData.categories[$index].category.trails[0]">
-                    <div class="trailStatus"
-                         ng-class="{'btn btn-danger': trails.trail.currentStatus==0, 'btn btn-success': trails.trail.currentStatus==1, 'btn btn-warning': trails.trail.currentStatus!=1 && trails.trail.currentStatus!=0}">{{trails.trail.currentStatus==0 ? 'closed' : trails.trail.currentStatus==1 ? 'open' : 'unknown'}}</div>
-                    <div class="trailName">{{trails.trail.trailName}}</div>
-                    <div class="clear"></div>
-                </li>
-            </ul>
+                <span>{{category.category.name}}</span>
+                <ul id="trailConditions">
+                    <li ng-repeat="trails in dorbaData.categories[$index].category.trails[0]">
+                        <div class="trailStatus" ng-click="" ng-class="{'btn btn-danger': trails.trail.currentStatus==0, 'btn btn-success': trails.trail.currentStatus==1, 'btn btn-warning': trails.trail.currentStatus!=1 && trails.trail.currentStatus!=0}">{{trails.trail.currentStatus==0 ? 'closed' : trails.trail.currentStatus==1 ? 'open' : 'unknown'}}</div>
+                        <div class="trailName">{{trails.trail.trailName}}</div>
+                        <div class="clear"></div>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div>
+        <div style="float:left;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3355.171071046122!2d-97.278058!3d32.761195!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDQ1JzQwLjMiTiA5N8KwMTYnNDEuMCJX!5e0!3m2!1sen!2sus!4v1424361099146" width="600" height="450" frameborder="0" style="border:0"></iframe>
+            @*<iframe ng-src="'https://www.google.com/maps/embed/v1/view?key=AIzaSyCKO60ccNZCU3EGfjhEA5VjFgcAPaXbQXk&center=' + currentLatitude + ',' + currentLongitude + '&zoom=15'" width="600" height="450" frameborder="0" style="border:0"></iframe>*@
+        </div>
+        @*<div>
             {{dorbaData}}
-        </div>
+        </div>*@
     </div>
     @*http://maps.google.com/?q=33.627921+-96.631310
     http://maps.google.com/?q=32.761195+-97.278058*@
