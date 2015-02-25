@@ -1081,6 +1081,7 @@
       <DependentUpon>harristeqDb.edmx</DependentUpon>
       <LastGenOutput>harristeqDb.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\products-WB06K4739.zip" />
     <None Include="Properties\PublishProfiles\harristeq.com.pubxml" />
     <Content Include="Scripts\home\harristeqDirectives.js" />
     <Content Include="Scripts\home\harristeqSvc.js" />

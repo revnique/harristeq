@@ -94,6 +94,12 @@
             url: rootUrl() + "/home/knockoutjsdemo",
             isActive: getIsActive("/home/knockoutjsdemo"),
             iconClass: "ion-android-hand"
+        },
+        {
+            name: "Papaya Garden",
+            url: rootUrl() + "/home/knockoutjsdemo",
+            isActive: getIsActive("/home/knockoutjsdemo"),
+            iconClass: "ion-android-developer"
         }
     ];
     
