@@ -97,8 +97,8 @@
         },
         {
             name: "Papaya Garden",
-            url: rootUrl() + "/home/knockoutjsdemo",
-            isActive: getIsActive("/home/knockoutjsdemo"),
+            url: rootUrl() + "/content/papayaGarden/index.html",
+            isActive: getIsActive("/content/papayaGarden/index.html"),
             iconClass: "ion-android-developer"
         }
     ];
