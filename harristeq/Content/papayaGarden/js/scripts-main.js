@@ -344,14 +344,14 @@ var slider = {
 /*Google Maps API*/
 var geocoder;
 var map;
-var query = '4120 Lenox Avenue, NY';
+var query = '153 S Industrial, Euless, TX 76040';
 function initialize() {
 	geocoder = new google.maps.Geocoder();
-	var latlng = new google.maps.LatLng(-34.397, 150.644);
+	var latlng = new google.maps.LatLng(32.836404, -97.099938);
 	var map_canvas = document.getElementById('map_canvas');
 	var map_options = {
 		center: latlng,
-		zoom: 8,
+		zoom: 15,
 		disableDefaultUI: true
 	}
 	map = new google.maps.Map(map_canvas, map_options);
@@ -368,7 +368,7 @@ function codeAddress() {
           map: map,
           position: results[0].geometry.location,
 					icon: image,
-					title: 'Eattie Restaurant'
+					title: 'Thai Papaya Garden Restaurant'
       });
     } else {
       alert('Geocode was not successful for the following reason: ' + status);

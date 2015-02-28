@@ -183,6 +183,7 @@ header .container {
 	z-index: 1;
 	margin-left: -70px;
 	background: url(../img/logo-small.svg) no-repeat;
+	background: url(../img/logo-small.png) no-repeat;
 }
 .no-svg .logo {
 	background: url(../img/logo-small.png) no-repeat;
@@ -1543,6 +1544,7 @@ footer {
 	height: 120px;
 	margin-top: 35px;
 	background: url(../img/logo-big.svg) no-repeat;
+	background: url(../img/logo-big.png) no-repeat;
 }
 .no-svg .footer-logo {
 	background: url(../img/logo-big.png) no-repeat;
