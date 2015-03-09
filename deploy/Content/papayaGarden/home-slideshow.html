@@ -1,0 +1,390 @@
+﻿<!doctype html>
+<!--Conditionals for IE8-9 Support-->
+<!--[if IE 8]><html lang="en" class="ie ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" class="ie ie9"><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Thai Papaya Garden - Healthy Thai Food, Thai Cuisine</title>
+    <meta name="description" content="Responsive Restaurant HTML Template" />
+		<meta name="keywords" content="responsive html template, restaurant, cafe, bootstrap 3.0, css, jquery" />
+		<meta name="author" content="8Guild" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <!--Bootstrap 3.0.3-->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!--Icons Fonts-->
+    <link href="css/font-awesome.min.css" rel="stylesheet" media="screen">
+    <!--Animations-->
+    <link href="css/animate-custom.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!--Google Maps API-->
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <!--Modernizr-->
+		<script src="js/libs/modernizr.custom.js"></script>
+    <!--Adding Media Queries Support for IE8-->
+    <!--[if lt IE 9]>
+      <script src="js/plugins/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  
+  <!--Body-->
+  <body>
+  
+  	<!-- Preloader -->
+    <div id="preloader">
+      <div id="status">
+        <!--<img class="svg" src="img/logo-big.svg" width="133" height="120" alt="Eattie"/>-->
+        <img class="png" src="img/logo-big.png" width="133" height="120" alt="Eattie"/>
+        <div id="fountainG">
+          <div id="fountainG_1" class="fountainG"></div>
+          <div id="fountainG_2" class="fountainG"></div>
+          <div id="fountainG_3" class="fountainG"></div>
+          <div id="fountainG_4" class="fountainG"></div>
+          <div id="fountainG_5" class="fountainG"></div>
+          <div id="fountainG_6" class="fountainG"></div>
+          <div id="fountainG_7" class="fountainG"></div>
+          <div id="fountainG_8" class="fountainG"></div>
+        </div>
+      </div>
+    </div>
+
+    <!--Intro Fullscreen Slideshow-->
+  	<section class="intro-slideshow" id="home">
+    	<ul>
+      	<li style="background-image: url(img/intro/1.jpg)"></li>
+      	<li style="background-image: url(img/intro/2.jpg)"></li>
+      	<li style="background-image: url(img/intro/3.jpg)"></li>
+      </ul>
+    </section>
+    
+    <!--Intro Title-->
+    <section class="intro-title animated">
+    	<h1>Thai Papaya Garden</h1>
+      <div class="social-bar">
+      	<a href="#" class="fa fa-instagram tooltipped" title="Instagram"></a>
+      	<a href="#" class="fa fa-facebook-square tooltipped" title="Facebook"></a>
+      	<a href="#" class="fa fa-pinterest-square tooltipped" title="Pinterest"></a>
+      	<a href="#" class="fa fa-google-plus-square tooltipped" title="Google+"></a>
+      	<a href="#" class="fa fa-linkedin-square tooltipped" title="LinkedIn"></a>
+      </div>
+    </section>
+    
+    <!--Wrapper-->
+    <div id="wrapper">
+    
+      <!--Header-->
+      <header class="stiky"><!--By adding "stiky" class to header we enable stiky functionality, header will be pinned to the top, when it meets the top of the window-->
+        <div class="container">
+        	<a class="logo scroll-up" href="#home"></a>
+          
+          <!--Navigation-->
+          <nav class="navbar" role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navi-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navi-collapse">
+              <ul class="nav navbar-nav nav-left">
+                <li class="active"><a class="scroll-up" href="#home">home</a></li>
+                <li><a class="scroll" href="#about">about</a></li>
+                <li class="last"><a class="scroll" href="#news">news</a></li>
+              </ul>
+                <ul class="nav navbar-nav nav-right">
+                    <li class="first"><a href="menu1.html">Menu</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">reviews <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="reviews.html">reviews list</a></li>
+                            <li><a href="reviews-single.html">reviews single</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">chef recipes <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="recipes.html">chef recipes list</a></li>
+                            <li><a href="recipes-single.html">chef recipes single</a></li>
+                        </ul>
+                    </li>
+                    <li class="last"><a class="scroll" href="#contacts">contacts</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+          </nav><!--Close Navigation -->
+        </div>
+      </header>
+      
+      <!--About-->
+      <section class="block about" id="about">
+        <div class="heading"><h2>About our restaurant</h2><span class="triangle"></span></div>
+        <div class="about-slider">
+        	<div class="info-bg"></div>
+        	<div class="info animation" data-animation="fadeInLeft">
+          	<div class="pager"></div>
+            <div class="info-slider">
+            	<div>
+                <img class="svg" src="img/about/icon1.svg" width="101" height="101" alt="Established"/>
+                <img class="png" src="img/about/icon1.png" width="101" height="101" alt="Established"/>
+                <h3>est. 1985</h3>
+                <p><i class="fa fa-quote-left"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.</p>
+              </div>
+            	<div>
+                <img class="svg" src="img/about/icon2.svg" width="101" height="101" alt="Our Mission"/>
+                <img class="png" src="img/about/icon2.png" width="101" height="101" alt="Our Mission"/>
+                <h3>Our Mission</h3>
+                <p><i class="fa fa-quote-left"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+              </div>
+            	<div>
+                <img class="svg" src="img/about/icon3.svg" width="101" height="101" alt="Cooking Traditions"/>
+                <img class="png" src="img/about/icon3.png" width="101" height="101" alt="Cooking Traditions"/>
+                <h3>Cooking Traditions</h3>
+                <p><i class="fa fa-quote-left"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              </div>
+            </div>
+          </div>
+        	<div class="about-slider-inner">
+            <div><img src="img/about/1.jpg" width="1920" height="570" alt="Slide1"/></div>
+            <div><img src="img/about/2.jpg" width="1920" height="570" alt="Slide2"/></div>
+            <div><img src="img/about/3.jpg" width="1920" height="570" alt="Slide3"/></div>
+          </div>
+        </div>
+      </section>
+      
+      
+      <!--News-->
+      <section class="block news" id="news">
+        <div class="heading"><h2>News and promotions</h2><span class="triangle"></span></div>
+        
+        <div class="container animation" data-animation="fadeInUp">
+        
+          <!--News Carousel-->
+          <div id="news-carousel" class="carousel slide" data-ride="carousel">
+          
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#news-carousel" data-slide-to="0" class="active"></li>
+              <li data-target="#news-carousel" data-slide-to="1"></li>
+              <li data-target="#news-carousel" data-slide-to="2"></li>
+            </ol>
+            
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+            
+              <!--Slide1-->
+              <div class="item active">
+                <div class="container">
+                  <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1">
+                    <h3>Season menu</h3>
+                    <h4>1.06.2014</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                    <img src="img/news/1.png" width="322" height="282" alt="News1"/>
+                  </div>
+                </div>
+              </div>
+              
+              <!--Slide2-->
+              <div class="item">
+                <div class="container">
+                  <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1">
+                    <h3>New openning hours</h3>
+                    <h4>22.08.2014</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                    <img src="img/news/2.png" width="322" height="282" alt="News2"/>
+                  </div>
+                </div>
+              </div>
+              
+              <!--Slide3-->
+              <div class="item">
+                <div class="container">
+                  <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1">
+                    <h3>Christams at Eattie</h3>
+                    <h4>15.10.2014</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                    <img src="img/news/3.png" width="322" height="282" alt="News3"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!--App Presentation-->
+      <section class="block app">
+      	<div class="container">
+        	<div class="row">
+            <div class="col-lg-4 col-md-4 animation" data-animation="fadeInLeft">
+              <h2>Download our app for your mobile</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit.</p>
+              <div class="row">
+              	<div class="col-lg-6 col-md-6">
+                	<a class="appstore-btn" href="#"></a>
+                </div>
+              	<div class="col-lg-6 col-md-6">
+                	<a class="google-play-btn" href="#"></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 animation" data-animation="bounceIn">
+            	<div class="phone"><img src="img/app/screen.jpg" width="157" height="278" alt="App Screen"/></div>
+            </div>
+            <div class="app-features col-lg-4 col-md-4 animation" data-animation="fadeInRight">
+            	<div class="row">
+              	<div class="col-lg-6 col-md-6">
+                	<div class="app-feature">
+                    <img class="svg" src="img/app/bread.svg" width="50" height="50" alt="Feature1"/>
+                    <img class="png" src="img/app/bread.png" width="50" height="50" alt="Feature1"/>
+                    <p>Lorem ipsum dolor sit amet, labore consectetur adipisicing elite, sed do eiusmod tempor incididunt</p>
+                  </div>
+                </div>
+              	<div class="col-lg-6 col-md-6">
+                	<div class="app-feature">
+                    <img class="svg" src="img/app/drop.svg" width="50" height="50" alt="Feature1"/>
+                    <img class="png" src="img/app/drop.png" width="50" height="50" alt="Feature1"/>
+                    <p>Lorem ipsum dolor sit amet, labore consectetur adipisicing elite, sed do eiusmod tempor incididunt</p>
+                  </div>
+                </div>
+              </div>
+            	<div class="row">
+              	<div class="col-lg-6 col-md-6">
+                	<div class="app-feature">
+                    <img class="svg" src="img/app/cheese.svg" width="50" height="50" alt="Feature1"/>
+                    <img class="png" src="img/app/cheese.png" width="50" height="50" alt="Feature1"/>
+                    <p>Lorem ipsum dolor sit amet, labore consectetur adipisicing elite, sed do eiusmod tempor incididunt</p>
+                  </div>
+                </div>
+              	<div class="col-lg-6 col-md-6">
+                	<div class="app-feature">
+                    <img class="svg" src="img/app/chili.svg" width="50" height="50" alt="Feature1"/>
+                    <img class="png" src="img/app/chili.png" width="50" height="50" alt="Feature1"/>
+                    <p>Lorem ipsum dolor sit amet, labore consectetur adipisicing elite, sed do eiusmod tempor incididunt</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!--Contacts-->
+        <section class="block contacts" id="contacts">
+            <div class="heading"><h2>Contacts</h2><span class="triangle"></span></div>
+            <div id="map_canvas"></div>
+            <div class="container">
+                <div class="col-lg-3 col-md-5 col-lg-offset-1">
+                    <h3><i class="fa fa-clock-o"></i>Hours</h3>
+                    <h4>Monday - Thursday</h4>
+                    <p>11:00 AM - 10:00 PM</p>
+                    <h4>Friday & Saturday</h4>
+                    <p>11:00 AM - 11:00 PM</p>
+                    <h4>Sunday</h4>
+                    <p>11:00 AM - 10:00 PM</p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-lg-offset-1">
+                    <h3><i class="fa fa-map-marker"></i>Directions</h3>
+                    <p>1201 W. Airport Frwy. Suite 100, Euless, TX 76040</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-lg-offset-1">
+                    <h3><i class="fa fa-mobile"></i>Contacts</h3>
+                    <p>Thai@thaipapayagarden.com</p>
+                    <p>phone:<br />817-684-9378</p>
+                    <p>fax:<br />817-684-0220</p>
+                </div>
+            </div>
+        </section>
+      
+      <!--Footer-->
+      <footer>
+      	<div class="container">
+        <div class="row">
+        	<div class="col-lg-2 col-md-2">
+          	<div class="footer-logo"></div>
+          </div>
+          <div class="col-lg-5 col-md-5">
+          	<div class="footer-contacts">
+            	<h3>contacts</h3>
+              <div class="group">
+                <i class="fa fa-map-marker"></i>
+                <p>1201 W. Airport Frwy. Suite 100, Euless, TX 76040</p>
+              </div>
+              <div class="group">
+                <i class="fa fa-mobile"></i>
+                <p>817-684-9378</p>
+              </div>
+              <div class="group">
+                <i class="fa fa-envelope"></i>
+                <p>Thai@thaipapayagarden.com</p>
+              </div>
+              <div class="group last">
+                <i class="fa fa-clock-o"></i>
+                <p>Open 11am-10pm Mon-Thurs; 11am-11pm Fri-Sat;<br/>11am-10pm Sun</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-5">
+          	<h3>subscribe for our news</h3>
+            <form class="subscribe-form group" method="post" role="form">
+            	<div class="row">
+              	<div class="col-lg-7 col-md-7 form-group">
+                  <input class="form-control" type="email" name="email" placeholder="enter your email" required>
+                </div>
+              	<div class="col-lg-5 col-md-5 form-group">
+                  <button type="submit" class="btn btn-primary" name="subscribe">subscribe</button>
+                </div>
+              </div>
+            </form>
+          	<h3>find us on social networks</h3>
+            <div class="social-bar">
+              <a href="#" class="fa fa-instagram tooltipped" title="Instagram"></a>
+              <a href="#" class="fa fa-vimeo-square tooltipped" title="Vimeo"></a>
+              <a href="#" class="fa fa-youtube-square tooltipped" title="Youtube"></a>
+              <a href="#" class="fa fa-tumblr-square tooltipped" title="Tumblr"></a>
+              <a href="#" class="fa fa-facebook-square tooltipped" title="Facebook"></a>
+              <a href="#" class="fa fa-linkedin-square tooltipped" title="LinkedIn"></a>
+              <a href="#" class="fa fa-pinterest-square tooltipped" title="Pinterest"></a>
+              <a href="#" class="fa fa-google-plus-square tooltipped" title="Google+"></a>
+            </div>
+          </div> 
+        </div>
+        <div class="copyright row">
+        	<div class="col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2">
+          	<p>&copy; Thai Papaya Garden. All Rights Reserved. Designed by <a href="http://8guild.com/" target="_blank">8Guild</a></p>
+          </div>
+        </div>
+        </div>
+      </footer>
+    
+    </div><!--Close Wrapper-->
+    
+    <!--Javascript (jQuery)-->
+		<script src="js/libs/jquery-1.10.2.min.js"></script>
+		<script src="js/libs/jquery.easing.1.3.js"></script>
+		<script src="js/plugins/bootstrap.min.js"></script>
+		<script src="js/plugins/jquery.touchSwipe.min.js"></script>
+		<script src="js/plugins/jquery.cycle.min.js"></script>
+		<script src="js/plugins/waypoints.min.js"></script>
+		<script src="js/plugins/waypoints-sticky.min.js"></script>
+		<script src="js/plugins/datepicker.min.js"></script>
+		<script src="js/plugins/timepicker.min.js"></script>
+		<script src="js/plugins/jquery.validate.min.js"></script>
+		<script src="js/scripts-main.js"></script>
+    
+  </body><!--Close Body-->
+</html>

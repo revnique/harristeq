@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Thai Papaya Garden - Healthy Thai Food, Thai Cuisine</title>
+    <meta name="description" content="Responsive Restaurant HTML Template" />
+		<meta name="keywords" content="responsive html template, restaurant, cafe, bootstrap 3.0, css, jquery" />
+		<meta name="author" content="8Guild" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
+    <!--Icons Fonts-->
+    <link href="css/font-awesome.min.css" rel="stylesheet" media="screen">
+    <!-- Custom styles -->
+    <link href="css/preview-page.css" rel="stylesheet" media="screen">
+    <!--Javascript (jQuery)-->
+		<script src="js/libs/jquery-1.10.2.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="js/plugins/respond.min.js"></script>
+    <![endif]-->
+  </head>
+	
+  <!--Body-->
+  <body>
+  
+  	<!-- Preloader -->
+    <div id="preloader">
+      <div id="status">
+        <img class="svg" src="img/logo-big.svg" width="133" height="120" alt="Eattie"/>
+        <img class="png" src="img/logo-big.png" width="133" height="120" alt="Eattie"/>
+        <div id="fountainG">
+          <div id="fountainG_1" class="fountainG"></div>
+          <div id="fountainG_2" class="fountainG"></div>
+          <div id="fountainG_3" class="fountainG"></div>
+          <div id="fountainG_4" class="fountainG"></div>
+          <div id="fountainG_5" class="fountainG"></div>
+          <div id="fountainG_6" class="fountainG"></div>
+          <div id="fountainG_7" class="fountainG"></div>
+          <div id="fountainG_8" class="fountainG"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!--Content-->
+  	<div class="container">
+    	<div class="logo animated"><img src="img/preview/logo.png" width="225" height="165" alt="Eattie"/></div>
+      <div class="group">
+        <div class="col col-left animated">
+          <a href="home-slideshow.html">
+            <div class="glare"></div>
+          	<div class="mask">
+            	<i class="fa fa-external-link"></i>
+              <img src="img/preview/screen1.png" width="331" height="187" alt="Slideshow Background"/>
+            </div>
+            <h2>Slideshow Background</h2>
+          </a>
+        </div>
+        <div class="col col-right animated">
+          <a href="home-static.html">
+            <div class="glare"></div>
+          	<div class="mask">
+            	<i class="fa fa-external-link"></i>
+              <img src="img/preview/screen2.png" width="331" height="187" alt="Video Background"/>
+            </div>
+            <h2>Static Background</h2>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!--Footer-->
+    <div class="footer animated">
+    	<div class="copyright">&copy; 2014 Thai Papaya Garden. All Rights Reserved. Designed by  <a href="http://8guild.com/" target="_blank">8Guild</a></div>
+    </div>
+    
+    <!--/*Preloading Animation*/-->
+    <script>
+			$(window).load(function() {
+				$('#status').fadeOut();
+				$('#preloader').delay(300).fadeOut('slow');
+				$('body').delay(300).css({'overflow':'visible'});
+				setTimeout(function(){$('.col-left').addClass('fadeInLeft');},300);
+				setTimeout(function(){$('.col-right').addClass('fadeInRight');},300);
+				setTimeout(function(){$('.logo').addClass('slideInDown');},300);
+				setTimeout(function(){$('.footer').addClass('fadeIn');},300);
+			});
+    </script>
+  </body><!--/Body-->
+</html>
