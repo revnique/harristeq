@@ -919,8 +919,10 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\home\dorbaController.js" />
     <Content Include="Scripts\home\calendarController.js" />
+    <Content Include="Scripts\libs\EventDispatcher.js" />
     <Content Include="Scripts\home\harristeqApp.js" />
     <Content Include="Scripts\home\knockoutJsDemoViewModel.js" />
+    <Content Include="Scripts\libs\require.js" />
     <Content Include="Scripts\home\taskController.js" />
     <Content Include="Scripts\home\garminController.js" />
     <Content Include="Scripts\home\harristeqController.js" />
@@ -1026,6 +1028,7 @@
     <Content Include="Scripts\Knockout-latest-debug.js" />
     <Content Include="Scripts\knockout.bindings.js" />
     <Content Include="Scripts\knockout.mapping.js" />
+    <Content Include="Scripts\libs\underscore-min.js" />
     <Content Include="Scripts\ng-grid.js" />
     <Content Include="Scripts\popcorn-complete.min.js" />
     <Content Include="Scripts\theme.js" />
