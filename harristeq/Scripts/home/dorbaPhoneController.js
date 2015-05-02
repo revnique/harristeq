@@ -27,6 +27,52 @@
     $scope.getDorbaData = harristeqSvc.getTrailInfoNew().then(function(results) {
         $scope.dorbaData = results;
         console.log("dorbaData", results);
+        $scope.flatTrails = _.map($scope.dorbaData.trails, function (field) {
+            return field.trail;
+        });
+
+        console.log("$scope.flatTrails", $scope.flatTrails);
+
+
+
+
+        var states = new Bloodhound({
+            name: 'states',
+            datumTokenizer: function (d) {
+                return Bloodhound.tokenizers.whitespace(d.trailName);
+            },
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            // `states` is an array of state names defined in "The Basics"
+            local: $scope.flatTrails
+
+        });
+        states.initialize();
+
+        $('#txtTabletSearch').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        },
+        {
+            name: 'states',
+            source: states.ttAdapter(),
+            displayKey: 'trailName'
+        });
+
+        $('#txtPhoneSearch').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        },
+        {
+            name: 'states',
+            source: states.ttAdapter(),
+            displayKey: 'trailName'
+        });
+
+
+
+
     }, function() {
         //fail goes here
     });
@@ -44,60 +90,58 @@
         this.onResize();
         window.addEventListener("orientationchange", this.onOrientationChange);
 
+        var trails = [
+            {
+                trail: {
+                    "trailId": "29",
+                    "trailName": "Tyler State Park",
+                    "openClose": "Closed",
+                    "currentStatus": "0",
+                    "currentCondition": "4",
+                    "conditionDesc": "Muddy",
+                    "geoLat": "32.472478",
+                    "geoLang": "-95.299187",
+                    "trailCity": "Tyler",
+                    "trailAddress": "789 Park Road 16 Tyler, TX 75706",
 
-        var states = new Bloodhound({
-            name: 'states',
-            datumTokenizer: function(d) {
-                return Bloodhound.tokenizers.whitespace(d.trailName);
-            },
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            // `states` is an array of state names defined in "The Basics"
-            local:
-            [
-                {
-             
-                        "trailId": "29",
-                        "trailName": "Tyler State Park",
-                        "openClose": "Closed",
-                        "currentStatus": "0",
-                        "currentCondition": "4",
-                        "conditionDesc": "Muddy",
-                        "geoLat": "32.472478",
-                        "geoLang": "-95.299187",
-                        "trailCity": "Tyler",
-                        "trailAddress": "789 Park Road 16 Tyler, TX 75706",
-
-                        "landOwner": "Tyler State Park Call 903-592-6790 for latest trail conditions",
-                        "facebook": "",
-                        "twitter": "",
-                        "updateFormatted": "Sun, Apr 19, 2015 @ 02:11 PM",
-                        "trailCategory": "4",
-                        "trailKML": null
-             
-                },
-                {
-                        "trailId": "30",
-                        "trailName": "Windmill Hill Preserve",
-                        "openClose": "Closed",
-                        "currentStatus": "0",
-                        "currentCondition": "4",
-                        "conditionDesc": "Muddy",
-                        "geoLat": "32.617280",
-                        "geoLang": "-96.908369",
-                        "trailCity": "DeSoto",
-                        "trailAddress": "",
-
-                        "landOwner": "",
-                        "facebook": "",
-                        "twitter": "",
-                        "updateFormatted": "Mon, Apr 13, 2015 @ 01:46 PM",
-                        "trailCategory": "2",
-                        "trailKML": null
-                 
+                    "landOwner": "Tyler State Park Call 903-592-6790 for latest trail conditions",
+                    "facebook": "",
+                    "twitter": "",
+                    "updateFormatted": "Sun, Apr 19, 2015 @ 02:11 PM",
+                    "trailCategory": "4",
+                    "trailKML": null
                 }
-            ]
-        });
-        states.initialize();
+            },
+            {
+                trail: {
+                    "trailId": "30",
+                    "trailName": "Windmill Hill Preserve",
+                    "openClose": "Closed",
+                    "currentStatus": "0",
+                    "currentCondition": "4",
+                    "conditionDesc": "Muddy",
+                    "geoLat": "32.617280",
+                    "geoLang": "-96.908369",
+                    "trailCity": "DeSoto",
+                    "trailAddress": "",
+
+                    "landOwner": "",
+                    "facebook": "",
+                    "twitter": "",
+                    "updateFormatted": "Mon, Apr 13, 2015 @ 01:46 PM",
+                    "trailCategory": "2",
+                    "trailKML": null
+                }
+            }
+        ];
+
+
+        //var flatTrails = _.map(trails, function (field) {
+        //    return field.trail;
+        //});
+
+        
+
 
         //$('#txtPhoneSearch').typeahead({
         //    hint: true,
@@ -113,15 +157,6 @@
         //    }
         //});
 
-        $('#txtTabletSearch').typeahead({
-            hint: true,
-            highlight: true,
-            minLength: 1
-        },
-        {
-            name: 'states',
-            source: states.ttAdapter()
-        });
 
 
     };

@@ -1202,7 +1202,7 @@
     <Content Include="Content\papayaGarden\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\papayaGarden\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\papayaGarden\fonts\FontAwesome.otf" />
-    <Content Include="images\dorbaLogo.png.bak" />
+    <Content Include="images\dorbaLogoRound.png" />
     <None Include="Properties\PublishProfiles\harristeq.com.pubxml" />
     <Content Include="Scripts\home\harristeqDirectives.js" />
     <Content Include="Scripts\home\harristeqSvc.js" />

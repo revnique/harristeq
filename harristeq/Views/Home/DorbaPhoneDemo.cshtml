@@ -50,6 +50,29 @@
         button.navbar-toggle.btnSearch:focus:hover {
             background-color: #5F5F5F;
         }
+
+
+        #trailName {
+            font-weight: bold;
+            font-size: 17px;
+        }
+        #cityState {
+            font-size: 14px;
+        }
+       
+        .tt-menu {
+            background-color: #383838;
+        }
+        .tt-suggestion {
+            color: #e7e7e7;
+            padding: 5px;
+        }
+        #phoneSearch .twitter-typeahead {
+            width: 100%;
+        }
+        #txtPhoneSearch.tt-input {
+            margin-bottom: -5px;
+        } 
     </style>
 
 
@@ -106,18 +129,74 @@
 
 
             </div>
-            </nav>
+        </nav>
        
-        <div>
+        <div class="container">
+            <div class="trailListItem" ng-repeat="trail in flatTrails">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <span id="trailName" ng-bind="trail.trailName"></span>
+                        <br />
+                        <span id="cityState" ng-bind="trail.trailCity">Dallas, TX</span>
+                    </div>
+                    <div class="col-xs-4">
+                        <button ng-class="{'btn btn-danger': trail.currentStatus==0, 'btn btn-success': trail.currentStatus==1, 'btn btn-warning': trail.currentStatus!=1 && trail.currentStatus!=0}" class="btn pull-right" ng-bind="trail.openClose"></button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
+                        <br />
+                        <span>
+                            Condition
+                        </span>
+                    </div>
+                    <div class="col-xs-12">
+                        <span id="trailCondition" ng-bind="trail.conditionDesc"></span>
+                        <br />
+                        <span id="lastUpdated" ng-bind="updateFormatted"></span>
+                    </div>
+                    <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
+                        <br />
+                        <span>
+                            Location
+                        </span>
+                    </div>
+                    <div class="col-xs-12">
+                        <span id="trailAddress" ng-bind="trail.trailAddress"></span>
+                    </div>
+                    <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
+                        <br />
+                        <span>
+                            Trailhead Coordinates
+                        </span>
+                    </div>
+                    <div class="col-xs-12">
+                        <span id="trailLatitude" ng-bind="trail.geoLat"></span>,&nbsp;<span id="trailLongitude" ng-bind="trail.geoLang"></span>
+                    </div>
+                    <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
+                        <br />
+                        <span>
+                            Trail Details
+                        </span>
+                    </div>
+                    @*<div ng-bind-html="trail.trailDesc"></div>*@
+                    <br />
+                </div>
+                <br />
+            </div>
+        </div>
+        
+
+        @*<div>
             <div ng-repeat="trail in dorbaData.trails">
                 <div>{{trail}}</div>
                 <br />
                 <br />
                 <br />
             </div>
-        </div>
+        </div>*@
 
-</div>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     <script src="~/Scripts/jquery-ui-1.11.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
