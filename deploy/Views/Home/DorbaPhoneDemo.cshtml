@@ -1,0 +1,227 @@
+﻿@{
+    ViewBag.Title = "Dorba";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Dorba Phone (responsive web)</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+
+    <meta name="apple-mobile-web-app-title" content="HarrisTeq">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <link href="~/css/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/dorbaPhone.css" rel="stylesheet" />
+   
+</head>
+
+
+<body ng-app="harristeqApp">
+
+    <style>
+        button.navbar-toggle.btnSearch {
+            float: right;
+        }
+        button.navbar-toggle.btnSearch img{
+            width: 15px;
+        }
+        button.navbar-toggle.btnSearch:focus {
+            background-color: #383838;
+        }
+        button.navbar-toggle.btnSearch:focus:hover {
+            background-color: #5F5F5F;
+        }
+
+
+        #trailName {
+            font-weight: bold;
+            font-size: 17px;
+        }
+        #cityState {
+            font-size: 14px;
+        }
+       
+        .tt-menu {
+            background-color: #383838;
+        }
+        .tt-suggestion {
+            color: #e7e7e7;
+            padding: 5px;
+        }
+        #phoneSearch .twitter-typeahead {
+            width: 100%;
+        }
+        #txtPhoneSearch.tt-input {
+            margin-bottom: -5px;
+        } 
+        #logo {
+            margin-top: -17px;
+        }
+    </style>
+
+
+    <div id="divDorbaPhoneContainer" ng-controller="dorbaPhoneController">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div id="topSection" class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img alt="Brand" src="~/images/dorbaLogoRound.png" width="70" id="logo">
+                    </a>
+                    <button class="navbar-toggle btnSearch" ng-click="isSearchOpen = !isSearchOpen">
+                        <img src="~/images/icons/search-white.png" alt="search" />
+                    </button>
+                </div>
+                <form id="phoneSearch" class="navbar-form" ng-cloak ng-show="isSearchOpen">
+                    <div class="input-group">
+                        <input type="text" id="txtPhoneSearch" class="form-control" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Search</button>
+                        </span>
+                    </div>
+                </form>
+                <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form id="tabletSearch" class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input id="txtTabletSearch" type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+
+
+            </div>
+        </nav>
+       
+        <div class="container">
+            <div class="trailListItem" ng-repeat="trail in flatTrails">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <span id="trailName" ng-bind="trail.trailName"></span>
+                        <br />
+                        <span id="cityState" ng-bind="trail.trailCity">Dallas, TX</span>
+                    </div>
+                    <div class="col-xs-4">
+                        <button ng-class="{'btn btn-danger': trail.currentStatus==0, 'btn btn-success': trail.currentStatus==1, 'btn btn-warning': trail.currentStatus!=1 && trail.currentStatus!=0}" class="btn pull-right" ng-bind="trail.openClose"></button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
+                        <br />
+                        <span>
+                            Condition
+                        </span>
+                    </div>
+                    <div class="col-xs-12">
+                        <span id="trailCondition" ng-bind="trail.conditionDesc"></span>
+                        <br />
+                        <span id="lastUpdated" ng-bind="updateFormatted"></span>
+                    </div>
+                    <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
+                        <br />
+                        <span>
+                            Location
+                        </span>
+                    </div>
+                    <div class="col-xs-12">
+                        <span id="trailAddress" ng-bind="trail.trailAddress"></span>
+                    </div>
+                    <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
+                        <br />
+                        <span>
+                            Trailhead Coordinates
+                        </span>
+                    </div>
+                    <div class="col-xs-12">
+                        <span id="trailLatitude" ng-bind="trail.geoLat"></span>,&nbsp;<span id="trailLongitude" ng-bind="trail.geoLang"></span>
+                    </div>
+                    <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
+                        <br />
+                        <span>
+                            Trail Details
+                        </span>
+                    </div>
+                    @*<div ng-bind-html="trail.trailDesc"></div>*@
+                    <br />
+                </div>
+                <br />
+            </div>
+        </div>
+        
+
+        @*<div>
+            <div ng-repeat="trail in dorbaData.trails">
+                <div>{{trail}}</div>
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>*@
+
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery-ui-1.11.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/vendor/jquery.cookie.js"></script>
+ 
+    @*<script src="~/Scripts/libs/typeahead.bundle.min.js"></script>*@    
+    <script src="~/Scripts/libs/typeahead.js"></script>
+    <script src="~/Scripts/underscore.js"></script>
+   
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/ng-grid.js"></script>
+    <script src="~/Scripts/home/harristeqApp.js"></script>
+    <script src="~/Scripts/home/harristeqDirectives.js"></script>
+    <script src="~/Scripts/home/harristeqSvc.js"></script>
+    <script src="~/Scripts/home/harristeqController.js"></script>
+    <script src="~/Scripts/home/dorbaPhoneController.js"></script>
+</body>
+</html>
+
+
+
+
+
+
