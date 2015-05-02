@@ -72,6 +72,12 @@
             iconClass: "ion-ios7-gear-outline"
         },
         {
+            name: "Dorba (phone) Demo",
+            url: rootUrl() + "/home/dorbaphonedemo",
+            isActive: getIsActive("/home/dorbaphonedemo"),
+            iconClass: "ion-iphone"
+        },
+        {
             name: "Triforce Demo",
             url: rootUrl() + "/home/triforcedemo",
             isActive: getIsActive("/home/triforcedemo"),
