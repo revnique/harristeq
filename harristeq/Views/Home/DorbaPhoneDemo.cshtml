@@ -76,6 +76,18 @@
         #logo {
             margin-top: -17px;
         }
+        .btn-status {
+            width: 100px;
+        }
+        .trail-collapse {
+            display: none;
+        }
+        .clickable {
+            cursor: pointer;
+        }
+        .linkable {
+            color: #0000ff;
+        }
     </style>
 
 
@@ -135,57 +147,63 @@
         </nav>
        
         <div class="container">
-            <div class="trailListItem" ng-repeat="trail in flatTrails">
-                <div class="row">
+            <div class="trailListItem" ng-repeat="trail in flatTrails" style="border-bottom: 1px #fff solid;">
+                <div class="row clickable" style="background-color:#e7e7e7;padding-top:5px; padding-bottom: 5px;" ng-click="trail.isExpanded = !trail.isExpanded">
                     <div class="col-xs-8">
+                        <span class="clickable linkable" ng-cloak ng-click="trail.isExpanded = !trail.isExpanded">({{trail.isExpanded ? '-' : '+'}})</span>
                         <span id="trailName" ng-bind="trail.trailName"></span>
                         <br />
                         <span id="cityState" ng-bind="trail.trailCity">Dallas, TX</span>
                     </div>
                     <div class="col-xs-4">
-                        <button ng-class="{'btn btn-danger': trail.currentStatus==0, 'btn btn-success': trail.currentStatus==1, 'btn btn-warning': trail.currentStatus!=1 && trail.currentStatus!=0}" class="btn pull-right" ng-bind="trail.openClose"></button>
+                        <button ng-class="{'btn btn-danger': trail.currentStatus==0, 'btn btn-success': trail.currentStatus==1, 'btn btn-warning': trail.currentStatus!=1 && trail.currentStatus!=0}"
+                                class="btn pull-right btn-status"
+                                style="margin-top:4px;"
+                                ng-bind="trail.openClose"
+                                ng-click="trail.isExpanded = !trail.isExpanded"></button>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
+                <div ng-show="trail.isExpanded">
+                    <div class="row">
+                        <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
+                            <br />
+                            <span>
+                                Condition
+                            </span>
+                        </div>
+                        <div class="col-xs-12">
+                            <span id="trailCondition" ng-bind="trail.conditionDesc"></span>
+                            <br />
+                            <span id="lastUpdated" ng-bind="updateFormatted"></span>
+                        </div>
+                        <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
+                            <br />
+                            <span>
+                                Location
+                            </span>
+                        </div>
+                        <div class="col-xs-12">
+                            <span id="trailAddress" ng-bind="trail.trailAddress"></span>
+                        </div>
+                        <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
+                            <br />
+                            <span>
+                                Trailhead Coordinates
+                            </span>
+                        </div>
+                        <div class="col-xs-12">
+                            <span id="trailLatitude" ng-bind="trail.geoLat"></span>,&nbsp;<span id="trailLongitude" ng-bind="trail.geoLang"></span>
+                        </div>
+                        <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
+                            <br />
+                            <span>
+                                Trail Details
+                            </span>
+                        </div>
+                        @*<div ng-bind-html="trail.trailDesc"></div>*@
                         <br />
-                        <span>
-                            Condition
-                        </span>
                     </div>
-                    <div class="col-xs-12">
-                        <span id="trailCondition" ng-bind="trail.conditionDesc"></span>
-                        <br />
-                        <span id="lastUpdated" ng-bind="updateFormatted"></span>
-                    </div>
-                    <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
-                        <br />
-                        <span>
-                            Location
-                        </span>
-                    </div>
-                    <div class="col-xs-12">
-                        <span id="trailAddress" ng-bind="trail.trailAddress"></span>
-                    </div>
-                    <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
-                        <br />
-                        <span>
-                            Trailhead Coordinates
-                        </span>
-                    </div>
-                    <div class="col-xs-12">
-                        <span id="trailLatitude" ng-bind="trail.geoLat"></span>,&nbsp;<span id="trailLongitude" ng-bind="trail.geoLang"></span>
-                    </div>
-                    <div class="col-xs-12" style="border-bottom: 1px solid #b7b7b7;">
-                        <br />
-                        <span>
-                            Trail Details
-                        </span>
-                    </div>
-                    @*<div ng-bind-html="trail.trailDesc"></div>*@
-                    <br />
                 </div>
-                <br />
             </div>
         </div>
         
