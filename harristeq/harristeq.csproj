@@ -206,6 +206,7 @@
     <Content Include="account-notifications.html" />
     <Content Include="account-profile.html" />
     <Content Include="account-support.html" />
+    <Content Include="apitest.html" />
     <Content Include="billing-form.html" />
     <Content Include="calendar.html" />
     <Content Include="Content\bootstrap-theme.css.map" />

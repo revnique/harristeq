@@ -24,11 +24,28 @@
         console.log("data", data);
     };
 
+    $scope.predicate = 'trailName';
+    $scope.reverse = false;
+
     $scope.getDorbaData = harristeqSvc.getTrailInfoNew().then(function(results) {
         $scope.dorbaData = results;
+        var distance, startingLat, startingLong;
+        startingLat = $scope.currentLatitude;
+        startingLong = $scope.currentLongitude;
+
         console.log("dorbaData", results);
         $scope.flatTrails = _.map($scope.dorbaData.trails, function (field) {
+            //field.trail.isExpanded = false;
             field.trail.isExpanded = false;
+
+            console.log(field.trail.trailName + " lat", field.trail.geoLat);
+            console.log(field.trail.trailName + " long", field.trail.geoLang);
+
+            distance = $scope.calculateDistance(startingLat, startingLong, parseFloat(field.trail.geoLat), parseFloat(field.trail.geoLang));
+            console.log(field.trail.trailName + " distance", distance);
+
+            field.trail.distance = distance;
+
             return field.trail;
         });
 
@@ -73,24 +90,67 @@
 
 
 
-
     }, function() {
         //fail goes here
     });
 
-    $scope.currentLatitude = "32.761195";
-    $scope.currentLongitude = "-97.278058";
+    $scope.calculateDistance = function(lat1, lon1, lat2, lon2) {
+        //dlon = lon2 - lon1 
+        //dlat = lat2 - lat1 
+        //a = (sin(dlat/2))^2 + cos(lat1) * cos(lat2) * (sin(dlon/2))^2 
+        //c = 2 * atan2( sqrt(a), sqrt(1-a) ) 
+        //d = R * c (where R is the radius of the Earth)
+        //3961 miles & 6373 km
+
+        /** Converts numeric degrees to radians */
+        if (typeof (Number.prototype.toRadians) === "undefined") {
+            Number.prototype.toRadians = function () {
+                return this * Math.PI / 180;
+            }
+        }
+        var R = 6371; // metres
+        var φ1 = lat1.toRadians();
+        var φ2 = lat2.toRadians();
+        var Δφ = (lat2 - lat1).toRadians();
+        var Δλ = (lon2 - lon1).toRadians();
+
+        var a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+                Math.cos(φ1) * Math.cos(φ2) *
+                Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        var d = R * c;
+        return d;
+    };
+
+    //coeur d'alene, id
+    $scope.currentLatitude = 47.699111;
+    $scope.currentLongitude = -116.790272;
+    //47.543141, -116.236492
+
+
+    var getLocationSuccess = function(location) {
+        $scope.currentLatitude = location.coords.latitude;
+        $scope.currentLongitude= location.coords.longitude;
+    }
+    var errorHandler = function(error) {
+        alert("Attempt to get location failed: " + error.message + "\nGoing to use Coeur d'Alene, ID as your current location instead.");
+    }
 
 
     $scope.init = function () {
+        navigator.geolocation.getCurrentPosition(getLocationSuccess, errorHandler);
         $scope.getTrailMetadata($scope.dorbaData);
 
         $(window).resize(this.onResize);
         this.onResize();
         window.addEventListener("orientationchange", this.onOrientationChange);
 
-
     };
+
+
+
+
 
     $scope.onResize = _.debounce(function() {
         var h, w;
@@ -133,29 +193,6 @@
 
 
     $scope.isSearchOpen = false;
-
-
-    var substringMatcher = function(strs) {
-        return function findMatches(q, cb) {
-            var matches, substringRegex;
-
-            // an array that will be populated with substring matches
-            matches = [];
-
-            // regex used to determine if a string contains the substring `q`
-            substrRegex = new RegExp(q, 'i');
-
-            // iterate through the pool of strings and for any string that
-            // contains the substring `q`, add it to the `matches` array
-            $.each(strs, function(i, str) {
-                if (substrRegex.test(str)) {
-                    matches.push(str);
-                }
-            });
-
-            cb(matches);
-        };
-    };
 
 
     $scope.init();

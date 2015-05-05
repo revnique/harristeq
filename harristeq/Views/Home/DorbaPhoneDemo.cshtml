@@ -88,6 +88,8 @@
         .linkable {
             color: #0000ff;
         }
+
+        /*Segoe UI Light', 'Segoe UI Web Light', 'Segoe UI Web Regular', 'Segoe UI', 'Segoe UI Symbol', HelveticaNeue-Light, 'Helvetica Neue', Arial, sans-serif*/
     </style>
 
 
@@ -117,11 +119,11 @@
                     </div>
                 </form>
                 <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li class="dropdown">
+                    <ul class="nav navbar-nav navbar-left" ng-cloak>
+                        <li ng-class="{'active': predicate=='trailName'}"><a href="#" ng-click="predicate = 'trailName'; reverse = !reverse;">Sort by Name&nbsp;<span ng-show="predicate=='trailName'">{{reverse==false ? '&darr;' : '&uarr;'}}</span></a></li>
+                        <li ng-class="{'active': predicate=='distance'}"><a href="#" ng-click="predicate = 'distance'; reverse = !reverse;">Sort by Distance&nbsp;<span ng-show="predicate=='distance'">{{reverse==false ? '&darr;' : '&uarr;'}}</span></a></li>
+                        <li ng-class="{'active': predicate=='currentStatus'}"><a href="#" ng-click="predicate = 'currentStatus'; reverse = !reverse;">Sort by Condition&nbsp;<span ng-show="predicate=='currentStatus'">{{reverse==false ? '&darr;' : '&uarr;'}}</span></a></li>
+                        @*<li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Action</a></li>
@@ -132,7 +134,7 @@
                                 <li><a href="#">Separated link</a></li>
                                 <li><a href="#">One more separated link</a></li>
                             </ul>
-                        </li>
+                        </li>*@
                     </ul>
                     <form id="tabletSearch" class="navbar-form navbar-right" role="search">
                         <div class="form-group">
@@ -147,13 +149,14 @@
         </nav>
        
         <div class="container">
-            <div class="trailListItem" ng-repeat="trail in flatTrails" style="border-bottom: 1px #fff solid;">
+            <div class="trailListItem" ng-repeat="trail in flatTrails | orderBy:predicate:reverse" style="border-bottom: 1px #fff solid;" ng-cloak>
                 <div class="row clickable" style="background-color:#e7e7e7;padding-top:5px; padding-bottom: 5px;" ng-click="trail.isExpanded = !trail.isExpanded">
                     <div class="col-xs-8">
                         <span class="clickable linkable" ng-cloak ng-click="trail.isExpanded = !trail.isExpanded">({{trail.isExpanded ? '-' : '+'}})</span>
                         <span id="trailName" ng-bind="trail.trailName"></span>
                         <br />
                         <span id="cityState" ng-bind="trail.trailCity">Dallas, TX</span>
+                        <span id="trailDistance" ng-bind="trail.distance"></span>km
                     </div>
                     <div class="col-xs-4">
                         <button ng-class="{'btn btn-danger': trail.currentStatus==0, 'btn btn-success': trail.currentStatus==1, 'btn btn-warning': trail.currentStatus!=1 && trail.currentStatus!=0}"
@@ -200,7 +203,10 @@
                                 Trail Details
                             </span>
                         </div>
-                        @*<div ng-bind-html="trail.trailDesc"></div>*@
+                        <div class="col-xs-12" style="height: 100px; overflow-x:hidden; overflow-y: auto; display: none;">
+                            <div ng-bind-html="trail.trailDesc"></div>
+                        </div>
+
                         <br />
                     </div>
                 </div>
