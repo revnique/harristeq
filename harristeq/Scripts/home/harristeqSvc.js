@@ -194,6 +194,24 @@ harristeqApp.factory('harristeqSvc', ['$http', '$window', '$q', '$timeout',
             return deferred.promise;
         };
 
+        svc.getLocationData = function (geoLat, geoLong) {
+            var deferred = $q.defer();
+
+            //$http.get("http://dorba.org/services/trails.php")
+            $http.get("http://ws.geonames.org/findNearbyPostalCodesJSON?formatted=true&lat=" + geoLat + "&lng=" + geoLong + "&username=harristeq.com")
+                .success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                    //alert(data);
+                    svc.showLoading = false;
+                }).error(function (data, status, headers, config) {
+                    var msg = 'Error fetching trail info.';
+                    svc.showMessage(msg, "error");
+                    deferred.reject(msg);
+                });
+
+            return deferred.promise;
+        };
+
 
         return svc;
     }

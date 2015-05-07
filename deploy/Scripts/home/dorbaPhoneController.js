@@ -33,26 +33,23 @@
         startingLat = $scope.currentLatitude;
         startingLong = $scope.currentLongitude;
 
-        console.log("dorbaData", results);
+        //console.log("dorbaData", results);
         $scope.flatTrails = _.map($scope.dorbaData.trails, function (field) {
             //field.trail.isExpanded = false;
             field.trail.isExpanded = false;
 
-            console.log(field.trail.trailName + " lat", field.trail.geoLat);
-            console.log(field.trail.trailName + " long", field.trail.geoLang);
+            //console.log(field.trail.trailName + " lat", field.trail.geoLat);
+            //console.log(field.trail.trailName + " long", field.trail.geoLang);
 
             distance = $scope.calculateDistance(startingLat, startingLong, parseFloat(field.trail.geoLat), parseFloat(field.trail.geoLang));
-            console.log(field.trail.trailName + " distance", distance);
+            //console.log(field.trail.trailName + " distance", distance);
 
             field.trail.distance = distance;
 
             return field.trail;
         });
 
-        console.log("$scope.flatTrails", $scope.flatTrails);
-
-
-
+        //console.log("$scope.flatTrails", $scope.flatTrails);
 
         var trailList = new Bloodhound({
             name: 'trailList',
@@ -87,12 +84,26 @@
             source: trailList.ttAdapter(),
             displayKey: 'trailName'
         });
-
-
-
     }, function() {
         //fail goes here
     });
+
+
+    $scope.getLocationData = function (geoLat, geoLang) {
+        harristeqSvc.getLocationData(geoLat, geoLang).then(function(results) {
+            $scope.locationData = results;
+
+            if (results != null) {
+                $scope.geoCity = results.postalCodes[0].placeName;
+                $scope.geoState = results.postalCodes[0].adminCode1;
+            }
+
+        }, function() {
+            //fail goes here
+        });
+    };
+
+
 
     $scope.calculateDistance = function(lat1, lon1, lat2, lon2) {
         //dlon = lon2 - lon1 
@@ -131,12 +142,12 @@
 
     var getLocationSuccess = function(location) {
         $scope.currentLatitude = location.coords.latitude;
-        $scope.currentLongitude= location.coords.longitude;
+        $scope.currentLongitude = location.coords.longitude;
+        $scope.getLocationData($scope.currentLatitude, $scope.currentLongitude);
     }
     var errorHandler = function(error) {
         alert("Attempt to get location failed: " + error.message + "\nGoing to use Coeur d'Alene, ID as your current location instead.");
     }
-
 
     $scope.init = function () {
         navigator.geolocation.getCurrentPosition(getLocationSuccess, errorHandler);
@@ -145,7 +156,6 @@
         $(window).resize(this.onResize);
         this.onResize();
         window.addEventListener("orientationchange", this.onOrientationChange);
-
     };
 
 

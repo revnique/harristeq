@@ -811,6 +811,8 @@
     <Content Include="images\emails\notification.png" />
     <Content Include="images\emails\welcome.png" />
     <Content Include="images\google-drive.png" />
+    <Content Include="images\icon-geolocation-white.png" />
+    <Content Include="images\icon-geolocation.png" />
     <Content Include="images\icons\icon-by-distance-white.png" />
     <Content Include="images\icons\icon-by-distance.png" />
     <Content Include="images\icons\icon-by-name-white.png" />
