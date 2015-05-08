@@ -44,7 +44,8 @@
             distance = $scope.calculateDistance(startingLat, startingLong, parseFloat(field.trail.geoLat), parseFloat(field.trail.geoLang));
             //console.log(field.trail.trailName + " distance", distance);
 
-            field.trail.distance = distance;
+            field.trail.distanceKm = distance;
+            field.trail.distanceMi = distance * 0.621371192;
 
             return field.trail;
         });
@@ -103,7 +104,7 @@
         });
     };
 
-
+    $scope.useMiles = false;
 
     $scope.calculateDistance = function(lat1, lon1, lat2, lon2) {
         //dlon = lon2 - lon1 
@@ -119,7 +120,7 @@
                 return this * Math.PI / 180;
             }
         }
-        var R = 6371; // metres
+        var R = $scope.useMiles ? 3961 : 6373;
         var φ1 = lat1.toRadians();
         var φ2 = lat2.toRadians();
         var Δφ = (lat2 - lat1).toRadians();

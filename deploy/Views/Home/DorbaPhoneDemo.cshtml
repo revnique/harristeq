@@ -110,7 +110,7 @@
                         <img alt="Brand" src="~/images/dorbaLogoRound.png" width="70" id="logo">
                     </a>
                     <div style="color:white;" class="navbar-brand" ng-show="{geoCity != null && geoState != null}">
-                        <img alt="Brand" src="~/images/icon-geolocation-white.png" width="20">
+                        <img alt="Brand" src="~/images/icon-geolocation-white.png" width="20" ng-click="useMiles = !useMiles">
                         <span ng-cloak class="geoCity">{{geoCity}},&nbsp;{{geoState}}</span>
                     </div>
                     <button class="navbar-toggle btnSearch" ng-click="isSearchOpen = !isSearchOpen">
@@ -129,7 +129,7 @@
                 <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
                     <ul class="nav navbar-nav navbar-left" ng-cloak>
                         <li ng-class="{'active': predicate=='trailName'}"><a href="#" ng-click="predicate = 'trailName'; reverse = !reverse;">Name&nbsp;<span ng-show="predicate=='trailName'">{{reverse==false ? '&darr;' : '&uarr;'}}</span></a></li>
-                        <li ng-class="{'active': predicate=='distance'}"><a href="#" ng-click="predicate = 'distance'; reverse = !reverse;">Distance&nbsp;<span ng-show="predicate=='distance'">{{reverse==false ? '&darr;' : '&uarr;'}}</span></a></li>
+                        <li ng-class="{'active': predicate=='distanceKm'}"><a href="#" ng-click="predicate = 'distanceKm'; reverse = !reverse;">Distance&nbsp;<span ng-show="predicate=='distanceKm'">{{reverse==false ? '&darr;' : '&uarr;'}}</span></a></li>
                         <li ng-class="{'active': predicate=='currentStatus'}"><a href="#" ng-click="predicate = 'currentStatus'; reverse = !reverse;">Condition&nbsp;<span ng-show="predicate=='currentStatus'">{{reverse==false ? '&darr;' : '&uarr;'}}</span></a></li>
                         @*<li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -165,7 +165,8 @@
                         <span id="trailName" ng-bind="trail.trailName"></span>
                         <br />
                         <span id="cityState" ng-bind="trail.trailCity">Dallas, TX</span>
-                        <span id="trailDistance" ng-bind="trail.distance"></span>km
+                        <span id="trailDistance" ng-cloak ng-hide="useMiles">{{trail.distanceKm | number:2}}km</span>
+                        <span id="trailDistance" ng-cloak ng-show="useMiles">{{trail.distanceMi | number:2}}mi</span>
                     </div>
                     <div class="col-xs-4">
                         <button ng-class="{'btn btn-danger': trail.currentStatus==0, 'btn btn-success': trail.currentStatus==1, 'btn btn-warning': trail.currentStatus!=1 && trail.currentStatus!=0}"
