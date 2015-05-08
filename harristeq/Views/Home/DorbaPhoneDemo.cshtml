@@ -58,6 +58,8 @@
         }
         #cityState {
             font-size: 14px;
+            display: inline-block;
+            width: 100px;
         }
        
         .tt-menu {
@@ -164,7 +166,7 @@
                         <span class="clickable linkable" ng-cloak ng-click="trail.isExpanded = !trail.isExpanded">({{trail.isExpanded ? '-' : '+'}})</span>
                         <span id="trailName" ng-bind="trail.trailName"></span>
                         <br />
-                        <span id="cityState" ng-bind="trail.trailCity">Dallas, TX</span>
+                        <span id="cityState" ng-bind="trail.trailCity"></span>
                         <span id="trailDistance" ng-cloak ng-hide="useMiles">{{trail.distanceKm | number:2}}km</span>
                         <span id="trailDistance" ng-cloak ng-show="useMiles">{{trail.distanceMi | number:2}}mi</span>
                     </div>
