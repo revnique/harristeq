@@ -8,3 +8,13 @@ function makeid()
 
     return text;
 }
+  //$scope.$watch('selectedCode', function (newValue, oldValue) {
+
+            //    console.log('selectedCode Changed');
+
+            //    console.log('selectedCode Changed new', newValue);
+
+            //    console.log('selectedCode Changed old', oldValue);
+
+
+            //});
