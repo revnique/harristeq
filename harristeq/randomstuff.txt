@@ -18,3 +18,9 @@ function makeid()
 
 
             //});
+
+.optional-fee-header:after {
+	clear: both;
+	content: "";
+	display: table;
+}
