@@ -47,3 +47,32 @@ function makeid()
 
             return params;
         };
+
+    
+                                    <style>
+                                        .circle-next, .circle-next:visited {
+                                            border-radius: 20px;
+                                            background-color: #990000;
+                                            color: #fff;
+                                            padding: 10px;
+                                            vertical-align: middle;
+                                            text-align: center;
+                                            font-weight: bold;
+                                            cursor: pointer;
+                                            display: block;
+                                            text-decoration: none;
+                                        }
+                                            .circle-next:hover {
+                                                color: #fff;
+                                                opacity: .7;
+                                                text-decoration: none;
+                                            }
+                                    </style>
+                                    <a href="#" class="circle-next">></a>
+
+
+
+
+
+
+
