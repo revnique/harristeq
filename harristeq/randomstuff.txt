@@ -108,6 +108,19 @@ Date.prototype.addHours = function (h) {
 
 
 
+        [Route("api/InboundFiles/All/{startDate}/{endDate}")]
+        public object GetAllInboundFilesInRange(string startDate, string endDate)
+        {
+            
+            var cmd = SqlHelper.GetSqlCommand(SqlHelper.Databases.Finance);
+            cmd.CommandText = string.Format(@"SELECT f.* FROM Finance.FileProcessing.InboundFile f
+                                JOIN Finance.FileProcessing.InboundFileActivity a 
+                                ON a.InboundFileId = f.InboundFileId
+                                WHERE a.ActivityTypeCode='IMPORT_SUCCESS'
+                                AND f.CreatedDate BETWEEN convert(datetime,'{0}') AND convert(datetime,'{1}')", 
+                                 startDate.Replace("-", "/"), endDate.Replace("-", "/"));
+            return SqlHelper.ExecuteList(cmd);
+        }
 
 
 
