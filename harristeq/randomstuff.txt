@@ -123,6 +123,35 @@ Date.prototype.addHours = function (h) {
         }
 
 
+commons.directive('formButtonValidation', function () {
+    // Description:
+    //  Button that diables and enables based on form validation
+    // Usage:
+    //  <formButtonValidation clicked="controllerMethod" form="formName" value="buttonValue"></div>
+ 
+    var directive = {
+        link: link,
+        restrict: 'E',
+        transclude: true,
+        scope: {
+            clicked: '@',
+            form: '@',
+            value: '@'
+        },
+        template: '<input type="{{clicked}}" class="btn greenbtn bold lightgraybtn" value="{{value}}" ng-disabled="invalid" ng-class="{ greybtn : invalid }" />'
+    };
+    return directive; 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
