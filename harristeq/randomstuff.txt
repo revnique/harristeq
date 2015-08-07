@@ -143,6 +143,37 @@ commons.directive('formButtonValidation', function () {
     return directive; 
 
 
+//Usage//
+//<div class="content-pane" re-size="howTall">
+//<div style="height: {{howTall.howTall-100}}px;">
+//$scope.howTall = { howTall: 0 };
+//$scope.$watch('howTall.howTall', function (newValue, oldValue) {
+//    $timeout(function () {
+//        $scope.gridApi.core.handleWindowResize();
+//    }, 100);
+//});
+app.directive('reSize', function ($window) {
+    return {
+        scope: {
+            reSize: "="
+        },
+        link: function (scope, element) {
+            var w = angular.element($window);
+            var getHeight = function () {
+                return element[0].offsetHeight;
+            };
+            w.bind('resize', function () {
+                _.defer(function () {
+                    scope.reSize.howTall = getHeight();
+                    console.log("scope.howTall", scope.reSize.howTall);
+                    //getHeight(); // when window size gets changed   
+                });
+            });
+            scope.reSize.howTall = getHeight();
+        }
+        //getHeight(); // when page loads          
+    }
+});
 
 
 
