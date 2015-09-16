@@ -176,6 +176,257 @@ app.directive('reSize', function ($window) {
 });
 
 
+"use strict";
+var  = angular.module("",
+    ["ngRoute",
+        "ngMessages",
+        "ui.grid",
+        "ui.grid.resizeColumns",
+        "ui.grid.selection",
+        "ui.router",
+        "ngCookies"])
+.run(
+  ['$rootScope', '$state', '$stateParams',
+    function ($rootScope, $state, $stateParams) {
+
+        // It's very handy to add references to $state and $stateParams to the $rootScope
+        // so that you can access them from any scope within your applications.For example,
+        // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
+        // to active whenever 'contacts.list' or one of its decendents is active.
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
+    }
+  ]
+);
+Date.prototype.addMinutes = function(m) {
+    this.setMinutes(this.getMinutes() + m);
+    return this;
+};
+
+Date.prototype.addHours = function (h) {
+    this.setHours(this.getHours() + h);
+    return this;
+};
+
+Date.prototype.addDays = function (d) {
+    this.setHours(this.getHours() + (d * 24));
+    return this;
+};
+Date.prototype.formatSmallDateTime = function(useSlashNotation) {
+    var day = this.getDate();        // yields dayofmonth
+    if (day < 10) {
+        day = "0" + day;
+    }
+    var month = this.getMonth() + 1;// yields month
+    if (month < 10) {
+        month = "0" + month;
+    }
+    var year = this.getFullYear();  // yields year
+    var hour = this.getHours();     // yields hours 
+    var minute = this.getMinutes(); // yields minutes
+    var second = this.getSeconds(); // yields seconds
+    var rtn = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+    if (useSlashNotation) {
+        rtn = month + "/" + day + "/" + year;
+    }
+    // After this construct a string with the above results as below
+    return rtn;
+};
+
+utils = {_globalObject: {} };
+utils.convertDateStringsToDates = function(input) {
+    //var regexIso8601 = /^(\d{4}|\+\d{6})(?:-(\d{2})(?:-(\d{2})(?:T(\d{2}):(\d{2}):(\d{2})\.(\d{1,})(Z|([\-+])(\d{2}):(\d{2}))?)?)?)?$/;
+    var regexIso8601 = /^(\d{4}|\+\d{6})(?:-(\d{2})(?:-(\d{2})(?:T(\d{2}):(\d{2}):(\d{2})(\.(\d{1,}))?(Z|([\-+])(\d{2}):(\d{2}))?)?)?)?$/;
+
+    // Ignore things that aren't objects.
+    if (typeof input !== "object") return input;
+
+    for (var key in input) {
+        if (!input.hasOwnProperty(key)) continue;
+
+        var value = input[key];
+        var match;
+        // Check for string properties which look like dates.
+        if (typeof value === "string" && (match = value.match(regexIso8601))) {
+            var milliseconds = Date.parse(match[0]);
+
+            if (!isNaN(milliseconds)) {
+                var dateObj = new Date(milliseconds);
+                dateObj.addMinutes(dateObj.getTimezoneOffset());
+
+                input[key] = dateObj;
+            }
+        } else if (typeof value === "object") {
+            // Recurse into object
+            utils.convertDateStringsToDates(value);
+        }
+    }
+};
+
+utils.downloadCsv = function(content, fileName, mimeType) {
+    var a = document.createElement('a');
+    mimeType = mimeType || 'application/octet-stream';
+
+    if (navigator.msSaveBlob) { // IE10
+        return navigator.msSaveBlob(new Blob([content], { type: mimeType }), fileName);
+    } else if ('download' in a) { //html5 A[download]
+        a.href = 'data:' + mimeType + ',' + encodeURIComponent(content);
+        a.setAttribute('download', fileName);
+        document.body.appendChild(a);
+        setTimeout(function() {
+            a.click();
+            document.body.removeChild(a);
+        }, 66);
+        return true;
+    } else { //do iframe dataURL download (old ch+FF):
+        var f = document.createElement('iframe');
+        document.body.appendChild(f);
+        f.src = 'data:' + mimeType + ',' + encodeURIComponent(content);
+
+        setTimeout(function() {
+            document.body.removeChild(f);
+        }, 333);
+        return true;
+    }
+};
+
+
+utils.createCookie = function (name, value, time, days) {
+    var expires, date;
+
+    if (time) {
+        date = new Date(time);
+        expires = "; expires=" + date.toGMTString();
+    } else if (days) {
+        date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    } else {
+        expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+};
+
+utils.expireCookie = function (name) {
+    return utils.createCookie(name, "", "2000-01-01T11:59:59.045665-05:00");
+};
+
+utils.addAuthHeader = function (data, authToken) {
+    if (data == undefined) {
+        data = {params: {},headers: {} }
+    }
+    var AUTH_TOKEN_NAME = "AuthToken";
+    var headerObj = {};
+    headerObj[AUTH_TOKEN_NAME] = authToken;
+    data["headers"] = headerObj;
+    return data;
+};
+
+utils.jsonToParams = function (data) {
+    var queryString = "";
+    if (typeof data === "object" && data != null) {
+        for (var propertyName in data) {
+            if (data.hasOwnProperty(propertyName)) {
+                var value = data[propertyName];
+                if (typeof value === "object") {
+                    value = JSON.stringify(value);
+                }
+                queryString += (queryString.length === 0 ? "" : "&") + encodeURIComponent(propertyName) + "=" + encodeURIComponent(value);
+            }
+        }
+    }
+    return queryString;
+};
+
+utils.buildErrorResponse = function (data, status, headers, config) {
+    var statusCode = status || "Unknown";
+    var rtn = {
+        data: data || {},
+        status: status || {},
+        headers: headers || {},
+        config: config || {},
+        isAuthenticated: true,
+        simpleErrorMessage: statusCode + " error has occured.",
+        detailedErrorMessage: ""
+    };
+    return rtn;
+};
+
+utils.setGlobalKey = function (key) {
+    var rtn = false;
+    if (utils._globalObject.hasOwnProperty(key)) {
+        rtn = true;
+    }
+    utils._globalObject[key] = key;
+    return rtn;
+};
+
+utils.loggedInUser = function (val) {
+    var rtn = "";
+    var key = "Payments.Web.LoggedInUser";
+    if (val == undefined) {
+        if (utils._globalObject.hasOwnProperty(key)) {
+            rtn = utils._globalObject[key];
+        }
+    } else {
+        utils._globalObject[key] = val;
+        rtn = val;
+    }
+    return rtn;
+};
+
+utils.AmbitAuthToken = function (val) {
+    var rtn = "";
+    var key = "Payments.Web.AmbitAuthToken";
+    if (val == undefined) {
+        if (utils._globalObject.hasOwnProperty(key)) {
+            rtn = utils._globalObject[key];
+        }
+    } else {
+        utils._globalObject[key] = val;
+        rtn = val;
+    }
+    return rtn;
+};
+
+
+
+utils.parseQueryString = function () {
+    var queryString = window.location.search;
+    queryString = queryString.substring(1);
+
+    var params = {}, queries, temp, i, l;
+
+    // Split into key/value pairs
+    queries = queryString.split("&");
+
+    // Convert the array of strings into an object
+    for (i = 0, l = queries.length; i < l; i++) {
+        temp = queries[i].split('=');
+
+        if (temp[0] === "fromUrl") {
+            params[temp[0]] = temp[1] + window.location.hash;
+        } else {
+            params[temp[0]] = temp[1];
+        }
+    }
+    return params;
+};
+
+ self.formatBytes = function (bytes) {
+            var rtn = "0.0 KB", mb = 1024*1024;
+            //return bytes;
+            if (bytes <= 1024) {
+                rtn = bytes + " bytes";
+            } else if (bytes > 1024 && bytes <= mb) {
+                rtn = (bytes / 1024).toFixed(2) + " KB";
+            } else if (bytes > mb) {
+                rtn = (bytes / 1024 / 1024).toFixed(2) + " MB";
+            }
+            return rtn;
+        };
+
+
 
 
 
