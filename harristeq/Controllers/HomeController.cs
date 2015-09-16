@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
@@ -47,6 +48,13 @@ namespace harristeq.Controllers
         {
             ViewBag.key = "AIzaSyCKO60ccNZCU3EGfjhEA5VjFgcAPaXbQXk";
             ViewBag.SkillsSummary = "AngularJS, Consuming 3rd party JSON via REST";
+            return View();
+        }
+
+        public ActionResult DorbaPhoneDemo()
+        {
+            ViewBag.key = "AIzaSyCKO60ccNZCU3EGfjhEA5VjFgcAPaXbQXk";
+            ViewBag.SkillsSummary = "AngularJS, Responsive Web, Consuming 3rd party JSON via REST";
             return View();
         }
 
@@ -119,6 +127,16 @@ namespace harristeq.Controllers
             //    workout = string.Format("show me potato salad => {0} => {1}", dateObj.StartDate, dateObj.EndDate)
             //};
 
+        }
+
+        public ContentResult DorbaData()
+        {
+            var client = new WebClient();
+            var reply = client.DownloadString("http://dorba.org/services/trails.php");
+
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            Response.ContentType = "application/json";
+            return Content(reply);
         }
 
         public class DateObj

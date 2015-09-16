@@ -206,6 +206,7 @@
     <Content Include="account-notifications.html" />
     <Content Include="account-profile.html" />
     <Content Include="account-support.html" />
+    <Content Include="apitest.html" />
     <Content Include="billing-form.html" />
     <Content Include="calendar.html" />
     <Content Include="Content\bootstrap-theme.css.map" />
@@ -215,6 +216,7 @@
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\compiled\theme.css" />
+    <Content Include="Content\dorbaPhone.css" />
     <Content Include="Content\harristeq.css" />
     <Content Include="Content\ng-grid.css" />
     <Content Include="Content\papayaGarden\css\animate-custom.css" />
@@ -803,11 +805,27 @@
     <Content Include="images\datatables\sort_both.png" />
     <Content Include="images\datatables\sort_desc.png" />
     <Content Include="images\datatables\sort_desc_disabled.png" />
+    <Content Include="images\dorbaLogo.png" />
     <Content Include="images\emails\activation.png" />
     <Content Include="images\emails\invoice.jpg" />
     <Content Include="images\emails\notification.png" />
     <Content Include="images\emails\welcome.png" />
     <Content Include="images\google-drive.png" />
+    <Content Include="images\icon-geolocation-white.png" />
+    <Content Include="images\icon-geolocation.png" />
+    <Content Include="images\icons\icon-by-distance-white.png" />
+    <Content Include="images\icons\icon-by-distance.png" />
+    <Content Include="images\icons\icon-by-name-white.png" />
+    <Content Include="images\icons\icon-by-name.png" />
+    <Content Include="images\icons\icon-by-status-white.png" />
+    <Content Include="images\icons\icon-by-status.png" />
+    <Content Include="images\icons\icon-search-box.png" />
+    <Content Include="images\icons\icon-shovel-white.png" />
+    <Content Include="images\icons\icon-shovel.png" />
+    <Content Include="images\icons\search-gray.png" />
+    <Content Include="images\icons\search-light-gray.png" />
+    <Content Include="images\icons\search-tablet-header.png" />
+    <Content Include="images\icons\search-white.png" />
     <Content Include="images\jquery.minicolors.png" />
     <Content Include="images\justlogoIcon.png" />
     <Content Include="images\popover-arrow.png" />
@@ -919,6 +937,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\home\dorbaController.js" />
     <Content Include="Scripts\home\calendarController.js" />
+    <Content Include="Scripts\home\dorbaPhoneController.js" />
+    <Content Include="Scripts\libs\bloodhound.min.js" />
     <Content Include="Scripts\libs\EventDispatcher.js" />
     <Content Include="Scripts\home\harristeqApp.js" />
     <Content Include="Scripts\home\knockoutJsDemoViewModel.js" />
@@ -1028,6 +1048,8 @@
     <Content Include="Scripts\Knockout-latest-debug.js" />
     <Content Include="Scripts\knockout.bindings.js" />
     <Content Include="Scripts\knockout.mapping.js" />
+    <Content Include="Scripts\libs\typeahead.bundle.min.js" />
+    <Content Include="Scripts\libs\typeahead.js" />
     <Content Include="Scripts\libs\underscore-min.js" />
     <Content Include="Scripts\ng-grid.js" />
     <Content Include="Scripts\popcorn-complete.min.js" />
@@ -1183,11 +1205,13 @@
     <Content Include="Content\papayaGarden\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\papayaGarden\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\papayaGarden\fonts\FontAwesome.otf" />
+    <Content Include="images\dorbaLogoRound.png" />
     <None Include="Properties\PublishProfiles\harristeq.com.pubxml" />
     <Content Include="Scripts\home\harristeqDirectives.js" />
     <Content Include="Scripts\home\harristeqSvc.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\home\dorbaSampleData.json" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -1233,6 +1257,7 @@
     <Content Include="Views\Home\CalendarDemo.cshtml" />
     <Content Include="Views\Home\DTAssignment.cshtml" />
     <Content Include="Views\Home\KnockoutJsDemo.cshtml" />
+    <Content Include="Views\Home\DorbaPhoneDemo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

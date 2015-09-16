@@ -76,7 +76,7 @@ harristeqApp.factory('harristeqSvc', ['$http', '$window', '$q', '$timeout',
                     deferred.resolve(data);
                 }).error(function (data, status, headers, config) {
                     var msg = 'Error fetching tasks.';
-                    svc.showMessage(msg,"error");
+                    svc.showMessage(msg, "error");
                     deferred.reject(msg);
                 });
 
@@ -97,7 +97,7 @@ harristeqApp.factory('harristeqSvc', ['$http', '$window', '$q', '$timeout',
             return deferred.promise;
         };
 
-        svc.showMessage = function(msg, type) {
+        svc.showMessage = function (msg, type) {
             Messenger.options = {
                 extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
                 theme: 'flat'
@@ -158,11 +158,47 @@ harristeqApp.factory('harristeqSvc', ['$http', '$window', '$q', '$timeout',
         };
 
         $http.defaults.useXDomain = true;
-        
+
         svc.getTrailInfo = function () {
             var deferred = $q.defer();
 
             $http.get("http://bikegrapevine.org/code/index.php")
+                .success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                    //alert(data);
+                    svc.showLoading = false;
+                }).error(function (data, status, headers, config) {
+                    var msg = 'Error fetching trail info.';
+                    svc.showMessage(msg, "error");
+                    deferred.reject(msg);
+                });
+
+            return deferred.promise;
+        };
+
+        svc.getTrailInfoNew = function () {
+            var deferred = $q.defer();
+
+            //$http.get("http://dorba.org/services/trails.php")
+            $http.get("../home/dorbadata")
+                .success(function (data, status, headers, config) {
+                    deferred.resolve(data);
+                    //alert(data);
+                    svc.showLoading = false;
+                }).error(function (data, status, headers, config) {
+                    var msg = 'Error fetching trail info.';
+                    svc.showMessage(msg, "error");
+                    deferred.reject(msg);
+                });
+
+            return deferred.promise;
+        };
+
+        svc.getLocationData = function (geoLat, geoLong) {
+            var deferred = $q.defer();
+
+            //$http.get("http://dorba.org/services/trails.php")
+            $http.get("http://ws.geonames.org/findNearbyPostalCodesJSON?formatted=true&lat=" + geoLat + "&lng=" + geoLong + "&username=harristeq.com")
                 .success(function (data, status, headers, config) {
                     deferred.resolve(data);
                     //alert(data);
