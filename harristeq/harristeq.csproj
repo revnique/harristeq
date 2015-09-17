@@ -857,6 +857,7 @@
     <Content Include="images\shots\7.png" />
     <Content Include="images\shots\8.png" />
     <Content Include="images\shots\9.png" />
+    <Content Include="images\static_qr_code_without_logo.jpg" />
     <Content Include="images\visa.png" />
     <Content Include="index.html" />
     <Content Include="invoice.html" />
