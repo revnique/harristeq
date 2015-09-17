@@ -857,6 +857,7 @@
     <Content Include="images\shots\7.png" />
     <Content Include="images\shots\8.png" />
     <Content Include="images\shots\9.png" />
+    <Content Include="images\static_qr_code_without_logo.jpg" />
     <Content Include="images\visa.png" />
     <Content Include="index.html" />
     <Content Include="invoice.html" />
@@ -1212,6 +1213,7 @@
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\home\dorbaSampleData.json" />
+    <Content Include="static\qr_code.zip" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -1258,6 +1260,7 @@
     <Content Include="Views\Home\DTAssignment.cshtml" />
     <Content Include="Views\Home\KnockoutJsDemo.cshtml" />
     <Content Include="Views\Home\DorbaPhoneDemo.cshtml" />
+    <Content Include="static\ZXing.Net.0.14.0.0.zip" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
