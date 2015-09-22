@@ -426,6 +426,51 @@ utils.parseQueryString = function () {
             return rtn;
         };
 
+Date.prototype.dateDiff = function (endDateObject) {
+    var days, hours, minutes, seconds, totalMilliseconds, displayString = "";
+    
+    totalMilliseconds = (endDateObject - this);
+    days = Math.round(totalMilliseconds / 86400000); // days
+    hours = Math.round((totalMilliseconds % 86400000) / 3600000); // hours
+    minutes = Math.round(((totalMilliseconds % 86400000) % 3600000) / 60000); // minutes
+    seconds = Math.round((((totalMilliseconds % 86400000) % 3600000) % 60000) / 1000); // secs
+
+    if (days > 0) {
+        displayString = days + " days";
+    }
+    if (hours > 0) {
+        if (displayString !== "")
+            displayString += ", ";
+        displayString += hours + " hours";
+    }
+    if (minutes > 0) {
+        if (displayString !== "")
+            displayString += ", ";
+        displayString += minutes + " minutes";
+    }
+    if (seconds > 0) {
+        if (displayString !== "")
+            displayString += ", ";
+        displayString += seconds + " seconds";
+    }
+    if (seconds === 0) {
+        if (displayString === "") {
+            displayString = "less than 1 second";
+        }
+    }
+
+    var rtn = {
+        days: days,
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds,
+        totalMilliseconds: totalMilliseconds,
+        displayString: displayString
+    };
+
+    console.log("rtn", rtn);
+    return rtn;
+};
 
 
 
