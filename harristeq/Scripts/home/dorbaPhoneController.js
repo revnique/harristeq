@@ -1,4 +1,4 @@
-﻿harristeqApp.controller('dorbaPhoneController', function($scope, harristeqSvc) {
+﻿harristeqApp.controller('dorbaPhoneController', function($scope, harristeqSvc, $http) {
 
     var Trail = function(id, name, address, mapLink, latitude, longitude, currentStatus) {
         var self = this;
@@ -157,6 +157,22 @@
         $(window).resize(this.onResize);
         this.onResize();
         window.addEventListener("orientationchange", this.onOrientationChange);
+
+
+        // Get the data as normal which will automatically be turned into a single HTTP request
+        $http.get('http://localhost:49977/api/demo/27').then(function (data) {
+            console.log('success 0 - ', data.data);
+        }, function (err) {
+            console.log('error 0 - ', err);
+        });
+
+        $http.get('http://localhost:49977/api/demo/').then(function (data) {
+            console.log('success 1 - ', data.data);
+        }, function (err) {
+            console.log('error 1 - ', err);
+        });
+
+
     };
 
 

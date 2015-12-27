@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "garminImporter", "garminImp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "harristeq", "harristeq\harristeq.csproj", "{3B6DB5B0-2AC9-4A21-83E5-BECA5E00C3D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api", "api\api.csproj", "{F5ADEE2B-A322-4EF2-B629-00C2CE07706D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3B6DB5B0-2AC9-4A21-83E5-BECA5E00C3D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B6DB5B0-2AC9-4A21-83E5-BECA5E00C3D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B6DB5B0-2AC9-4A21-83E5-BECA5E00C3D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5ADEE2B-A322-4EF2-B629-00C2CE07706D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5ADEE2B-A322-4EF2-B629-00C2CE07706D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5ADEE2B-A322-4EF2-B629-00C2CE07706D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5ADEE2B-A322-4EF2-B629-00C2CE07706D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

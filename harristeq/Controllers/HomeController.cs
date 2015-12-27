@@ -64,6 +64,12 @@ namespace harristeq.Controllers
             return View();
         }
 
+        public ActionResult TestDemo()
+        {
+            ViewBag.SkillsSummary = "AngularJS, HTML, CSS";
+            return View();
+        }
+
         public ActionResult DTAssignment()
         {
             ViewBag.SkillsSummary = "Raw JS, Dynamic properties, JS Regex, charAt() and in reverse";
