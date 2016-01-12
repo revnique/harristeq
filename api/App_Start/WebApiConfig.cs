@@ -21,23 +21,33 @@ namespace api
                 ExecutionOrder = BatchExecutionOrder.NonSequential
             };
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new {id = RouteParameter.Optional}
-                );
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new {id = RouteParameter.Optional}
+            //    );
 
 
-            config.Routes.MapHttpBatchRoute(
-                routeName: "batch",
-                routeTemplate: "api/batch",
-                batchHandler: batchHandler);
+            //config.Routes.MapHttpBatchRoute(
+            //    routeName: "batch",
+            //    routeTemplate: "api/batch",
+            //    batchHandler: batchHandler);
+
+            var server = new HttpServer(config);
+
 
 
             config.Routes.MapHttpBatchRoute(
                 routeName: "WebApiBatchJson",
                 routeTemplate: "api/$batchJson",
-                batchHandler: new JsonBatchHandler(GlobalConfiguration.DefaultServer));
+                batchHandler: new JsonBatchHandler(server));
+
+            config.Routes.MapHttpBatchRoute(
+                routeName: "batch",
+                routeTemplate: "api/batch",
+                batchHandler: new DefaultHttpBatchHandler(server));
+            config.Routes.MapHttpRoute("api", "api/{controller}/{id}", new { id = RouteParameter.Optional });
+
 
 
             //    config.Routes.MapHttpBatchRoute(
@@ -47,5 +57,17 @@ namespace api
             //    );
             //}
         }
+
+        //private static void Configuration(IAppBuilder builder)
+        //{
+        //    HttpConfiguration configuration = new HttpConfiguration();
+        //    HttpServer server = new HttpServer(configuration);
+        //    configuration.Routes.MapHttpBatchRoute(
+        //        routeName: "batch",
+        //        routeTemplate: "api/batch",
+        //        batchHandler: new DefaultHttpBatchHandler(server));
+        //    configuration.Routes.MapHttpRoute("api", "api/{controller}/{id}", new { id = RouteParameter.Optional });
+        //    builder.UseWebApi(server);
+        //}
     }
 }
