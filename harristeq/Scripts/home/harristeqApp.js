@@ -1,4 +1,4 @@
-﻿var harristeqApp = angular.module('harristeqApp', ['ngRoute', 'ngGrid', 'jcs.angular-http-batch']);
+﻿var harristeqApp = angular.module('harristeqApp', ['ngRoute', 'ngGrid']);
 
 harristeqApp.config(function ($httpProvider, $sceProvider) {
     //Enable cross domain calls
@@ -9,23 +9,6 @@ harristeqApp.config(function ($httpProvider, $sceProvider) {
 
     $sceProvider.enabled(false);
 });
-
-harristeqApp.config([
-    'httpBatchConfigProvider',
-    function(httpBatchConfigProvider) {
-        httpBatchConfigProvider.setAllowedBatchEndpoint(
-            // root endpoint url
-            'http://localhost:49977/api',
-
-            // endpoint batch address
-            'http://localhost:49977/api/batch',
-
-            // optional configuration parameters
-            {
-                maxBatchedRequestPerCall: 20
-            });
-    }
-]);
 
 //prodSupportModule.controller('appInfoController', function ($scope, prodDataService) {
 

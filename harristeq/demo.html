@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>demo</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("#txtSearch").on("keypress", function (e) {
+                if (e.which == 13) {
+                    var result = $('#txtSearch').val();
+                    location.href = "http://harristeq.com/?searchTerm=" + encodeURIComponent(result);
+                    return;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    keypress demo: <input id="txtSearch" name="txtSearch" />
+</body>
+</html>
