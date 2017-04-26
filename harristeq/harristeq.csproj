@@ -935,6 +935,7 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\home\angular-http-batch.min.js" />
     <Content Include="Scripts\home\dorbaController.js" />
     <Content Include="Scripts\home\calendarController.js" />
     <Content Include="Scripts\home\dorbaPhoneController.js" />
@@ -1258,6 +1259,7 @@
     <Content Include="Views\Home\DTAssignment.cshtml" />
     <Content Include="Views\Home\KnockoutJsDemo.cshtml" />
     <Content Include="Views\Home\DorbaPhoneDemo.cshtml" />
+    <Content Include="Views\Home\TestDemo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
